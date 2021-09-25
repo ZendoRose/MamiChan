@@ -203,16 +203,16 @@ if (isGroup && isCmd && isBanned) {
 return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
 }
 const fakeStatus = { key: {
-    fromMe: false,
-    participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-    },
-    message: {
-    "imageMessage": {
-    "mimetype": "image/jpeg",
-    "caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
-    'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
-    }}
-    }
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+"imageMessage": {
+"mimetype": "image/jpeg",
+"caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
+}}
+}
 
 const sendContact = iy.sendContact
 const reply = iy.reply
