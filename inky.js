@@ -713,11 +713,11 @@ break
 // Seccion Owner
 
 case 'update':
-exec("git pull", (resultado) => {
-if (resultado) {
-console.log(resultado)
-reply(resultado)
-}
+if (!isUser) return reply(mess.only.reg)
+if (!isOwner) return reply(mess.only.owner)
+exec(`bash update.sh`, (err, stdout) => {
+if (err) return reply(err)
+if (stdout) reply(`${stdout}`)
 })
 break
 
