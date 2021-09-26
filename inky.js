@@ -714,7 +714,7 @@ break
 
 case 'update':
 exec("git pull", (gpResult) => {
-if (resultado) {
+if (gpResult) {
 reply(`${gpResult}`)
 }
 })
