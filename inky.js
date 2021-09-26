@@ -85,7 +85,7 @@ ppimg = await inky.getProfilePicture(`${num.split('@')[0]}@c.us`)
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
 thu = await inky.getStatus(anu.participants[0], MessageType.text)
-teks = `𝐀𝐧𝐭𝐢𝐑𝐚𝐢𝐝
+teks = `𝐆𝐫𝐨𝐮𝐩 𝐀𝐥𝐞𝐫𝐭
 
 𝐇𝐚 𝐬𝐢𝐝𝐨 𝐩𝐫𝐨𝐦𝐨𝐯𝐢𝐝𝐨 𝐮𝐧 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 𝐜𝐨𝐦𝐨 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫
 
