@@ -713,9 +713,10 @@ break
 // Seccion Owner
 
 case 'update':
-exec("git pull", (gpResult) => {
-if (gpResult) {
-reply(`${gpResult}`)
+exec("git pull", (resultado) => {
+if (resultado) {
+console.log(resultado)
+reply(resultado)
 }
 })
 break
