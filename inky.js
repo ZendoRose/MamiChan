@@ -76,9 +76,24 @@ await inky.blockUser(callerId, "add")
 })
 
 inky.on('group-participants-update', async (anu) => {
+if (!welcome.includes(anu.jid)) return
 try {
 const mdata = await inky.groupMetadata(anu.jid)
-if (anu.action == 'promote') {
+if (anu.action == 'add') {
+num = anu.participants[0]
+try {
+ppimg = await inky.getProfilePicture(`${num.split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+thu = await inky.getStatus(anu.participants[0], MessageType.text)
+teks = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 @${num.split('@')[0]}
+
+➼ *𝐆𝐫𝐮𝐩𝐨:* *${mdata.subject}*
+➼ *𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐜𝐢𝐨𝐧:* ${mdata.desc}`
+let buff = await getBuffer(ppimg)
+inky.sendMessage(mdata.id, buff, MessageType.image, {sendEphemeral: true, caption: teks, contextInfo: {"mentionedJid": [num]}})
+} else if (anu.action == 'promote') {
 num = anu.participants[0]
 try {
 ppimg = await inky.getProfilePicture(`${num.split('@')[0]}@c.us`)
@@ -94,7 +109,7 @@ teks = `𝐆𝐫𝐨𝐮𝐩 𝐀𝐥𝐞𝐫𝐭
 ➼ *𝐖𝐚𝐦𝐞:* https://wa.me/${num.split('@')[0]}
 ➼ *𝐆𝐫𝐮𝐩𝐨:* *${mdata.subject}*`
 let buff = await getBuffer(ppimg)
-inky.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
+inky.sendMessage(mdata.id, buff, MessageType.image, {sendEphemeral: true, caption: teks, contextInfo: {"mentionedJid": [num]}})
 }
 } catch (e) {
 console.log(e)
