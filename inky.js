@@ -712,6 +712,14 @@ break
 
 // Seccion Owner
 
+case 'update':
+exec("git pull", (gpResult) => {
+if (resultado) {
+reply(`${gpResult}`)
+}
+})
+break
+
 case 'reply':
 if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
