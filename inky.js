@@ -15,6 +15,7 @@ const yts = require('yt-search');
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
 const user = JSON.parse(fs.readFileSync('./database/user.json'));
+const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
 const conn = require('./lib/connect');
 const connect = require('./lib/connect');
@@ -163,6 +164,7 @@ const groupName = isGroup ? groupMetadata.subject : ''
 const isMe = senderNumber == botNumber
 const isOwner = senderNumber == owner || senderNumber == botNumber || mods.includes(senderNumber)
 const isAntiLink = isGroup ? antilink.includes(from) : false
+const isWelcome = isGroup ? welcome.includes(from) : false
 const conts = mek.key.fromMe ? inky.user.jid : inky.contacts[sender] || { notify: jid.replace(/@.+/, '') }
 const pushname = mek.key.fromMe ? inky.user.name : conts.notify || conts.vname || conts.name || '-'
 const groupMembers = isGroup ? groupMetadata.participants : ''
@@ -339,6 +341,27 @@ if (!isAntiLink) return reply('𝐄𝐥 𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤 𝐲�
 antilink.splice(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤')
+} else {
+reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
+}
+break
+
+case 'welcome':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+if (!isBotAdmin) return reply(mess.only.botadmin)
+if (!isGroupAdmins) return reply(mess.only.admins)
+if (!q) return reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
+if (Number(args[0]) === 1) {
+if (isWelcome) return reply('𝐄𝐥 𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
+welcome.push(from)
+fs.writeFileSync('./database/welcome.json', JSON.stringify(welcome))
+reply('𝐒𝐞 𝐡𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐰𝐞𝐥𝐜𝐨𝐦𝐞')
+} else if (Number(args[0]) === 0) {
+if (!isWelcome) return reply('𝐄𝐥 𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨')
+welcome.splice(from)
+fs.writeFileSync('./database/welcome.json', JSON.stringify(welcome))
+reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐰𝐞𝐥𝐜𝐨𝐦𝐞')
 } else {
 reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
 }
