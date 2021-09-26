@@ -222,7 +222,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : 
 message: {
 "imageMessage": {
 "mimetype": "image/jpeg",
-"caption": `👾${botName} | ThisIsInky👾\n${command} ${q}`,
+"caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n${command} ${q}`,
 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')}}
 },
 sendEphemeral: true
