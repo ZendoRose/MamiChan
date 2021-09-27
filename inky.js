@@ -800,13 +800,22 @@ case 'registrar':
 if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
 user.push(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
-inky.sendMessage(from, `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
+var num = mek.participants[0]
+try {
+ppimg = await inky.getProfilePicture(`${num.split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+thu = await inky.getStatus(mek.participants[0], MessageType.text)
+teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
 
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
 ➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
 
-*𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬:* ${user.length}`, text, {quoted: fakeStatus, sendEphemeral: true})
+*𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬:* ${user.length}`
+let buff = await getBuffer(ppimg)
+inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {"mentionedJid": [num]}})
 break
 
 case 'owner':
