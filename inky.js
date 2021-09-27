@@ -23,7 +23,6 @@ const config = JSON.parse(fs.readFileSync("./lib/config.json"));
 const {
 addMetadata,
 convertSticker,
-createExif,
 getBuffer,
 getGroupAdmins,
 getJson,
@@ -556,7 +555,7 @@ fs.unlinkSync(ran)
 var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 var media = await inky.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.webp')
-reply(mess.only.pegatina)
+reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command} 𝐨 𝐞𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐪𝐮𝐞 𝐲𝐚 𝐬𝐞 𝐡𝐚𝐲𝐚 𝐞𝐧𝐯𝐢𝐚𝐝𝐨`)
 await ffmpeg(`./${media}`)
 .inputFormat(media.split('.')[1])
 .on('start', function (cmd) {
@@ -583,116 +582,6 @@ fs.unlinkSync(ran)
 .save(ran)
 } else {
 reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command} 𝐨 𝐞𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐪𝐮𝐞 𝐲𝐚 𝐬𝐞 𝐡𝐚𝐲𝐚 𝐞𝐧𝐯𝐢𝐚𝐝𝐨`)
-}
-break
-
-case 's2':
-case 'sticker2':
-var a = 'JY'
-var b = 'Briggitt'
-if (
-((isMedia && !mek.message.videoMessage) || isQuotedImage) &&
-args.length == 0
-) {
-var encmedia = isQuotedImage
-? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
-.extendedTextMessage.contextInfo
-: mek;
-media = await inky.downloadAndSaveMediaMessage(encmedia);
-await createExif(a, b);
-out = getRandom(".webp");
-ffmpeg(media)
-.on("error", (e) => {
-console.log(e);
-inky.sendMessage(from, "Ocurrió un error", "conversation", {
-quoted: mek,
-});
-fs.unlinkSync(media);
-})
-.on("end", () => {
-_out = getRandom(".webp");
-spawn("webpmux", [
-"-set",
-"exif",
-"./data.exif",
-out,
-"-o",
-_out,
-]).on("exit", () => {
-inky.sendMessage(
-from,
-fs.readFileSync(_out),
-"stickerMessage",
-{ quoted: mek }
-);
-fs.unlinkSync(out);
-fs.unlinkSync(_out);
-fs.unlinkSync(media);
-});
-})
-.addOutputOptions([
-`-vcodec`,
-`libwebp`,
-`-vf`,
-`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
-])
-.toFormat("webp")
-.save(out);
-} else if (
-((isMedia && mek.message.videoMessage.seconds < 11) ||
-(isQuotedVideo &&
-mek.message.extendedTextMessage.contextInfo.quotedMessage
-.videoMessage.seconds < 11)) &&
-args.length == 0
-) {
-var encmedia = isQuotedVideo
-? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
-.extendedTextMessage.contextInfo
-: mek;
-var media = await inky.downloadAndSaveMediaMessage(encmedia);
-var a = 'JY'
-var b = 'Briggitt'
-await createExif(a, b);
-out = getRandom(".webp");
-ffmpeg(media)
-.on("error", (e) => {
-console.log(e);
-inky.sendMessage(from, "Se produjo un error", "conversation", {
-quoted: mek,
-});
-fs.unlinkSync(media);
-})
-.on("end", () => {
-_out = getRandom(".webp");
-spawn("webpmux", [
-"-set",
-"exif",
-"./data.exif",
-out,
-"-o",
-_out,
-]).on("exit", () => {
-inky.sendMessage(
-from,
-fs.readFileSync(_out),
-"stickerMessage",
-{ quoted: mek }
-);
-fs.unlinkSync(out);
-fs.unlinkSync(_out);
-fs.unlinkSync(media);
-});
-})
-.addOutputOptions([
-`-vcodec`,
-`libwebp`,
-`-vf`,
-`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
-])
-.toFormat("webp")
-.save(out);
-} else {
-reply(`Envia una imagen con *${prefix + command}* o etiqueta una imagen que se haya enviado\n*Videos 1-9 segundos*`)
 }
 break
 
