@@ -323,6 +323,7 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
 const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
+➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
 ➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫
 ➼ ${prefix}𝐭𝐨𝐦𝐩𝟑`
 const menuInternet = `➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
@@ -671,6 +672,13 @@ reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 �
 }
 break
 
+case 'attp':
+if (!isUser) return reply(mess.only.reg)
+if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command}𝐭𝐞𝐱𝐭𝐨`)
+attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${q}`)
+inky.sendMessage(from, attp2, MessageType.sticker, {quoted: mek, sendEphemeral: true})
+break
+
 case 'robar':
 if (!isUser) return reply(mess.only.reg)
 if (!isQuotedSticker) return reply(`𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨: *${prefix + command} 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫*`)
@@ -702,6 +710,26 @@ if (err) return reply('𝐇𝐮𝐛𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 �
 buffer = fs.readFileSync(ran)
 inky.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: fakeStatus, sendEphemeral: true})
 fs.unlinkSync(ran)
+})
+break
+
+case 'tts':
+if (!isUser) return reply(mess.only.reg)
+const gtts = require('./lib/gtts')(args[0])
+if (args.length < 2) return reply(`𝐔𝐬𝐚: ${prefix + command}𝐭𝐞𝐱𝐭𝐨`)
+dtt = q
+ranm = getRandom('.mp3')
+rano = getRandom('.ogg')
+dtt.length > 600
+? reply('𝐄𝐥 𝐭𝐞𝐱𝐭𝐨 𝐞𝐬 𝐦𝐮𝐲 𝐥𝐚𝐫𝐠𝐨')
+: gtts.save(ranm, dtt, function() {
+exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+fs.unlinkSync(ranm)
+buff = fs.readFileSync(rano)
+if (err) return reply('Gagal om:(')
+inky.sendMessage(from, buff, audio, {quoted: mek, ptt:true, sendEphemeral: true})
+fs.unlinkSync(rano)
+})
 })
 break
 
