@@ -10,6 +10,7 @@ const chalk = require('chalk');
 const { exec } = require('child_process');
 const ffmpeg = require('fluent-ffmpeg');
 const fetch = require('node-fetch');
+const hx = require("hxz-api");
 const yts = require('yt-search');
 
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
@@ -220,6 +221,16 @@ return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chal
 if (isGroup && isCmd && isBanned) {
 return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
 }
+
+const isUrl = (url) => {
+return url.match(
+new RegExp(
+/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/,
+"gi"
+)
+);
+};
+
 const fakeStatus = { key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
@@ -758,6 +769,22 @@ sendFileFromUrl(pr21.result.url_audio, audio, {quoted: fakeStatusMusic, sendEphe
 sendFileFromUrl(res1[0].link, audio, {quoted: fakeStatusMusic, sendEphemeral: true, mimetype: 'audio/mp4', filename: res1[0].output})
 sendFileFromUrl(res1[0].link, audio, {quoted: fakeStatusMusic, sendEphemeral: true, mimetype: 'audio/mp4', ptt: true, filename: res1[0].output})
 }
+break
+
+case 'tiktok':
+if (!q) return reply(`✳️ Ingrese el link de un video`)
+if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.link)
+reply(mess.wait)
+hx.ttdownloader(`${args[0]}`)
+.then(result => {
+const { wm, nowm, audio } = result
+axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+.then(async (a) => {
+me = `✅ Aquí tienes`
+inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+})
+})
+.catch(e => console.log(e))
 break
 
 // Otros
