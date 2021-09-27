@@ -93,7 +93,8 @@ thu = await inky.getStatus(anu.participants[0], MessageType.text)
 teks = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 @${num.split('@')[0]}
 
 ➼ *𝐆𝐫𝐮𝐩𝐨:* *${mdata.subject}*
-➼ *𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐜𝐢𝐨𝐧:* ${mdata.desc}`
+➼ *𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐜𝐢𝐨𝐧:*
+${mdata.desc}`
 let buff = await getBuffer(ppimg)
 inky.sendMessage(mdata.id, buff, MessageType.image, {sendEphemeral: true, caption: teks, contextInfo: {"mentionedJid": [num]}})
 } else if (anu.action == 'promote') {
