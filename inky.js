@@ -310,7 +310,7 @@ reply(`➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 }
 if (mek.message.listResponseMessage){
 var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`internetMenuInkyMenuInky`)){
+if (lrMenu.includes(`internetMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 reply(`➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
 ➼ ${prefix}𝐲𝐭𝐬𝐞𝐚𝐫𝐜𝐡 <𝐭𝐞𝐱𝐭𝐨>
