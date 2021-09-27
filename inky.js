@@ -714,22 +714,17 @@ fs.unlinkSync(ran)
 break
 
 case 'tts':
-if (!isUser) return reply(mess.only.reg)
+if (args.length < 1) return reply('𝐘 𝐞𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐝𝐞 𝐢𝐝𝐢𝐨𝐦𝐚❓')
 const gtts = require('./lib/gtts')(args[0])
-if (args.length < 2) return reply(`𝐔𝐬𝐚: ${prefix + command} 𝐭𝐞𝐱𝐭𝐨`)
+if (args.length < 2) return reply('𝐘 𝐞𝐥 𝐭𝐞𝐱𝐭𝐨❓')
 dtt = body.slice(8)
 ranm = getRandom('.mp3')
 rano = getRandom('.ogg')
-dtt.length > 600
-? reply('𝐄𝐥 𝐭𝐞𝐱𝐭𝐨 𝐞𝐬 𝐦𝐮𝐲 𝐥𝐚𝐫𝐠𝐨')
+dtt.length > 300
+? reply('𝐓𝐞𝐱𝐭𝐨 𝐝𝐞𝐦𝐚𝐜𝐢𝐚𝐝𝐨 𝐥𝐚𝐫𝐠𝐨')
 : gtts.save(ranm, dtt, function() {
-exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+inky.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: fakeStatus, mimetype: 'audio/mp4', ptt:true, sendEphemeral: true, contextInfo: {"forwardingScore": 999, "isForwarded": true}})
 fs.unlinkSync(ranm)
-buff = fs.readFileSync(rano)
-if (err) return reply('Gagal om:(')
-inky.sendMessage(from, buff, audio, {quoted: mek, ptt:true, sendEphemeral: true})
-fs.unlinkSync(rano)
-})
 })
 break
 
