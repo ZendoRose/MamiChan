@@ -427,7 +427,7 @@ var rows = [
  {title: '𝐎𝐭𝐫𝐨𝐬', rowId:"otrosMenuInky"},
  {title: '𝐒𝐭𝐚𝐟𝐟', rowId:"staffMenuInky"},
 ]
-var sections = [{title: "Section 1", rows: rows}]
+var sections = [{title: `${botName} 𝐦𝐞𝐧𝐮`, rows: rows}]
 var button = {
  buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
  description: `${menuInfo}`,
