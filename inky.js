@@ -787,6 +787,7 @@ axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
 inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:`${botName}`})
 })
 })
+.catch(e => console.log(e))
 break
 
 // Otros
