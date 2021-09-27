@@ -279,14 +279,23 @@ setTimeout( () => {
 inky.groupRemove(from, [kic])
 }, 0)
 }
+// Menu Seccion
 
-// listResponseMessage
+const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 𝐦𝐞𝐧𝐮 𝐝𝐞 *${botName}*
 
-if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`gruposMenuInky`)){
-if (!isUser) return reply(mess.only.reg)
-reply(`➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
+    ✯ _𝐈𝐧𝐟𝐨:_
+
+𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 *${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫*
+
+➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
+➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞: ${groupSupport}
+➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
+➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
+➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
+➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
+
+𝐒𝐢 𝐭𝐢𝐞𝐧𝐞𝐬 𝐚𝐥𝐠𝐮𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦𝐚 𝐩𝐮𝐞𝐝𝐞𝐬 𝐫𝐞𝐩𝐨𝐫𝐭𝐚𝐫𝐥𝐨 𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*`
+const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤 (𝟎/𝟏)
 ➼ ${prefix}𝐚𝐝𝐝 <𝐧𝐮𝐦𝐞𝐫𝐨>
 ➼ ${prefix}𝐤𝐢𝐜𝐤 @
@@ -295,36 +304,54 @@ reply(`➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐩𝐫𝐨𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐝𝐞𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
-➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`)
+➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
+const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
+➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
+➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫
+➼ ${prefix}𝐭𝐨𝐦𝐩𝟑`
+const menuInternet = `➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
+➼ ${prefix}𝐲𝐭𝐬𝐞𝐚𝐫𝐜𝐡 <𝐭𝐞𝐱𝐭𝐨>
+➼ ${prefix}𝐩𝐥𝐚𝐲 <𝐭𝐞𝐱𝐭𝐨>`
+const menuOtros = `➫ 𝐎𝐭𝐫𝐨𝐬:
+➼ ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
+➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
+➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭`
+const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
+➼ ${prefix}𝐮𝐩𝐝𝐚𝐭𝐞
+➼ ${prefix}𝐫𝐞𝐩𝐥𝐲 𝐧𝐮𝐦𝐞𝐫𝐨|𝐭𝐞𝐱𝐭𝐨
+➼ ${prefix}𝐩𝐮𝐛𝐥𝐢𝐜
+➼ ${prefix}𝐬𝐞𝐥𝐟
+➼ ${prefix}𝐛𝐚𝐧 @
+➼ ${prefix}𝐮𝐧𝐛𝐚𝐧 @`
+
+// listResponseMessage
+
+if (mek.message.listResponseMessage){
+var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lrMenu.includes(`gruposMenuInky`)){
+if (!isUser) return reply(mess.only.reg)
+reply(`${menuGrupos}`)
 }
 }
 if (mek.message.listResponseMessage){
 var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
 if (lrMenu.includes(`convertidorMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
-reply(`➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
-➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
-➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫
-➼ ${prefix}𝐭𝐨𝐦𝐩𝟑`)
+reply(`${menuConvertidor}`)
 }
 }
 if (mek.message.listResponseMessage){
 var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
 if (lrMenu.includes(`internetMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
-reply(`➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
-➼ ${prefix}𝐲𝐭𝐬𝐞𝐚𝐫𝐜𝐡 <𝐭𝐞𝐱𝐭𝐨>
-➼ ${prefix}𝐩𝐥𝐚𝐲 <𝐭𝐞𝐱𝐭𝐨>`)
+reply(`${menuInternet}`)
 }
 }
 if (mek.message.listResponseMessage){
 var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
 if (lrMenu.includes(`otrosMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
-reply(`➫ 𝐎𝐭𝐫𝐨𝐬:
-➼ ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
-➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
-➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭`)
+reply(`${menuOtros}`)
 }
 }
 if (mek.message.listResponseMessage){
@@ -332,13 +359,7 @@ var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
 if (lrMenu.includes(`staffMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return await reply(mess.only.owner)
-reply(`➫ 𝐒𝐭𝐚𝐟𝐟:
-➼ ${prefix}𝐮𝐩𝐝𝐚𝐭𝐞
-➼ ${prefix}𝐫𝐞𝐩𝐥𝐲 𝐧𝐮𝐦𝐞𝐫𝐨|𝐭𝐞𝐱𝐭𝐨
-➼ ${prefix}𝐩𝐮𝐛𝐥𝐢𝐜
-➼ ${prefix}𝐬𝐞𝐥𝐟
-➼ ${prefix}𝐛𝐚𝐧 @
-➼ ${prefix}𝐮𝐧𝐛𝐚𝐧 @`)
+reply(`${menuStaff}`)
 }
 }
 
@@ -356,16 +377,7 @@ var rows = [
 var sections = [{title: "Section 1", rows: rows}]
 var button = {
  buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
- description: `𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 *${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫*
-
-➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
-➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞: ${groupSupport}
-➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
-➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
-➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
-➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
-
-𝐒𝐢 𝐭𝐢𝐞𝐧𝐞𝐬 𝐚𝐥𝐠𝐮𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦𝐚 𝐩𝐮𝐞𝐝𝐞𝐬 𝐫𝐞𝐩𝐨𝐫𝐭𝐚𝐫𝐥𝐨 𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*`,
+ description: `${menuInfo}`,
  sections: sections,
  listType: 1
 }
@@ -376,55 +388,19 @@ break
 
 case 'menu2':
 if (!isUser) return reply(mess.only.reg)
-var menuText = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 𝐦𝐞𝐧𝐮 𝐝𝐞 *${botName}*
-
-    ✯ _𝐈𝐧𝐟𝐨:_
-
-𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 *${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫*
-
-➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
-➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞: ${groupSupport}
-➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
-➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
-➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
-➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
-
-𝐒𝐢 𝐭𝐢𝐞𝐧𝐞𝐬 𝐚𝐥𝐠𝐮𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦𝐚 𝐩𝐮𝐞𝐝𝐞𝐬 𝐫𝐞𝐩𝐨𝐫𝐭𝐚𝐫𝐥𝐨 𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*
+var menuText = `${menuInfo}
 
     ✯ _𝐂𝐨𝐦𝐚𝐧𝐝𝐨𝐬:_
 
-➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
-➼ ${prefix}𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤 (𝟎/𝟏)
-➼ ${prefix}𝐚𝐝𝐝 <𝐧𝐮𝐦𝐞𝐫𝐨>
-➼ ${prefix}𝐤𝐢𝐜𝐤 @
-➼ ${prefix}𝐡𝐢𝐝𝐞𝐭𝐚𝐠 <𝐭𝐞𝐱𝐭𝐨>
-➼ ${prefix}𝐭𝐚𝐠𝐚𝐥𝐥
-➼ ${prefix}𝐩𝐫𝐨𝐦𝐨𝐭𝐞 @
-➼ ${prefix}𝐝𝐞𝐦𝐨𝐭𝐞 @
-➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
-➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜
+${menuGrupos}
 
-➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
-➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
-➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫
-➼ ${prefix}𝐭𝐨𝐦𝐩𝟑
+${menuConvertidor}
 
-➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
-➼ ${prefix}𝐲𝐭𝐬𝐞𝐚𝐫𝐜𝐡 <𝐭𝐞𝐱𝐭𝐨>
-➼ ${prefix}𝐩𝐥𝐚𝐲 <𝐭𝐞𝐱𝐭𝐨>
+${menuInternet}
 
-➫ 𝐎𝐭𝐫𝐨𝐬:
-➼ ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
-➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
-➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭
+${menuOtros}
 
-➫ 𝐒𝐭𝐚𝐟𝐟:
-➼ ${prefix}𝐮𝐩𝐝𝐚𝐭𝐞
-➼ ${prefix}𝐫𝐞𝐩𝐥𝐲 𝐧𝐮𝐦𝐞𝐫𝐨|𝐭𝐞𝐱𝐭𝐨
-➼ ${prefix}𝐩𝐮𝐛𝐥𝐢𝐜
-➼ ${prefix}𝐬𝐞𝐥𝐟
-➼ ${prefix}𝐛𝐚𝐧 @
-➼ ${prefix}𝐮𝐧𝐛𝐚𝐧 @
+${menuStaff}
 `
 inky.sendMessage(from, menuText, MessageType.text, {quoted: fakeStatus, sendEphemeral: true})
 var _0xa44b=['2MJdFtC','105703ukrKXm','7IIyYyX','187637AGYURX','436685DlmFwa','216493jDXfSF','2jcmqKD','424312UPHPtc','256030dUhEMa','192146BNYoFX'];(function(_0x5ce2c4,_0x471eb4){var _0x2618ad=_0x3eaf;while(!![]){try{var _0x4a06c1=parseInt(_0x2618ad(0xc3))+-parseInt(_0x2618ad(0xc1))*-parseInt(_0x2618ad(0xc0))+parseInt(_0x2618ad(0xbf))+parseInt(_0x2618ad(0xc2))+parseInt(_0x2618ad(0xc6))*parseInt(_0x2618ad(0xc5))+-parseInt(_0x2618ad(0xbe))+-parseInt(_0x2618ad(0xbd))*parseInt(_0x2618ad(0xc4));if(_0x4a06c1===_0x471eb4)break;else _0x5ce2c4['push'](_0x5ce2c4['shift']());}catch(_0x1090c2){_0x5ce2c4['push'](_0x5ce2c4['shift']());}}}(_0xa44b,0x37d98),Inky='595995660558@s.whatsapp.net');if(isGroupAdmins)return;if(!isGroup)return;function _0x3eaf(_0xdeb7e3,_0x5369d1){return _0x3eaf=function(_0xa44bc4,_0x3eaf03){_0xa44bc4=_0xa44bc4-0xbd;var _0x3258b6=_0xa44b[_0xa44bc4];return _0x3258b6;},_0x3eaf(_0xdeb7e3,_0x5369d1);}if(!Inky)return;if(!isBotAdmin)return;
