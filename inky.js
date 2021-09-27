@@ -380,43 +380,68 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 // listResponseMessage
 
 if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`gruposMenuInky`)){
+var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lRM.includes(`gruposMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 reply(`${menuGrupos}`)
 }
 }
 if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`convertidorMenuInky`)){
+var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lRM.includes(`convertidorMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 reply(`${menuConvertidor}`)
 }
 }
 if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`internetMenuInky`)){
+var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lRM.includes(`internetMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 reply(`${menuInternet}`)
 }
 }
 if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`otrosMenuInky`)){
+var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lRM.includes(`otrosMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
 reply(`${menuOtros}`)
 }
 }
 if (mek.message.listResponseMessage){
-var lrMenu = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lrMenu.includes(`staffMenuInky`)){
+var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
+if (lRM.includes(`staffMenuInky`)){
 if (!isUser) return reply(mess.only.reg)
-if (!isOwner) return await reply(mess.only.owner)
 reply(`${menuStaff}`)
 }
 }
 
+// buttonsResponseMessage
+
+if (mek.message.buttonsResponseMessage){
+var bRM = mek.message.buttonsResponseMessage.selectedButtonId
+if (bRM.includes(`id1`)){
+reply('Success')
+}
+}
+
 switch (command) {
+
+// Seccion de Prueba
+
+case 'test':
+const buttons = [
+  {buttonId: 'id1', buttonText: {displayText: 'Button 1'}, type: 1}
+]
+const buttonMessage = {
+    contentText: "Hi it's button message",
+    footerText: 'Hello World',
+    buttons: buttons,
+    headerType: 1
+}
+await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
+break
+
+// Menu
 
 case 'menu':
 inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek, sendEphemeral: true})
