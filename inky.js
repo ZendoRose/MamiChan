@@ -837,7 +837,7 @@ mentions(`${susp}`, mentioned, true)
 break
 
 case 'listgroup':
-getName(jid)  {
+getName(jid){
   		let v = jid === '0@s.whatsapp.net' ? {
         jid,
         vname: 'WhatsApp'
