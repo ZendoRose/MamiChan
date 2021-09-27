@@ -799,7 +799,8 @@ case 'reg':
 case 'registrar':
 if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
 user.push(sender)
-fs.writeFileSync('./database/user.json', JSON.stringify(user))try {
+fs.writeFileSync('./database/user.json', JSON.stringify(user))
+try {
 ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 } catch {
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
