@@ -304,13 +304,15 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 *${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫*
 
 ➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
-➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞: ${groupSupport}
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
 ➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
 ➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
+➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞:
+${groupSupport}
 
-𝐒𝐢 𝐭𝐢𝐞𝐧𝐞𝐬 𝐚𝐥𝐠𝐮𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦𝐚 𝐩𝐮𝐞𝐝𝐞𝐬 𝐫𝐞𝐩𝐨𝐫𝐭𝐚𝐫𝐥𝐨 𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*`
+𝐒𝐢 𝐭𝐢𝐞𝐧𝐞𝐬 𝐚𝐥𝐠𝐮𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦𝐚 𝐩𝐮𝐞𝐝𝐞𝐬 𝐫𝐞𝐩𝐨𝐫𝐭𝐚𝐫𝐥𝐨
+𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*`
 const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤 (𝟎/𝟏)
 ➼ ${prefix}𝐚𝐝𝐝 <𝐧𝐮𝐦𝐞𝐫𝐨>
