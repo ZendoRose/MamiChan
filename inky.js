@@ -366,7 +366,7 @@ reply(`${menuStaff}`)
 switch (command) {
 
 case 'menu':
-inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek})
+inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek, sendEphemeral: true})
 var rows = [
  {title: '𝐆𝐫𝐮𝐩𝐨𝐬', rowId:"gruposMenuInky"},
  {title: '𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫', rowId:"convertidorMenuInky"},
