@@ -7,6 +7,8 @@ npm i cheerio
 npm i escape-string-regexp
 npm i fake-useragent
 npm i fluent-ffmpeg
+npm i hxz-api
+npm i insta-fetcher
 npm i multistream
 npm i node-fetch
 npm i request
