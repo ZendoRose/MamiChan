@@ -716,8 +716,8 @@ break
 case 'tts':
 if (!isUser) return reply(mess.only.reg)
 const gtts = require('./lib/gtts')(args[0])
-if (args.length < 2) return reply(`𝐔𝐬𝐚: ${prefix + command}𝐭𝐞𝐱𝐭𝐨`)
-dtt = q
+if (args.length < 2) return reply(`𝐔𝐬𝐚: ${prefix + command} 𝐭𝐞𝐱𝐭𝐨`)
+dtt = body.slice(8)
 ranm = getRandom('.mp3')
 rano = getRandom('.ogg')
 dtt.length > 600
