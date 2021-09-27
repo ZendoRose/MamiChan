@@ -837,12 +837,21 @@ mentions(`${susp}`, mentioned, true)
 break
 
 case 'listgroup':
+var getName(jid)  {
+let v = jid === '0@s.whatsapp.net' ? {
+jid,
+vname: 'WhatsApp'
+} : jid === this.user.jid ?
+this.user :
+this.contactAddOrGet(jid)
+return v.name || v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
+}
 const inkylg = inky.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`
-════════✪〘 𝐆𝐫𝐮𝐩𝐨 〙✪════════════
+➼ 𝐍𝐨𝐦𝐛𝐫𝐞: ${inky.getName(v.jid)}*
 ➼ 𝐈𝐝: ${v.jid}*
 ➼ 𝐄𝐬𝐭𝐚𝐝𝐨: ${v.read_only ? 'No agregado' : 'Agregado'}
-════════✪〘 ${botName} 〙✪════════`).join`\n\n`
-reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:\n\n' + inkylg)
+`).join`\n\n`
+reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
 break
 
 }
