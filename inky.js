@@ -785,7 +785,8 @@ hx.ttdownloader(`${args[0]}`)
 const { wm, nowm, audio } = result
 axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
 .then(async (a) => {
-inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:`${botName}`})
+tiktoktxt = `${botName}`
+inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4', quoted:mek, caption:tiktoktxt, sendEphemeral: true})
 })
 })
 .catch(e => console.log(e))
