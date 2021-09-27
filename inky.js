@@ -191,7 +191,10 @@ const isBotAdmin = groupAdmins.includes(inky.user.jid)
 const isGroupAdmins = groupAdmins.includes(sender) || false
 
 mess = {
-wait: `𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞`,
+wait: '𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞',
+error: {
+link: '𝐋𝐢𝐧𝐤 𝐈𝐧𝐯𝐚𝐥𝐢𝐝𝐨'
+},
 only: {
 group: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐠𝐫𝐮𝐩𝐨𝐬',
 owner: `𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐬𝐭𝐚𝐟𝐟 𝐝𝐞 ${botName}`,
@@ -773,19 +776,17 @@ sendFileFromUrl(res1[0].link, audio, {quoted: fakeStatusMusic, sendEphemeral: tr
 break
 
 case 'tiktok':
-if (!q) return reply(`✳️ Ingrese el link de un video`)
-if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.link)
+if (!q) return reply(`𝐈𝐧𝐠𝐫𝐞𝐬𝐞 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞𝐥 𝐯𝐢𝐝𝐞𝐨`)
+if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.link)
 reply(mess.wait)
 hx.ttdownloader(`${args[0]}`)
 .then(result => {
 const { wm, nowm, audio } = result
 axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
 .then(async (a) => {
-me = `✅ Aquí tienes`
-inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+inky.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:`${botName}`})
 })
 })
-.catch(e => console.log(e))
 break
 
 // Otros
