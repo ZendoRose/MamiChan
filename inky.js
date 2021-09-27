@@ -23,6 +23,7 @@ const config = JSON.parse(fs.readFileSync("./lib/config.json"));
 const {
 addMetadata,
 convertSticker,
+createExif,
 getBuffer,
 getGroupAdmins,
 getJson,
