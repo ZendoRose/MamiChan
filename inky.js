@@ -12,6 +12,7 @@ const { exec } = require('child_process');
 const ffmpeg = require('fluent-ffmpeg');
 const fetch = require('node-fetch');
 const hx = require("hxz-api");
+const ig = require("insta-fetcher");
 const yts = require('yt-search');
 
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
@@ -732,21 +733,40 @@ break
 
 // Seccion Internet
 
+case 'igstalk':
+if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command} <𝐮𝐬𝐮𝐚𝐫𝐢𝐨>`)
+reply(mess.wait) 
+ig.fetchUser(`${args.join(' ')}`).then(Y => {
+ten = `${Y.profile_pic_url_hd}`
+teks = `${botName} 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 𝐒𝐭𝐚𝐥𝐤
+➼ ID: ${Y.profile_id}
+➼ Username: ${args.join('')}
+➼ Nombre Completo: ${Y.full_name}
+➼ Bio: ${Y.biography}
+➼ Siguiendo: ${Y.followers}
+➼ Seguidores: ${Y.following}
+➼ Privado: ${Y.is_private}
+➼ Verificado: ${Y.is_verified}
+➼ Link: https://instagram.com/${q}`
+sendMediaURL(from,ten,teks) 
+})
+break
+
 case 'ytsearch':
 if (!isUser) return reply(mess.only.reg)
-if (!q) return reply(`𝐄𝐬𝐜𝐫𝐢𝐛𝐚 𝐮𝐧𝐚 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞 𝐛𝐮𝐬𝐜𝐚𝐫\𝐧𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command}𝐒𝐡𝐢𝐧𝐠𝐚𝐭𝐬𝐮 𝐰𝐚 𝐤𝐢𝐦𝐢 𝐧𝐨 𝐮𝐬𝐨`)
+if (!q) return reply(`𝐄𝐬𝐜𝐫𝐢𝐛𝐚 𝐮𝐧𝐚 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞 𝐛𝐮𝐬𝐜𝐚𝐫\𝐧𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} 𝐒𝐡𝐢𝐧𝐠𝐚𝐭𝐬𝐮 𝐰𝐚 𝐤𝐢𝐦𝐢 𝐧𝐨 𝐮𝐬𝐨`)
 resvi = await yts(q)
 searchyt = `${botName} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 𝐒𝐞𝐚𝐫𝐜𝐡\n`
 for (let i of resvi.all) {
 searchyt += `
-➼ *Titulo:* ${i.title}
-➼ *ID Video:* ${i.videoId}
-➼ *Vistas:* ${i.views}
-➼ *Subido:* ${i.ago}
-➼ *Duració:* ${i.timestamp}
-➼ *Canal:* ${i.author.name}
-➼ *Link del canal:* ${i.author.url}
-➼ *Link del video:* ${i.url}
+➼ *𝐓𝐢𝐭𝐮𝐥𝐨:* ${i.title}
+➼ *𝐈𝐃 𝐕𝐢𝐝𝐞𝐨:* ${i.videoId}
+➼ *𝐕𝐢𝐬𝐭𝐚𝐬:* ${i.views}
+➼ *𝐒𝐮𝐛𝐢𝐝𝐨:* ${i.ago}
+➼ *𝐃𝐮𝐫𝐚𝐜𝐢𝐨𝐧:* ${i.timestamp}
+➼ *𝐂𝐚𝐧𝐚𝐥:* ${i.author.name}
+➼ *𝐋𝐢𝐧𝐤 𝐝𝐞𝐥 𝐜𝐚𝐧𝐚𝐥:* ${i.author.url}
+➼ *𝐋𝐢𝐧𝐤 𝐝𝐞𝐥 𝐯𝐢𝐝𝐞𝐨:* ${i.url}
 `
 }
 var inkyts = searchyt.trim()
@@ -771,14 +791,14 @@ res1 = await yts(q).catch(e => {
 reply('𝐍𝐨 𝐬𝐞 𝐞𝐧𝐜𝐨𝐧𝐭𝐫𝐨 𝐬𝐮 𝐚𝐫𝐜𝐡𝐢𝐯𝐨')
 })
 let thumbInfo = `
-${botName} Youtube Music
+${botName} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 𝐌𝐮𝐬𝐢𝐜
 
-➼ *Titulo:* ${res1.all[0].title}
-➼ *Duracion:* ${res1.all[0].timestamp}
-➼ *Canal:* ${res1.all[0].author.name}
-➼ *Link:* ${res1.all[0].url}
+➼ *𝐓𝐢𝐭𝐮𝐥𝐨:* ${res1.all[0].title}
+➼ *𝐃𝐮𝐫𝐚𝐜𝐢𝐨𝐧:* ${res1.all[0].timestamp}
+➼ *𝐂𝐚𝐧𝐚𝐥:* ${res1.all[0].author.name}
+➼ *𝐋𝐢𝐧𝐤:* ${res1.all[0].url}
 
-Espere, su audio esta siendo enviado...
+𝐄𝐬𝐩𝐞𝐫𝐞, 𝐬𝐮 𝐚𝐮𝐝𝐢𝐨 𝐞𝐬𝐭𝐚 𝐬𝐢𝐞𝐧𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨...
 `
 var fakeStatusMusic = { key: {
 fromMe: false,
