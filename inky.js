@@ -279,11 +279,40 @@ inky.sendMessage(from, hasil, type, options).catch(e => {
 inky.sendMessage(from, { url : link }, type, options).catch(e => {
 reply('𝐇𝐮𝐛𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚𝐫 𝐬𝐮 𝐚𝐫𝐜𝐡𝐢𝐯𝐨')
 console.log(e)
-inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: fakeStatus})
+inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: fakeStatus, sendEphemeral: true})
 })
 })
 })
 })
+}
+
+const sendMediaURL = async(to, url, text="", mids=[]) =>{
+if(mids.length > 0){
+text = normalizeMention(to, text, mids)
+}
+const fn = Date.now() / 10000;
+const filename = fn.toString()
+let mime = ""
+var download = function (uri, filename, callback) {
+request.head(uri, function (err, res, body) {
+mime = res.headers['content-type']
+request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+});
+};
+download(url, filename, async function () {
+console.log('Enviado');
+let media = fs.readFileSync(filename)
+let type = mime.split("/")[0]+"Message"
+if(mime === "image/gif"){
+type = MessageType.video
+mime = Mimetype.gif
+}
+if(mime.split("/")[0] === "audio"){
+mime = Mimetype.mp4Audio
+}
+inky.sendMessage(to, media, type, {quoted: mek, sendEphemeral: true, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
+fs.unlinkSync(filename)
+});
 }
 
 if (budy.includes("://chat.whatsapp.com/")){
