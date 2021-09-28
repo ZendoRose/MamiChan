@@ -1011,6 +1011,15 @@ if (stdout) reply(`${stdout}`)
 })
 break
 
+case 'fix':
+if (!isUser) return reply(mess.only.reg)
+if (!isOwner) return reply(mess.only.owner)
+exec(`git pull`, (err, stdout) => {
+if (err) return reply(err)
+if (stdout) reply(`${stdout}`)
+})
+break
+
 case 'reply':
 if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
