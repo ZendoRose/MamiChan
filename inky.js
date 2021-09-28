@@ -351,6 +351,7 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐥𝐞𝐚𝐯𝐞
 ➼ ${prefix}𝐚𝐝𝐝 <𝐧𝐮𝐦𝐞𝐫𝐨>
 ➼ ${prefix}𝐤𝐢𝐜𝐤 @
+➼ ${prefix}𝐥𝐢𝐧𝐤𝐠𝐜
 ➼ ${prefix}𝐡𝐢𝐝𝐞𝐭𝐚𝐠 <𝐭𝐞𝐱𝐭𝐨>
 ➼ ${prefix}𝐭𝐚𝐠𝐚𝐥𝐥
 ➼ ${prefix}𝐩𝐫𝐨𝐦𝐨𝐭𝐞 @
@@ -534,6 +535,7 @@ reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢�
 break
 
 case 'leave':
+if (!isUser) return reply(mess.only.reg)
 if(!isGroup)return reply(mess.only.group)
 if(!isGroupAdmins && !isOwner)return reply(mess.only.admins)
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐬𝐚𝐫 ${botName}, 𝐡𝐚𝐬𝐭𝐚 𝐥𝐚 𝐩𝐫𝐨𝐱𝐢𝐦𝐚`)
@@ -575,6 +577,15 @@ inky.groupAdd(from, [num])
 } catch (e) {
 reply('𝐍𝐨 𝐬𝐞 𝐩𝐮𝐝𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐞𝐥 𝐮𝐬𝐮𝐚𝐫𝐢𝐨, 𝐭𝐚𝐥 𝐯𝐞𝐳 𝐩𝐨𝐫𝐪𝐮𝐞 𝐞𝐬 𝐩𝐫𝐢𝐯𝐚𝐝𝐨')
 }
+break
+
+case 'linkgc':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins) return reply(mess.only.admins)
+if (!isBotAdmin) return reply(mess.only.botadmin)
+var linkgc = await inky.groupInviteCode(from)
+reply(`𝐀𝐪𝐮𝐢 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞 *${groupName}*\nhttps://chat.whatsapp.com/${linkgc}`)
 break
 
 case 'hidetag':
