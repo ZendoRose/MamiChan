@@ -18,6 +18,7 @@ const yts = require('yt-search');
 
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
+const setiker = JSON.parse(fs.readFileSync('./database/sticker.json'))
 const user = JSON.parse(fs.readFileSync('./database/user.json'));
 const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
@@ -1052,6 +1053,17 @@ const inkylg = inky.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`
 ➼ 𝐄𝐬𝐭𝐚𝐝𝐨: ${v.read_only ? 'No agregado' : 'Agregado'}
 `).join`\n\n`
 reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
+break
+
+case 'addsticker':
+if (!isQuotedSticker) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+if (!q) return reply('Nama sticker nya apa?')
+boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+delb = await inky.downloadMediaMessage(boij)
+stickerjson.push(`${q}`)
+fs.writeFileSync(`./media/sticker/${q}.webp`, delb)
+fs.writeFileSync('./database/sticker.json', JSON.stringify(stickerjson))
+reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 break
 
 }
