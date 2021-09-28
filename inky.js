@@ -18,7 +18,7 @@ const yts = require('yt-search');
 
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
-const setiker = JSON.parse(fs.readFileSync('./database/sticker.json'))
+const stickerjson = JSON.parse(fs.readFileSync('./database/sticker.json'))
 const user = JSON.parse(fs.readFileSync('./database/user.json'));
 const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
