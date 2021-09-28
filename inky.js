@@ -328,18 +328,6 @@ inky.groupRemove(from, [kic])
 }, 0)
 }
 
-if (body.includes(`teta`)){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
-}
-if (body.includes(`Teta`)){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
-}
-if (body.includes(`TETA`)){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
-}
 // Menu Seccion
 
 const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 𝐦𝐞𝐧𝐮 𝐝𝐞 *${botName}*
@@ -1126,6 +1114,21 @@ fs.writeFileSync(`./media/sticker/${q}.webp`, delb)
 fs.writeFileSync('./database/sticker.json', JSON.stringify(stickerjson))
 reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 break
+
+default:
+
+if (budy.includes('teta')){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
+if (budy.includes('Teta')){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
+if (budy.includes('TETA')){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
 
 }
 
