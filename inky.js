@@ -347,6 +347,8 @@ ${groupSupport}
 𝐜𝐨𝐧 *${prefix}𝐫𝐞𝐩𝐨𝐫𝐭*`
 const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐚𝐧𝐭𝐢𝐥𝐢𝐧𝐤 (𝟎/𝟏)
+➼ ${prefix}𝐰𝐞𝐥𝐜𝐨𝐦𝐞 (𝟎/𝟏)
+➼ ${prefix}𝐥𝐞𝐚𝐯𝐞
 ➼ ${prefix}𝐚𝐝𝐝 <𝐧𝐮𝐦𝐞𝐫𝐨>
 ➼ ${prefix}𝐤𝐢𝐜𝐤 @
 ➼ ${prefix}𝐡𝐢𝐝𝐞𝐭𝐚𝐠 <𝐭𝐞𝐱𝐭𝐨>
@@ -367,6 +369,7 @@ const menuInternet = `➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
 ➼ ${prefix}𝐩𝐥𝐚𝐲 <𝐭𝐞𝐱𝐭𝐨>
 ➼ ${prefix}𝐭𝐢𝐤𝐭𝐨𝐤 <𝐥𝐢𝐧𝐤>`
 const menuOtros = `➫ 𝐎𝐭𝐫𝐨𝐬:
+➼ ${prefix}𝐣𝐨𝐢𝐧 <𝐥𝐢𝐧𝐤>
 ➼ ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
 ➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
 ➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭`
@@ -528,6 +531,15 @@ reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 �
 } else {
 reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
 }
+break
+
+case 'leave':
+if(!isGroup)return reply(mess.only.group)
+if(!isGroupAdmins && !isOwner)return reply(mess.only.admins)
+reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐬𝐚𝐫 ${botName}, 𝐡𝐚𝐬𝐭𝐚 𝐥𝐚 𝐩𝐫𝐨𝐱𝐢𝐦𝐚`)
+setTimeout(() => {
+inky.groupLeave(from)
+}, 2000);
 break
 
 case 'kick':
@@ -959,6 +971,22 @@ message: {
 inky.sendMessage(`${botGroup}`, options, MessageType.text, {quoted: reportFakeStatus, sendEphemeral: true})
 inky.sendMessage(`${botGroup}`, `𝐏𝐚𝐫𝐚 𝐫𝐞𝐬𝐩𝐨𝐧𝐝𝐞𝐫 𝐮𝐬𝐞:\n\n${prefix}𝐫𝐞𝐩𝐥𝐲 ${sender.split("@s.whatsapp.net")[0]}|𝐓𝐞𝐱𝐭𝐨`, MessageType.text, {quoted: reportFakeStatus, sendEphemeral: true})
 reply(`𝐒𝐮 𝐫𝐞𝐩𝐨𝐫𝐭𝐞 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐚 𝐥𝐚 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐜𝐢𝐨𝐧 𝐝𝐞 ${botName}`)
+break
+
+case 'join':
+if (!isUser) return reply(mess.only.reg)
+try {
+if (!isUrl(args[0]) && !args[0].includes("whatsapp.com"))
+return reply(mess.link);
+hen = args[0];
+if (args.length < 1) return reply(`𝐄𝐧𝐯𝐢𝐞 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐢𝐧 𝐞𝐥 *𝐡𝐭𝐭𝐩𝐬://*\n\n𝐄𝐣𝐞𝐦𝐩𝐥𝐨: *${prefix + command}* 𝐜𝐡𝐚𝐭.𝐰𝐡𝐚𝐭𝐬𝐚𝐩𝐩.𝐜𝐨𝐦`);
+var codeInvite = hen.split("chat.whatsapp.com/")[1];
+if (!codeInvite) return reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
+var response = await inky.acceptInvite(codeInvite);
+reply(`${botName} 𝐬𝐞 𝐡𝐚 𝐮𝐧𝐢𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨`);
+} catch {
+reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
+}
 break
 
 // Seccion Owner
