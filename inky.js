@@ -1114,6 +1114,8 @@ fs.writeFileSync('./database/sticker.json', JSON.stringify(stickerjson))
 reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 break
 
+}
+
 default:
 
 if (body.includes(`teta`)){
@@ -1127,8 +1129,6 @@ inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
 if (body.includes(`TETA`)){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
-}
-
 }
 
 } catch (e) {
