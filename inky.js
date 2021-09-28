@@ -1066,6 +1066,21 @@ fs.writeFileSync('./database/sticker.json', JSON.stringify(stickerjson))
 reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 break
 
+default:
+
+if (body.includes(`teta`)){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
+if (body.includes(`Teta`)){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
+if (body.includes(`TETA`)){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+}
+
 }
 
 } catch (e) {
@@ -1074,6 +1089,6 @@ if (emror.includes('this.isZero')){
 return
 }
 console.log(e)
-inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek})
+inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 }
 })
