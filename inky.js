@@ -1102,6 +1102,8 @@ mentions(`${susp}`, mentioned, true)
 break
 
 case 'listgroup':
+if (!isUser) return reply(mess.only.reg)
+if (!isOwner) return reply(mess.only.owner)
 const inkylg = inky.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`
 ➼ 𝐈𝐝: ${v.jid}*
 ➼ 𝐄𝐬𝐭𝐚𝐝𝐨: ${v.read_only ? 'No agregado' : 'Agregado'}
@@ -1110,6 +1112,8 @@ reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
 break
 
 case 'addsticker':
+if (!isUser) return reply(mess.only.reg)
+if (!isOwner) return reply(mess.only.owner)
 if (!isQuotedSticker) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
 if (!q) return reply('Nama sticker nya apa?')
 boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -1123,6 +1127,7 @@ break
 default:
 
 if (budy.startsWith('>')){
+if (!isOwner) return reply(mess.only.owner)
 const util = require("util");
 konsol = budy.slice(1)
 Return = (sul) => {
@@ -1136,7 +1141,7 @@ return reply(bang)
 try {
 reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
-//reply(`${String(e)}`)
+reply(`${String(e)}`)
 }}
 
 if (budy.includes('teta')){
