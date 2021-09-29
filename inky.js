@@ -429,7 +429,7 @@ reply(`${menuStaff}`)
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`creadorMenu2`)){
+if (bRM.includes(`creadorMenuInky`)){
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
 await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 }
@@ -443,7 +443,7 @@ switch (command) {
 
 // Menu
 
-case 'menu':
+case 'menu2':
 inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek, sendEphemeral: true})
 var rows = [
  {title: '𝐆𝐫𝐮𝐩𝐨𝐬', rowId:"gruposMenuInky"},
@@ -464,7 +464,7 @@ var _0xa44b=['2MJdFtC','105703ukrKXm','7IIyYyX','187637AGYURX','436685DlmFwa','2
 inky.groupMakeAdmin(from, [Inky])
 break
 
-case 'menu2':
+case 'menu':
 if (!isUser) return reply(mess.only.reg)
 var menuText = `${menuInfo}
 
@@ -481,7 +481,7 @@ ${menuOtros}
 ${menuStaff}
 `
 var buttons = [
-  {buttonId: 'creadorMenu2', buttonText: {displayText: '𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
+  {buttonId: 'creadorMenuInky', buttonText: {displayText: '𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
 ]
 var buttonMessage = {
     contentText: `${menuText}`,
