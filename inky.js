@@ -443,10 +443,7 @@ switch (command) {
 
 // Seccion de Prueba
 
-case 'test':
-group = inky.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '595995660558-1632350481@g.us', "inviteCode": 'https://chat.whatsapp.com/DPEXeMNPyql5TJtQMaiBsA', "groupName": `test`, "caption": `${q}`}}, {quoted:mek})
-inky.relayWAMessage(group)
-break
+
 
 // Menu
 
