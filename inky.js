@@ -481,7 +481,7 @@ ${menuOtros}
 ${menuStaff}
 `
 var buttons = [
-  {buttonId: 'creadorMenuInky', buttonText: {displayText: '𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
+  {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
 ]
 var buttonMessage = {
     contentText: `${menuText}`,
