@@ -1121,7 +1121,7 @@ break
 
 default:
 
-if (body.startsWith('>')){
+if (budy.startsWith('>')){
 const util = require("util");
 konsol = budy.slice(1)
 Return = (sul) => {
