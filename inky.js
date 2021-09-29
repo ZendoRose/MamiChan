@@ -1134,7 +1134,7 @@ bang = util.format(sul)
 return reply(bang)
 }
 try {
-reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+//reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
 reply(`${String(e)}`)
 }}
