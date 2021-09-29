@@ -521,7 +521,6 @@ break
 case 'welcome':
 if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
-if (!isBotAdmin) return reply(mess.only.botadmin)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!q) return reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
 if (Number(args[0]) === 1) {
