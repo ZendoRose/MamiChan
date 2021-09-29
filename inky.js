@@ -1,6 +1,6 @@
 /*
 Si vas a editar el bot no sacar los creditos del creador
-by ThisIsInkt
+by ThisIsInky
 */
 const {
 WAConnection,
