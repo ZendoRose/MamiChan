@@ -443,7 +443,10 @@ switch (command) {
 
 // Seccion de Prueba
 
-
+case 'test9':
+grup12 = inky.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '573152139466-1616220327@g.us', "inviteCode": 'https://chat.whatsapp.com/BGTQNDzESmEJr2cCJlccWV', "groupName": `🍒Grupo Oficial de NyanBot💎`, "footerText": "*_© Samu330_*", "jpegThumbnail": fs.readFileSync('./src/ara.png'), "caption": q, "inviteCode": "yv4xLt3+eglcsUG7", "inviteExpiration": "1631410397"}}, {quoted:mek})
+inky.relayWAMessage(grup12)
+break
 
 // Menu
 
