@@ -443,9 +443,9 @@ switch (command) {
 
 // Seccion de Prueba
 
-case 'test9':
-grup12 = inky.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '573152139466-1616220327@g.us', "inviteCode": 'https://chat.whatsapp.com/BGTQNDzESmEJr2cCJlccWV', "groupName": `🍒Grupo Oficial de NyanBot💎`, "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg'), "caption": `${q}`, "inviteCode": "yv4xLt3+eglcsUG7"}}, {quoted:mek})
-inky.relayWAMessage(grup12)
+case 'test':
+group = inky.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '595995660558-1632350481@g.us', "inviteCode": 'https://chat.whatsapp.com/DPEXeMNPyql5TJtQMaiBsA', "groupName": `test`, "caption": `${q}`}}, {quoted:mek})
+inky.relayWAMessage(group)
 break
 
 // Menu
