@@ -1121,6 +1121,23 @@ break
 
 default:
 
+if (body.startsWith('>')){
+const util = require("util");
+konsol = budy.slice(1)
+Return = (sul) => {
+sat = JSON.stringify(sul, null, 2)
+bang = util.format(sat)
+if (sat == undefined){
+bang = util.format(sul)
+}
+return reply(bang)
+}
+try {
+reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+} catch(e){
+reply(`${String(e)}`)
+}}
+
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
