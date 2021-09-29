@@ -931,13 +931,11 @@ case 'owner':
 case 'creator':
 case 'creador':
 case 'inky':
-if (!isUser) return reply(mess.only.reg)
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
 await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 break
 
 case 'report':
-if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐄𝐣𝐞𝐦𝐩𝐥𝐨:\n${prefix}𝐫𝐞𝐩𝐨𝐫𝐭 𝐄𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐧𝐨 𝐚𝐧𝐝𝐚`)
 var numerorepo = mek.participant
 report = `𝐑𝐞𝐩𝐨𝐫𝐭𝐞
@@ -970,7 +968,6 @@ reply(`𝐒𝐮 𝐫𝐞𝐩𝐨𝐫𝐭𝐞 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧�
 break
 
 case 'join':
-if (!isUser) return reply(mess.only.reg)
 try {
 if (!isUrl(args[0]) && !args[0].includes("whatsapp.com"))
 return reply(mess.link);
@@ -986,7 +983,6 @@ reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
 break
 
 case 'leermas':
-if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚 ${prefix + command} 𝐓𝐞 𝐚𝐦𝐨|𝐫𝐝𝐢𝐝𝐨 𝐮𝐧 𝐩𝐞𝐫𝐫𝐨`)
 tels = q
 var teks1 = tels.split("|")[0];
@@ -1012,7 +1008,6 @@ sendBug(from, `${q}`)
 break
 
 case 'fix':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 exec(`git pull`, (err, stdout) => {
 if (err) return reply(err)
@@ -1021,7 +1016,6 @@ if (stdout) reply(`${stdout}`)
 break
 
 case 'reply':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 var replyFakeStatus = { key: {
 fromMe: false,
@@ -1041,7 +1035,6 @@ reply(`𝐒𝐮 𝐦𝐞𝐧𝐬𝐚𝐣𝐞\𝐧${texto}\n𝐇𝐚 𝐬𝐢𝐝
 break
 
 case 'public':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return await reply(mess.only.owner)
 if (public) return await reply('𝐄𝐥 𝐦𝐨𝐝𝐨 𝐩𝐮𝐛𝐥𝐢𝐜𝐨 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
 config["public"] = true
@@ -1051,7 +1044,6 @@ await sendFakeStatus(from, "𝐒𝐞 𝐡𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 �
 break
 
 case 'self':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return await reply(mess.only.owner)
 if (!public) return await reply('𝐄𝐥 𝐦𝐨𝐝𝐨 𝐩𝐫𝐢𝐯𝐚𝐝𝐨 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
 config["public"] = false
@@ -1061,7 +1053,6 @@ await sendFakeStatus(from, "𝐒𝐞 𝐡𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 �
 break
 
 case 'ban':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return 
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
@@ -1078,7 +1069,6 @@ susp = `𝐁𝐚𝐧𝐞𝐚𝐝𝐨
 mentions(`${susp}`, mentioned, true)   
 break
 case 'unban':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return 
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
@@ -1096,7 +1086,6 @@ mentions(`${susp}`, mentioned, true)
 break
 
 case 'listgroup':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 const inkylg = inky.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`
 ➼ 𝐈𝐝: ${v.jid}*
@@ -1106,7 +1095,6 @@ reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
 break
 
 case 'addsticker':
-if (!isUser) return reply(mess.only.reg)
 if (!isOwner) return reply(mess.only.owner)
 if (!isQuotedSticker) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
 if (!q) return reply('Nama sticker nya apa?')
