@@ -380,7 +380,7 @@ const menuOtros = `➫ 𝐎𝐭𝐫𝐨𝐬:
 ➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
 ➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭`
 const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
-➼ ${prefix}𝐮𝐩𝐝𝐚𝐭𝐞
+➼ ${prefix}𝐟𝐢𝐱
 ➼ ${prefix}𝐫𝐞𝐩𝐥𝐲 𝐧𝐮𝐦𝐞𝐫𝐨|𝐭𝐞𝐱𝐭𝐨
 ➼ ${prefix}𝐩𝐮𝐛𝐥𝐢𝐜
 ➼ ${prefix}𝐬𝐞𝐥𝐟
@@ -1005,15 +1005,6 @@ reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
 break
 
 // Seccion Owner
-
-case 'update':
-if (!isUser) return reply(mess.only.reg)
-if (!isOwner) return reply(mess.only.owner)
-exec(`bash update.sh`, (err, stdout) => {
-if (err) return reply(err)
-if (stdout) reply(`${stdout}`)
-})
-break
 
 case 'fix':
 if (!isUser) return reply(mess.only.reg)
