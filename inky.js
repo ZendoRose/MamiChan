@@ -207,6 +207,7 @@ const groupMembers = isGroup ? groupMetadata.participants : ''
 const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
 const isBotAdmin = groupAdmins.includes(inky.user.jid)
 const isGroupAdmins = groupAdmins.includes(sender) || false
+const userBal = checkATMuser(sender)
 
 mess = {
 wait: '𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞',
@@ -391,7 +392,7 @@ fs.unlinkSync(filename)
 });
 }
 
-if (budy.includes("://chat.whatsapp.com/")){
+if (budy.includes("chat.whatsapp.com/")){
 if (!isGroup) return
 if (!isAntiLink) return
 if (isGroupAdmins) return
@@ -412,6 +413,7 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 
 ➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
+➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*
 ➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
 ➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
@@ -492,6 +494,7 @@ teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚�
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
 ➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
+➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: ${user.length}
 
 𝐔𝐬𝐚 ${prefix}𝐦𝐞𝐧𝐮 𝐩𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐚 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬`
 user.push(sender)
@@ -743,10 +746,9 @@ break
 
 case 'bal':
 if (!isUser) return reply(mess.only.reg)
-const userBal = checkATMuser(sender)
 textoBalance = `➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
 ➼ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨: ${pushname}
-➼ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞: ${userBal}`
+➼ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞: $${userBal}`
 inky.sendMessage(from, textoBalance, text, {quoted: mek, sendEphemeral: true})
 break
 
@@ -1015,7 +1017,8 @@ teks = `𝐈𝐭𝐬𝐦𝐞
 
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
-➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}`
+➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
+➼ *𝐁𝐚𝐥𝐚𝐧𝐜𝐞:* $${userBal}`
 var buff = await getBuffer(ppimg)
 inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 break
