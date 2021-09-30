@@ -20,6 +20,7 @@ const ig = require("insta-fetcher");
 const request = require("request");
 const yts = require('yt-search');
 
+const _limit = JSON.parse(fs.readFileSync('./database/limit.json'));
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
 const stickerjson = JSON.parse(fs.readFileSync('./database/sticker.json'));
@@ -37,12 +38,21 @@ getJson,
 getRandom,
 y2mate
 } = require('./lib/functions');
+const {
+addATM,
+addKoinUser,
+checkATMuser,
+bayarLimit,
+confirmATM,
+limitAdd
+} = require('./lib/limitatm.js');
 const iy = require('./lib/iy');
 
 const author = config.author
 const botName = config.botName
 const botGroup = config.botGroup
 const groupSupport = 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R'
+const limitawal = config.limitawal
 const mods = config.mods
 const owner = config.owner
 const pack = config.pack
@@ -229,6 +239,49 @@ return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chal
 }
 if (isGroup && isCmd && isBanned) {
 return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
+}
+
+const checkLimit = (sender) => {
+let found = false
+for (let lmt of _limit) {
+if (lmt.id === sender) {
+let limitCounts = limitawal - lmt.limit
+if (limitCounts <= 0) return inky.sendMessage(from,`Su límite de solicitudes ha expirado`, text,{quoted: mek})
+inky.sendMessage(from, ind.limitcount(limitCounts), text, {quoted : mek})
+found = true
+}
+}
+if (found === false) {
+let obj = { id: sender, limit: 0 }
+_limit.push(obj)
+fs.writeFileSync('./database/limit.json', JSON.stringify(_limit))
+inky.sendMessage(from, ind.limitcount(limitCounts), text, {quoted : mek})
+}
+}
+
+const isLimit = (sender) =>{ 
+if (isOwner ) {return false;}
+let position = false
+for (let i of _limit) {
+if (i.id === sender) {
+let limits = i.limit
+if (limits >= limitawal ) {
+position = true
+inky.sendMessage(from, ind.limitend(pushname), text, {quoted: mek})
+return true
+} else {
+_limit
+position = true
+return false
+}
+}
+}
+if (position === false) {
+const obj = { id: sender, limit: 0 }
+_limit.push(obj)
+fs.writeFileSync('./database/limit.json',JSON.stringify(_limit))
+return false
+}
 }
 
 const isUrl = (url) => {
@@ -683,6 +736,16 @@ contextInfo: { mentionedJid: [nomor] }
 }
 inky.groupSettingChange (from, GroupSettingChange.messageSend, true);
 inky.sendMessage(from, close, text, {quoted: sendFakeStatus, sendEphemeral: true})
+break
+
+// Seccion Economia
+
+case 'bal':
+const userBal = checkATMuser(sender)
+textoBalance = `➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
+➼ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨: ${pushname}
+➼ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞: ${userBal}`
+inky.sendMessage(from, textoBalance, text, {quoted: mek, sendEphemeral: true})
 break
 
 // Seccion convercion
