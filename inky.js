@@ -508,13 +508,30 @@ inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemer
 // Seccion de Prueba
 
 ky_ttt = []
+tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
 idttt = []
 players1 = []
+players11 = []
 players2 = []
-
+gilir = []
+gilirr = []
+for (let t of ky_ttt){
+idttt.push(t.id)
+players1.push(t.player1)
+players11.push(t.player11)
+players2.push(t.player2)
+gilir.push(t.gilir)
+gilirr.push(t.gilirr)
+}
 const isTTT = isGroup ? idttt.includes(from) : false
-const isPlayer1 = isGroup ? players1.includes(sender) : false
-const isPlayer2 = isGroup ? players2.includes(sender) : false
+isPlayer1 = isGroup ? players1.includes(sender) : false
+isPlayer11 = isGroup ? players11.includes(sender) : false
+isPlayer2 = isGroup ? players2.includes(sender) : false
+try {
+pporang = await cnf.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+} catch {
+pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
 
 if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
