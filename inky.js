@@ -990,7 +990,7 @@ teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚�
 user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
-let buff = await getBuffer(ppimg)
+var buff = await getBuffer(ppimg)
 inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 break
 
@@ -1006,7 +1006,7 @@ teks = `𝐈𝐭𝐬𝐦𝐞
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
 ➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}`
-let buff = await getBuffer(ppimg)
+var buff = await getBuffer(ppimg)
 inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 break
 
