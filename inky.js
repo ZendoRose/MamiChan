@@ -232,20 +232,18 @@ if (!mods.includes(senderNumber)) return
 mods.slice(mods.indexOf(owner), 1)
 }
 
-if (!isGroup && isCmd) {
-console.log(chalk.keyword("cyan")("Comando"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
-addKoinUser(sender, 5)
-}
-if (isGroup && isCmd) {
-console.log(chalk.keyword("cyan")("Comando"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
-addKoinUser(sender, 5)
-}
+if (!isGroup && isCmd) console.log(chalk.keyword("cyan")("Comando"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
+if (isGroup && isCmd) console.log(chalk.keyword("cyan")("Comando"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
 if (!isGroup && isCmd && isBanned) {
 return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname))
 }
 if (isGroup && isCmd && isBanned) {
 return console.log(chalk.keyword("red")("Comando Ignorado"), (typeMessage), chalk.greenBright("de"), chalk.keyword("yellow")(pushname), chalk.greenBright("en el grupo"), chalk.keyword("yellow")(groupName))
 }
+if (!isGroup && !isCmd) addKoinUser(sender, 5)
+if (isGroup && !isCmd) addKoinUser(sender, 5)
+if (!isGroup && isCmd) addKoinUser(sender, 5)
+if (isGroup && isCmd) addKoinUser(sender, 5)
 
 const checkLimit = (sender) => {
 let found = false
