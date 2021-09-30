@@ -63,6 +63,9 @@ var public = config.public
 conn.connect()
 const inky = conn.inky
 
+ky_ttt = []
+tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+
 const sleep = async (ms) => {
 return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -507,8 +510,6 @@ inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemer
 
 // Seccion de Prueba
 
-ky_ttt = []
-tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
 idttt = []
 players1 = []
 players11 = []
@@ -528,7 +529,7 @@ isPlayer1 = isGroup ? players1.includes(sender) : false
 isPlayer11 = isGroup ? players11.includes(sender) : false
 isPlayer2 = isGroup ? players2.includes(sender) : false
 try {
-pporang = await cnf.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+pporang = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 } catch {
 pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
