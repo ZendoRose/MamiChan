@@ -481,14 +481,24 @@ await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
 if (bRM.includes(`reglasMenuInky`)){
-reply(`➫ 𝗥𝗲𝗴𝗹𝗮𝘀:
+if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
+try {
+ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
 
-➼ 𝗡𝗼 𝗹𝗹𝗮𝗺𝗮𝗿 𝗮𝗹 𝗯𝗼𝘁
-➼ 𝗣𝗿𝗼𝗵𝗶𝗯𝗶𝗱𝗼 𝗲𝗹 𝘂𝘀𝗼 𝗱𝗲 𝗯𝘂𝗴𝘀
-➼ 𝗡𝗼 𝗺𝗮𝗻𝗱𝗮𝗿 𝗯𝗶𝗻𝗮𝗿𝗶𝗼𝘀, 𝘁𝗿𝗮𝗯𝗮𝘀, 𝗲𝘁𝗰.
-➼ 𝗡𝗼 𝗺𝗼𝗹𝗲𝘀𝘁𝗮𝗿 𝗮𝗹 𝗰𝗿𝗲𝗮𝗱𝗼𝗿 𝘀𝗶 𝗻𝗼 𝗲𝘀 𝗱𝗲 𝗳𝗼𝗿𝗺𝗮 𝗻𝗲𝗰𝗲𝘀𝗮𝗿𝗶𝗮
+➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
+➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
+➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
 
-𝐏𝐨𝐫 𝐜𝐮𝐚𝐥𝐪𝐮𝐢𝐞𝐫𝐚 𝐝𝐞 𝐞𝐬𝐭𝐚𝐬 𝐫𝐚𝐳𝐨𝐧𝐞𝐬 𝐭𝐞 𝐩𝐨𝐝𝐞𝐦𝐨𝐬 𝐛𝐚𝐧𝐞𝐚𝐫 𝐝𝐞𝐥 𝐛𝐨𝐭 :𝐃`)
+𝐔𝐬𝐚 ${prefix}𝐦𝐞𝐧𝐮 𝐩𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐚 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬`
+user.push(sender)
+addATM(sender)
+fs.writeFileSync('./database/user.json', JSON.stringify(user))
+var buff = await getBuffer(ppimg)
+inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 }
 }
 
@@ -519,7 +529,7 @@ ${menuStaff}
 `
 var buttons = [
   {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1},
-  {buttonId: 'reglasMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐥𝐚𝐬'}, type: 1}
+  {buttonId: 'reglasMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
 ]
 var buttonMessage = {
     contentText: `${menuText}`,
