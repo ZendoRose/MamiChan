@@ -505,11 +505,149 @@ inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemer
 }
 }
 
+// Seccion de Prueba
+
+ky_ttt = []
+idttt = []
+players1 = []
+players2 = []
+
+const isTTT = isGroup ? idttt.includes(from) : false
+const isPlayer1 = isGroup ? players1.includes(sender) : false
+const isPlayer2 = isGroup ? players2.includes(sender) : false
+
+if (isTTT && isPlayer2){
+if (budy.startsWith('Y')){
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ucapan = `Tic Tac Toe
+
+Player1 @${tty.player1.split('@')[0]} = ❌
+Player2 @${tty.player2.split('@')[0]} = ⭕
+
+${angka[1]}${angka[2]}${angka[3]}
+${angka[4]}${angka[5]}${angka[6]}
+${angka[7]}${angka[8]}${angka[9]}
+
+Turno de = @${tty.player1.split('@')[0]}`
+inky.sendMessage(from, ucapan, text, {quoted: mek, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+}
+if (budy.startsWith('N')){
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa
+inky.sendMessage(from, `@${tty.player2.split('@')[0]} Ya esta ocupado esa casilla`,text,{quoted:mek,contextInfo:{mentionedJid:[tty.player2]}})
+}
+}
+
+if (isTTT && isPlayer1){
+nuber = parseInt(budy)
+if (isNaN(nuber)) return
+if (nuber < 1 || nuber > 9) return reply('Ingrese los números correctamente')
+main = ky_ttt.filter(hjh => hjh.id.includes(from)) 
+if (!tttawal.includes(main[0].angka[nuber])) return reply('Ya lleno, los otros contenidos')
+if (main[0].gilir.includes(sender)) return reply('Espera tu turno')
+s = '❌'
+main[0].angka[nuber] = s
+main[0].gilir = main[0].player1
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+ky_ttt = naa
+pop = main[0]
+ky_ttt.push(pop)
+tto = ky_ttt.filter(hgh => hgh.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ttt = `${angka[1]}${angka[2]}${angka[3]}\n${angka[4]}${angka[5]}${angka[6]}\n${angka[7]}${angka[8]}${angka[9]}`
+
+ucapmenang = () => {
+ucapan1 = `*Resultado del Tic Tac Toe
+
+El ganador es: @${tty.player1.split('@')[0]}*\n`
+ucapan2 = `Resultado del Tic Tac Toe
+
+*El resultado final:*
+
+${ttt}`
+inky.sendMessage(from, ucapan1, text, {quoted:mek, contextInfo:{mentionedJid: [tty.player1]}})
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+
+if (angka[1] == s && angka[2] == s && angka[3] == s) return ucapmenang()
+
+if (angka[1] == s && angka[4] == s && angka[7] == s) return ucapmenang()
+
+if (angka[1] == s && angka[5] == s && angka[9] == s) return ucapmenang()
+
+if (angka[2] == s && angka[5] == s && angka[8] == s) return ucapmenang()
+
+if (angka[4] == s && angka[5] == s && angka[6] == s) return ucapmenang()
+
+if (angka[7] == s && angka[8] == s && angka[9] == s) return ucapmenang()
+
+if (angka[3] == s && angka[5] == s && angka[7] == s) return ucapmenang()
+
+if (angka[3] == s && angka[6] == s && angka[9] == s) return ucapmenang()
+
+if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !
+ttt.includes('5️⃣') && !
+ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
+ucapan1 = `Resultado del Tic Tac Toe
+
+Empate`
+ucapan2 = `Resultado del Tic Tac Toe
+
+*El resultado final:*
+
+${ttt}`
+reply(ucapan1)
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+ucapan = `Game Tic Tac Toe
+
+Player2 @${tty.player2.split('@')[0]}=⭕
+Player1 @${tty.player1.split('@')[0]}=❌
+
+${ttt}
+
+Turno de = @${tty.player2.split('@')[0]}`
+inky.sendMessage(from, ucapan, text, {quoted: mek, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+}
+
 switch (command) {
 
 // Seccion de Prueba
 
+case 'tictactoe':
+case 'ttt':
+if (!q) return reply('Etiqueta a tu rival con @')
+if (isTTT) return reply('Hay un juego en este grupo, espere')
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Etiqueta al objetivo del oponente')
+ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
+player1 = sender
+player2 = ment[0]
+angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+gilir = player2
+id = from
+ky_ttt.push({player1,player2,id,angka,gilir})
+inky.sendMessage(from, `🎳 Iniciar un juego de Tictactoe 🎲
 
+[@${player2.split('@')[0]}] Te desafía a convertirte en un oponente del juego🔥
+Escribe Y/N para aceptar o rechazar el juego.
+
+Escriba ${prefix}delttt, para reiniciar los juegos grupales.`, text, {contextInfo: {mentionedJid: [player2]}})
+break
+
+case 'delttt':
+if (!isGroup) return reply(mess.only.group)
+if (!isTTT) return reply('No hay juegos en este grupo')
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa 
+reply('Listo UwU')
+break
 
 // Menu
 
