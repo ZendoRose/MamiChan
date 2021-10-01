@@ -436,7 +436,11 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
 ➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
 const menuEconomia = `➫ 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐚:
-➼ ${prefix}𝐛𝐚𝐥`
+➼ ${prefix}𝐛𝐚𝐥
+➼ ${prefix}𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫 @|<𝐦𝐨𝐧𝐭𝐨>`
+const menuGame = `➫ 𝐉𝐮𝐞𝐠𝐨𝐬:
+➼ ${prefix}𝐬𝐥𝐨𝐭
+➼ ${prefix}𝐫𝐮𝐥𝐞𝐭𝐚`
 const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
 ➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
@@ -683,7 +687,7 @@ if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tagea a quien quieras agregar como administrador')
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝐓𝐚𝐠𝐞𝐚 𝐚 𝐪𝐮𝐢𝐞𝐧 𝐪𝐮𝐢𝐞𝐫𝐚𝐬 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐜𝐨𝐦𝐨 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫')
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
 teks = '𝐀𝐠𝐫𝐞𝐠𝐚𝐧𝐝𝐨 𝐜𝐨𝐦𝐨 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 𝐚:\n'
@@ -756,6 +760,28 @@ textoBalance = `➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
 inky.sendMessage(from, textoBalance, text, {quoted: mek, sendEphemeral: true})
 break
 
+case 'transfer':
+case 'transferir':
+if (!q.includes('|')) return  reply(`𝐔𝐬𝐚 ${prefix + command} @|<𝐦𝐨𝐧𝐭𝐨>`)
+const tujuan = q.substring(0, q.indexOf('|') - 1)
+const jumblah = q.substring(q.lastIndexOf('|') + 1)
+if(isNaN(jumblah)) return await reply('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
+if (jumblah < 100 ) return reply(`𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐦𝐢𝐧𝐢𝐦𝐚 𝐝𝐞 $𝟏𝟎𝟎`)
+if (checkATMuser(sender) < jumblah) return reply(`𝐍𝐨 𝐭𝐢𝐞𝐧𝐞𝐬 𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞 𝐝𝐢𝐧𝐞𝐫𝐨 𝐩𝐚𝐫𝐚 𝐫𝐞𝐚𝐥𝐢𝐳𝐚𝐫 𝐥𝐚 𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚`)
+const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
+fee = 0.005 *  jumblah
+hasiltf = jumblah - fee
+addKoinUser(tujuantf, hasiltf)
+confirmATM(sender, jumblah)
+addKoinUser('595995660558@s.whatsapp.net', fee)
+reply(`𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚
+
+𝐃𝐞: +${sender.split("@")[0]}
+𝐀: +${tujuan}
+𝐌𝐨𝐧𝐭𝐨: ${jumblah}
+𝐈𝐦𝐩𝐮𝐞𝐬𝐭𝐨: ${fee}%`)
+break
+
 // Seccion Games
 
 case 'slot':
@@ -814,6 +840,22 @@ inky.sendMessage(from, `╭─╼┥${botName}┝╾─╮
 
 𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟕𝟓𝟎`, text, { quoted: fakeStatus })
 addKoinUser(sender, 750)
+break
+
+case 'ruleta':
+if (!isUser) return reply(mess.only.reg)
+const dinn = ['1','1','1','1000','1','1','1']
+const holi = dinn[Math.floor(Math.random() * dinn.length)]
+if (holi < 5) return reply(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
+
+𝐋𝐨 𝐬𝐢𝐞𝐧𝐭𝐨 ${pushname} 𝐡𝐚𝐬 𝐩𝐞𝐫𝐝𝐢𝐝𝐨
+𝐍𝐨 𝐠𝐚𝐧𝐚𝐬𝐭𝐞 𝐧𝐚𝐝𝐚, 𝐠𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐣𝐮𝐠𝐚𝐫 :𝐃`)
+ 
+reply(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
+
+𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 ${pushname} 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨
+𝐓𝐮 𝐩𝐫𝐞𝐦𝐢𝐨 𝐞𝐬 $𝟏𝟎𝟎𝟎 :𝐃`)
+addKoinUser(sender, 1000)
 break
 
 // Seccion convercion
