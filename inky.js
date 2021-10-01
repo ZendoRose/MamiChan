@@ -530,6 +530,8 @@ ${menuGrupos}
 
 ${menuEconomia}
 
+${menuGame}
+
 ${menuConvertidor}
 
 ${menuInternet}
