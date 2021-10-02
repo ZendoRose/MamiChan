@@ -663,7 +663,7 @@ options = {
 text: teks,
 contextInfo: {mentionedJid: jids}
 }
-await inky.sendMessage(from, options, text, {quoted: mek, sendEphemeral: true})
+await inky.sendMessage(from, options, text, {quoted: fakeStatus, sendEphemeral: true})
 break
 
 case 'tagall':
