@@ -1319,7 +1319,7 @@ reply(`${String(e)}`)
 if (budy.startsWith('x')){
 if (!isOwner) return
 try {
-return alpha.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
 } catch(err) {
 e = String(err)
 reply(e)
