@@ -1317,17 +1317,6 @@ if (budy.startsWith("x")) {
 if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
-if (budy.startsWith(`~`)){
-if (!isInky) return
-const sep = budy.split("\n")
-let exc = body.replace(sep[0]+"\n", "")
-exec(exc, (err, stdout) => {
-if (err) return inky.sendMessage(from, `root @Inky:~ ${err}`, MessageType.text, {quoted: mek, sendEphemeral: true})
-if (stdout) {
-reply2(stdout)
-}
-})
-}
 
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
