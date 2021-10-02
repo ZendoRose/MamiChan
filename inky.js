@@ -322,6 +322,10 @@ sendEphemeral: true
 })
 }
 
+const reply2 = (teks) => {
+inky.sendMessage(from, teks, text, {quoted: mek, sendEphemeral: true})
+}
+
 const mentions = async(teks, memberr, id) => {
 (id == null || id == undefined || id == false) ? inky.sendMessage(from, teks.trim(), extendedText, {quoted: fakeStatus, sendEphemeral: true, contextInfo: {"mentionedJid": memberr}}) : inky.sendMessage(from, teks.trim(), extendedText, {quoted: fakeStatus, sendEphemeral: true, contextInfo: {"mentionedJid": memberr}})
 }
@@ -1302,35 +1306,35 @@ bang = util.format(sat)
 if (sat == undefined){
 bang = util.format(sul)
 }
-return reply(bang)
+return reply2(bang)
 }
 try {
-reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
-reply(`${String(e)}`)
+reply2(`${String(e)}`)
 }}
 if (budy.startsWith("=")) {
 if (!isInky) return
-return await reply(JSON.stringify(eval(args.join(" ")), null, 2))
+return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 if (budy.startsWith(`$`)){
 if (!isInky) return
 const sep = budy.split("\n")
 let exc = body.replace(sep[0]+"\n", "")
 exec(exc, (err, stdout) => {
-if (err) return samu330.sendMessage(from, `root @Sm330:~ ${err}`, MessageType.text, { quoted: sam })
+if (err) return inky.sendMessage(from, `root @Sm330:~ ${err}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 if (stdout) {
-reply(stdout)
+reply2(stdout)
 }
 })
 }
 if (budy.startsWith('x')){
 if (!isInky) return
 try {
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek, sendEphemeral: true})
 } catch(err) {
 e = String(err)
-reply(e)
+reply2(e)
 }
 }
 
