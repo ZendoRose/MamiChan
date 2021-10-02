@@ -1313,29 +1313,20 @@ reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
 reply2(`${String(e)}`)
 }}
-if (budy.startsWith("=")) {
+if (budy.startsWith("x")) {
 if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
-if (budy.startsWith(`$`)){
+if (budy.startsWith(`~`)){
 if (!isInky) return
 const sep = budy.split("\n")
 let exc = body.replace(sep[0]+"\n", "")
 exec(exc, (err, stdout) => {
-if (err) return inky.sendMessage(from, `root @Sm330:~ ${err}`, MessageType.text, {quoted: mek, sendEphemeral: true})
+if (err) return inky.sendMessage(from, `root @Inky:~ ${err}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 if (stdout) {
 reply2(stdout)
 }
 })
-}
-if (budy.startsWith('x')){
-if (!isInky) return
-try {
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek, sendEphemeral: true})
-} catch(err) {
-e = String(err)
-reply2(e)
-}
 }
 
 if (budy.includes('teta')){
