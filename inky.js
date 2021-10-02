@@ -657,10 +657,9 @@ jids.push(adm.id.replace('c.us', 's.whatsapp.net'));
 })
 options = {
 text: teks,
-contextInfo: {mentionedJid: jids},
-quoted: mek
+contextInfo: {mentionedJid: jids}
 }
-await inky.sendMessage(from, options, text)
+await inky.sendMessage(from, options, text, {quoted: mek, sendEphemeral: true})
 break
 
 case 'tagall':
