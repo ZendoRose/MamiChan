@@ -1299,7 +1299,7 @@ break
 
 default:
 
-if (budy.startsWith('>')){
+/*if (budy.startsWith('>')){
 if (!isOwner) return
 const util = require("util");
 konsol = budy.slice(1)
@@ -1315,7 +1315,18 @@ try {
 reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
 reply(`${String(e)}`)
-}}
+}}*/
+
+if (budy.startsWith('>')){
+if (!isOwner) return
+try {
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+} catch(err) {
+e = String(err)
+reply(e)
+}
+}
+
 if (budy.startsWith('x')){
 if (!isOwner) return
 try {
