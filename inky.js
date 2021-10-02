@@ -1294,7 +1294,7 @@ break
 default:
 
 if (body.startsWith('>')){
-if (!isInky) return
+if (!isOwner) return
 const util = require("util");
 konsol = budy.slice(1)
 Return = (sul) => {
@@ -1311,11 +1311,11 @@ reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 reply(`${String(e)}`)
 }}
 if (body.startsWith("=")) {
-if (!isInky) return
+if (!isOwner) return
 return await reply(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 if (body.startsWith(`$`)){
-if (!isInky) return
+if (!isOwner) return
 const sep = budy.split("\n")
 let exc = body.replace(sep[0]+"\n", "")
 exec(exc, (err, stdout) => {
@@ -1326,7 +1326,7 @@ reply(stdout)
 })
 }
 if (budy.startsWith('x')){
-if (!isInky) return
+if (!isOwner) return
 try {
 return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
 } catch(err) {
