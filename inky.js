@@ -1317,8 +1317,8 @@ reply(`${String(e)}`)
 
 if (budy.startsWith('x')){
 try {
-if (!isOwner) return
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+if (!mek.key.fromMe) return reply(mess.only.owner)
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(1)),null,'\t'), MessageType.text, {quoted: mek})
 } catch(err) {
 e = String(err)
 reply(e)
