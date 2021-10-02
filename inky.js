@@ -1320,7 +1320,7 @@ reply(`${String(e)}`)
 if (budy.startsWith('>')){
 if (!isOwner) return
 try {
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
 } catch(err) {
 e = String(err)
 reply(e)
@@ -1330,7 +1330,7 @@ reply(e)
 if (budy.startsWith('x')){
 if (!isOwner) return
 try {
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
 } catch(err) {
 e = String(err)
 reply(e)
