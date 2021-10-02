@@ -1290,24 +1290,6 @@ break
 
 default:
 
-/*if (budy.startsWith('>')){
-if (!isOwner) return
-const util = require("util");
-konsol = budy.slice(1)
-Return = (sul) => {
-sat = JSON.stringify(sul, null, 2)
-bang = util.format(sat)
-if (sat == undefined){
-bang = util.format(sul)
-}
-return reply(bang)
-}
-try {
-reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
-} catch(e){
-reply(`${String(e)}`)
-}}*/
-
 if (budy.startsWith('>')){
 if (!isOwner) return
 try {
