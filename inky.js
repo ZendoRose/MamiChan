@@ -134,18 +134,7 @@ inky.sendMessage(mdata.id, buff, MessageType.image, {sendEphemeral: true, captio
 }
 } catch (e) {
 console.log(e)
-inky.sendMessage(`${botGroup}`, (e), MessageType.text, {quoted: { key: {
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-},
-message: {
-"imageMessage": {
-"mimetype": "image/jpeg",
-"caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n𝐂𝐨𝐧𝐬𝐨𝐥𝐞 𝐄𝐫𝐫𝐨𝐫`,
-'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')}}
-}})
-}
-})
+inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {sendEphemeral: true})
 
 inky.on('chat-update', async (mek) => {
 try {
@@ -343,7 +332,7 @@ inky.sendMessage(from, hasil, type, options).catch(e => {
 inky.sendMessage(from, { url : link }, type, options).catch(e => {
 reply('𝐇𝐮𝐛𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚𝐫 𝐬𝐮 𝐚𝐫𝐜𝐡𝐢𝐯𝐨')
 console.log(e)
-inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: fakeStatus, sendEphemeral: true})
+inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 })
 })
 })
@@ -377,7 +366,6 @@ request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
 });
 };
 download(url, filename, async function () {
-console.log('Enviado');
 let media = fs.readFileSync(filename)
 let type = mime.split("/")[0]+"Message"
 if(mime === "image/gif"){
@@ -392,7 +380,7 @@ fs.unlinkSync(filename)
 });
 }
 
-if (budy.includes("chat.whatsapp.com/")){
+if (budy.includes("://chat.whatsapp.com/", "chat.whatsapp.com/")){
 if (!isGroup) return
 if (!isAntiLink) return
 if (isGroupAdmins) return
@@ -414,8 +402,8 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 ➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
 ➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*
-➼ 𝐍𝐨𝐝𝐞: *@𝐀𝐝𝐢𝐰𝐚𝐣𝐬𝐡𝐢𝐧𝐠/𝐁𝐚𝐢𝐥𝐞𝐲𝐬*
-➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}${inky.user.phone.device_model}*
+➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
+➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
 ➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
 ➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞:
 ${groupSupport}
@@ -437,14 +425,14 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
 const menuEconomia = `➫ 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐚:
 ➼ ${prefix}𝐛𝐚𝐥
-➼ ${prefix}𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫 @|<𝐦𝐨𝐧𝐭𝐨>`
+➼ ${prefix}𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫 @ | <𝐦𝐨𝐧𝐭𝐨>`
 const menuGame = `➫ 𝐉𝐮𝐞𝐠𝐨𝐬:
 ➼ ${prefix}𝐬𝐥𝐨𝐭
 ➼ ${prefix}𝐫𝐮𝐥𝐞𝐭𝐚`
 const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
 ➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
-➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 𝐧𝐨𝐦𝐛𝐫𝐞|𝐚𝐮𝐭𝐨𝐫
+➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 <𝐧𝐨𝐦𝐛𝐫𝐞>|<𝐚𝐮𝐭𝐨𝐫>
 ➼ ${prefix}𝐭𝐨𝐦𝐩𝟑
 ➼ ${prefix}𝐭𝐭𝐬 <𝐢𝐝𝐢𝐨𝐦𝐚> <𝐭𝐞𝐱𝐭𝐨>`
 const menuInternet = `➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
