@@ -763,13 +763,12 @@ fee = 0.005 *  jumblah
 hasiltf = jumblah - fee
 addKoinUser(tujuantf, hasiltf)
 confirmATM(sender, jumblah)
-addKoinUser('595995660558@s.whatsapp.net', fee)
 reply(`𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚
 
-𝐃𝐞: +${sender.split("@")[0]}
-𝐀: +${tujuan}
-𝐌𝐨𝐧𝐭𝐨: ${jumblah}
-𝐈𝐦𝐩𝐮𝐞𝐬𝐭𝐨: ${fee}%`)
+𝐃𝐞: @${sender.split("@")[0]}
+𝐀: ${tujuan}
+𝐌𝐨𝐧𝐭𝐨: $${jumblah}
+𝐈𝐦𝐩𝐮𝐞𝐬𝐭𝐨: $${fee}`)
 break
 
 // Seccion Games
