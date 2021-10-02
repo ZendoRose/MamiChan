@@ -136,6 +136,7 @@ inky.sendMessage(mdata.id, buff, MessageType.image, {sendEphemeral: true, captio
 console.log(e)
 inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {sendEphemeral: true})
 }
+})
 
 inky.on('chat-update', async (mek) => {
 try {
