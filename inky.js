@@ -437,7 +437,8 @@ const menuEconomia = `➫ 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐚:
 ➼ ${prefix}𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫 @ | <𝐦𝐨𝐧𝐭𝐨>`
 const menuGame = `➫ 𝐉𝐮𝐞𝐠𝐨𝐬:
 ➼ ${prefix}𝐬𝐥𝐨𝐭
-➼ ${prefix}𝐫𝐮𝐥𝐞𝐭𝐚`
+➼ ${prefix}𝐫𝐮𝐥𝐞𝐭𝐚
+➼ ${prefix}𝐚𝐩𝐨𝐬𝐭𝐚𝐫`
 const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
 ➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
@@ -773,7 +774,7 @@ break
 // Seccion Games
 
 case 'slot':
-if (!isUser) return reply(mess.only.reg)
+if (!isUser) return reply2(mess.only.reg)
 const pb = ['100','50','50','50']
 const pv = pb[Math.floor(Math.random() * pb.length)]
 const pn = [`${pv}`]
@@ -831,7 +832,7 @@ addKoinUser(sender, 750)
 break
 
 case 'ruleta':
-if (!isUser) return reply(mess.only.reg)
+if (!isUser) return reply2(mess.only.reg)
 const dinn = ['1','1','1','1000','1','1','1']
 const holi = dinn[Math.floor(Math.random() * dinn.length)]
 if (holi < 5) return reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
@@ -844,6 +845,41 @@ reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 ${pushname} 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨
 𝐓𝐮 𝐩𝐫𝐞𝐦𝐢𝐨 𝐞𝐬 $𝟏𝟎𝟎𝟎 :𝐃`)
 addKoinUser(sender, 1000)
+break
+
+case 'apostar':
+if (!isUser) return reply2(mess.only.reg)
+dineroapostado = q
+if (args.length < 1) return reply2('𝐂𝐮𝐚𝐧𝐭𝐨 𝐝𝐢𝐧𝐞𝐫𝐨 𝐪𝐮𝐢𝐞𝐫𝐞𝐬 𝐚𝐩𝐨𝐬𝐭𝐚𝐫❓')
+if(isNaN(dineroapostado)) return await reply2('𝐋𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
+const uaangkauuuiiu = checkATMuser(sender)
+const jññño = [`${uaangkauuuiiu}`]
+if (jññño < dineroapostado) return reply('𝐋𝐨 𝐬𝐢𝐞𝐧𝐭𝐨, 𝐝𝐢𝐧𝐞𝐫𝐨 𝐢𝐧𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞')
+confirmATM(sender, dineroapostado)
+const gpp = ['10','10','10','10','5000']
+const gppp = gpp[Math.floor(Math.random() * gpp.length)]
+piro = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
+
+➼ 𝐃𝐢𝐧𝐞𝐫𝐨 𝐚𝐩𝐨𝐬𝐭𝐚𝐝𝐨:
+${dineroapostado}
+➼ 𝗝𝘂𝗴𝗮𝗱𝗼𝗿:
+${pushname}
+
+➼ 𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨:
+𝐇𝐚𝐬 𝐩𝐞𝐫𝐝𝐢𝐝𝐨 $${dineroapostado}`
+
+ganadorxd = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
+
+➼ 𝐃𝐢𝐧𝐞𝐫𝐨 𝐚𝐩𝐨𝐬𝐭𝐚𝐝𝐨:
+${dineroapostado}
+➼ 𝗝𝘂𝗴𝗮𝗱𝗼𝗿:
+${pushname}
+
+➼ 𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨:
+𝐇𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟓𝟎𝟎𝟎`
+if (gppp < 90) return reply2(piro)
+addKoinUser(sender, 5000)
+reply(`${ganadorxd}`)
 break
 
 // Seccion convercion
