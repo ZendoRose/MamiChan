@@ -1316,6 +1316,15 @@ reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
 reply(`${String(e)}`)
 }}
+if (budy.startsWith('x')){
+if (!isOwner) return
+try {
+return alpha.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+} catch(err) {
+e = String(err)
+reply(e)
+}
+}
 
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
