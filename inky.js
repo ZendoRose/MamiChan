@@ -1293,16 +1293,38 @@ break
 
 default:
 
-if (budy.startsWith('>')){
+if (body.startsWith('>')){
 if (!isInky) return
+const util = require("util");
+konsol = budy.slice(1)
+Return = (sul) => {
+sat = JSON.stringify(sul, null, 2)
+bang = util.format(sat)
+if (sat == undefined){
+bang = util.format(sul)
+}
+return reply(bang)
+}
 try {
-return inky.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: fakeStatus, sendEphemeral: true})
-} catch(err) {
-e = String(err)
-reply(e)
+reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+} catch(e){
+reply(`${String(e)}`)
+}}
+if (body.startsWith("=")) {
+if (!isInky) return
+return await reply(JSON.stringify(eval(args.join(" ")), null, 2))
 }
+if (body.startsWith(`$`)){
+if (!isInky) return
+const sep = budy.split("\n")
+let exc = body.replace(sep[0]+"\n", "")
+exec(exc, (err, stdout) => {
+if (err) return samu330.sendMessage(from, `root @Sm330:~ ${err}`, MessageType.text, { quoted: sam })
+if (stdout) {
+reply(stdout)
 }
-
+})
+}
 if (budy.startsWith('x')){
 if (!isInky) return
 try {
