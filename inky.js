@@ -805,7 +805,7 @@ const gnd = [
 const pbb = prd[Math.floor(Math.random() * prd.length)]
 const pbbn = prd[Math.floor(Math.random() * prd.length)]
 const pvv = gnd[Math.floor(Math.random() * gnd.length)]     
-if (pn < 100) return reply(`╭─╼┥${botName}┝╾─╮
+if (pn < 100) return reply2(`╭─╼┥${botName}┝╾─╮
 ╽ ┌──────────┐ ┃
         🍋 : 🍌 : 🍍
 ┃ ├──────────┤ ┃
@@ -826,7 +826,7 @@ inky.sendMessage(from, `╭─╼┥${botName}┝╾─╮
 ╿ └──────────┘ ╿
 ╰──┥𝐂𝐀𝐒𝐒𝐈𝐍𝐎┠──╯    
 
-𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟕𝟓𝟎`, text, { quoted: fakeStatus })
+𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟕𝟓𝟎`, text, {quoted: mek, sendEphemeral: true})
 addKoinUser(sender, 750)
 break
 
@@ -834,12 +834,12 @@ case 'ruleta':
 if (!isUser) return reply(mess.only.reg)
 const dinn = ['1','1','1','1000','1','1','1']
 const holi = dinn[Math.floor(Math.random() * dinn.length)]
-if (holi < 5) return reply(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
+if (holi < 5) return reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 
 𝐋𝐨 𝐬𝐢𝐞𝐧𝐭𝐨 ${pushname} 𝐡𝐚𝐬 𝐩𝐞𝐫𝐝𝐢𝐝𝐨
 𝐍𝐨 𝐠𝐚𝐧𝐚𝐬𝐭𝐞 𝐧𝐚𝐝𝐚, 𝐠𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐣𝐮𝐠𝐚𝐫 :𝐃`)
  
-reply(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
+reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 
 𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 ${pushname} 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨
 𝐓𝐮 𝐩𝐫𝐞𝐦𝐢𝐨 𝐞𝐬 $𝟏𝟎𝟎𝟎 :𝐃`)
