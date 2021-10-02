@@ -720,12 +720,8 @@ if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
-var open = {
-text: `𝐆𝐫𝐮𝐩𝐨 𝐚𝐛𝐢𝐞𝐫𝐭𝐨 𝐩𝐨𝐫 𝐞𝐥 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 @${sender.split("@")[0]}`,
-contextInfo: { mentionedJid: [sender] }
-}
 inky.groupSettingChange (from, GroupSettingChange.messageSend, false)
-inky.sendMessage(from, open, text, {quoted: sendFakeStatus, sendEphemeral: true})
+reply(`𝐆𝐫𝐮𝐩𝐨 𝐚𝐛𝐢𝐞𝐫𝐭𝐨 𝐩𝐨𝐫 𝐞𝐥 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 @${sender.split("@")[0]}`)
 break
 
 case 'closegc':
@@ -733,13 +729,8 @@ if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
-var nomor = mek.participant
-var close = {
-text: `𝐆𝐫𝐮𝐩𝐨 𝐜𝐞𝐫𝐫𝐚𝐝𝐨 𝐩𝐨𝐫 𝐞𝐥 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 @${nomor.split("@s.whatsapp.net")[0]}`,
-contextInfo: { mentionedJid: [nomor] }
-}
 inky.groupSettingChange (from, GroupSettingChange.messageSend, true);
-inky.sendMessage(from, close, text, {quoted: sendFakeStatus, sendEphemeral: true})
+reply(`𝐆𝐫𝐮𝐩𝐨 𝐜𝐞𝐫𝐫𝐚𝐝𝐨 𝐩𝐨𝐫 𝐞𝐥 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 @${nomor.split("@s.whatsapp.net")[0]}`)
 break
 
 // Seccion Economia
