@@ -1287,7 +1287,7 @@ break
 case 'addsticker':
 if (!isOwner) return reply(mess.only.owner)
 if (!isQuotedSticker) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
-if (!q) return reply('Nama sticker nya apa?')
+if (!q) return reply('𝐘 𝐞𝐥 𝐧𝐨𝐦𝐛𝐫𝐞 𝐩𝐚𝐫𝐚 𝐞𝐥 𝐬𝐭𝐢𝐜𝐤𝐞𝐫❓')
 boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 delb = await inky.downloadMediaMessage(boij)
 stickerjson.push(`${q}`)
@@ -1299,7 +1299,7 @@ break
 default:
 
 if (budy.startsWith('>')){
-if (!isOwner) return reply(mess.only.owner)
+if (!isOwner) return
 const util = require("util");
 konsol = budy.slice(1)
 Return = (sul) => {
