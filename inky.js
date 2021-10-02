@@ -1315,16 +1315,6 @@ reply(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 reply(`${String(e)}`)
 }}
 
-if (budy.startsWith('x')){
-try {
-if (!mek.key.fromMe) return reply(mess.only.owner)
-return alpha.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
-} catch(err) {
-e = String(err)
-reply(e)
-}
-}
-
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
