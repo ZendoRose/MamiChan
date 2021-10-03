@@ -515,7 +515,10 @@ switch (command) {
 
 // Seccion de Prueba
 
-
+case 'test':
+fee = q × 5
+reply2('fee')
+break
 
 // Menu
 
