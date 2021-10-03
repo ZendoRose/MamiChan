@@ -516,7 +516,7 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-fee = q × 5
+var fee = q × 5
 reply2('fee')
 break
 
