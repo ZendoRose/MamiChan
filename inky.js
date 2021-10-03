@@ -953,7 +953,7 @@ break
 
 case 'attp':
 if (!isUser) return reply(mess.only.reg)
-if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command}𝐭𝐞𝐱𝐭𝐨`)
+if (!q) return reply(`𝐔𝐬𝐚: ${prefix + command} 𝐭𝐞𝐱𝐭𝐨`)
 attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${q}`)
 inky.sendMessage(from, attp2, MessageType.sticker, {quoted: mek, sendEphemeral: true})
 break
