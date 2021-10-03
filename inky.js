@@ -1237,8 +1237,8 @@ break
 case 'fix':
 if (!isInky) return reply(mess.only.inky)
 exec(`git pull`, (err, stdout) => {
-if (err) return reply(err)
-if (stdout) reply(`${stdout}`)
+if (err) return reply2(err)
+if (stdout) reply2(`${stdout}`)
 })
 break
 
