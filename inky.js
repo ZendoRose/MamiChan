@@ -515,9 +515,8 @@ switch (command) {
 
 // Seccion de Prueba
 
-case 'test':
-var test = 5 *  q
-reply2(`${test}`)
+case '':
+
 break
 
 // Menu
@@ -883,7 +882,7 @@ ${pushname}
 𝐇𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $${apostWin}`
 if (gppp < 90) return reply2(piro)
 addKoinUser(sender, `${apostWin}`)
-reply(`${ganadorxd}`)
+reply2(`${ganadorxd}`)
 break
 
 // Seccion convercion
