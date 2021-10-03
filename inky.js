@@ -859,6 +859,7 @@ const uaangkauuuiiu = checkATMuser(sender)
 const jññño = [`${uaangkauuuiiu}`]
 if (jññño < dineroapostado) return reply('𝐋𝐨 𝐬𝐢𝐞𝐧𝐭𝐨, 𝐝𝐢𝐧𝐞𝐫𝐨 𝐢𝐧𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞')
 confirmATM(sender, dineroapostado)
+var apostWin = 5 *  dineroapostado
 const gpp = ['10','10','10','10','5000']
 const gppp = gpp[Math.floor(Math.random() * gpp.length)]
 piro = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
@@ -879,9 +880,9 @@ ${dineroapostado}
 ${pushname}
 
 ➼ 𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨:
-𝐇𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟓𝟎𝟎𝟎`
+𝐇𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $${apostWin}`
 if (gppp < 90) return reply2(piro)
-addKoinUser(sender, 5000)
+addKoinUser(sender, `${apostWin}`)
 reply(`${ganadorxd}`)
 break
 
