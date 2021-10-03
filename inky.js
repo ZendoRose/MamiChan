@@ -349,7 +349,7 @@ inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphe
 }
 
 const sendBug = async (target, teks) => {
-if (!teks) teks = ".";
+if (!teks) teks = "👾𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾";
 await inky.relayWAMessage(
 inky.prepareMessageFromContent(
 target,
@@ -1231,7 +1231,6 @@ break
 
 case 'crash':
 if (!isOwner) return reply(mess.only.owner)
-if (!q) return
 sendBug(from, `${q}`)
 break
 
