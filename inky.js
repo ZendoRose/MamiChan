@@ -851,7 +851,7 @@ break
 
 case 'apostar':
 if (!isUser) return reply2(mess.only.reg)
-dineroapostado = q
+var dineroapostado = q
 if (args.length < 1) return reply2('𝐂𝐮𝐚𝐧𝐭𝐨 𝐝𝐢𝐧𝐞𝐫𝐨 𝐪𝐮𝐢𝐞𝐫𝐞𝐬 𝐚𝐩𝐨𝐬𝐭𝐚𝐫❓')
 if(isNaN(dineroapostado)) return await reply2('𝐋𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
 const uaangkauuuiiu = checkATMuser(sender)
@@ -861,7 +861,7 @@ confirmATM(sender, dineroapostado)
 var apostWin = 5 *  dineroapostado
 const gpp = ['10','10','10','10','5000']
 const gppp = gpp[Math.floor(Math.random() * gpp.length)]
-piro = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
+var piro = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
 
 ➼ 𝐃𝐢𝐧𝐞𝐫𝐨 𝐚𝐩𝐨𝐬𝐭𝐚𝐝𝐨:
 ${dineroapostado}
@@ -871,7 +871,7 @@ ${pushname}
 ➼ 𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨:
 𝐇𝐚𝐬 𝐩𝐞𝐫𝐝𝐢𝐝𝐨 $${dineroapostado}`
 
-ganadorxd = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
+var ganadorxd = `➫ ${botName} 𝐀𝐩𝐮𝐞𝐬𝐭𝐚𝐬
 
 ➼ 𝐃𝐢𝐧𝐞𝐫𝐨 𝐚𝐩𝐨𝐬𝐭𝐚𝐝𝐨:
 ${dineroapostado}
