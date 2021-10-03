@@ -517,7 +517,7 @@ switch (command) {
 
 case 'test':
 var test = 5 *  q
-reply2('fee')
+reply2(`${test}`)
 break
 
 // Menu
