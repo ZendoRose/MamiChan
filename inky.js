@@ -96,10 +96,10 @@ await inky.blockUser(callerId, "add")
 })
 
 inky.on('group-participants-update', async (anu) => {
-if (!welcome.includes(anu.jid)) return
 try {
 const mdata = await inky.groupMetadata(anu.jid)
 if (anu.action == 'add') {
+if (!welcome.includes(anu.jid)) return
 num = anu.participants[0]
 try {
 ppimg = await inky.getProfilePicture(`${num.split('@')[0]}@c.us`)
