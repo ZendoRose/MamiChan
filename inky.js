@@ -557,14 +557,22 @@ await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
 break
 
 case 'ping':
+var ram = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}𝐌𝐁 / ${Math.round(require('os').totalmem / 1024 / 1024)}𝐌𝐁`
+var groupsBot = inky.chats.array.filter(v => v.jid.endsWith('g.us'))
+var privateBot = inky.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+var totalChats = await inky.chats.all()
 var timestamp = speed();
 var latensi = speed() - timestamp
 uptime = process.uptime()
 reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
 ➼ 𝐕𝐞𝐥𝐨𝐜𝐢𝐝𝐚𝐝: *${latensi.toFixed(4)}*𝐦𝐬
+➼ 𝐑𝐚𝐦: ${ram}
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
-➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*`)
+➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
+➼ 𝐂𝐡𝐚𝐭𝐬 𝐝𝐞 𝐆𝐫𝐮𝐩𝐨𝐬: ${groupsBot}
+➼ 𝐂𝐡𝐚𝐭𝐬 𝐩𝐫𝐢𝐯𝐚𝐝𝐨𝐬: ${privateBot}
+➼ 𝐂𝐡𝐚𝐭𝐬 𝐭𝐨𝐭𝐚𝐥𝐞𝐬: ${totalChats.length}`)
 break
 
 // Seccion de Grupos
