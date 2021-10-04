@@ -332,6 +332,7 @@ const mentions = async(teks, memberr, id) => {
 
 const sendContact = iy.sendContact
 const sendFakeStatus = iy.sendFakeStatus
+const sendMess = iy.sendMess
 
 const sendFileFromUrl = async(link, type, options) => {
 hasil = await getBuffer(link)
@@ -1239,6 +1240,25 @@ exec(`git pull`, (err, stdout) => {
 if (err) return reply2(err)
 if (stdout) reply2(`${stdout}`)
 })
+break
+
+case 'bc':
+if (!isOwner) return reply(mess.only.owner)
+if (!q) return reply('𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐜𝐫𝐢𝐛𝐚 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐥𝐨 𝐪𝐮𝐞 𝐪𝐮𝐢𝐞𝐫𝐚 𝐦𝐚𝐧𝐝𝐚𝐫')
+anu = await inky.chats.all()
+if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+buff = await inky.downloadMediaMessage(encmedia)
+for (let _ of anu) {
+client.sendMessage(_.jid, buff, image, {caption: `${botName} 𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭\n\n${q}`})
+}
+reply('𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
+} else {
+for (let _ of anu) {
+sendMess(_.jid, `${botName} 𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭\n\n${q}`)
+}
+reply('𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
+}
 break
 
 case 'reply':
