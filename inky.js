@@ -556,6 +556,17 @@ var buttonMessage = {
 await inky.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
 break
 
+case 'ping':
+var timestamp = speed();
+var latensi = speed() - timestamp
+uptime = process.uptime()
+reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
+➼ 𝐕𝐞𝐥𝐨𝐜𝐢𝐝𝐚𝐝: *${latensi.toFixed(4)}*𝐦𝐬
+➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
+➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
+➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*`)
+break
+
 // Seccion de Grupos
 
 case 'antilink':
