@@ -768,7 +768,7 @@ fee = 0.005 *  jumblah
 hasiltf = jumblah - fee
 addKoinUser(tujuantf, hasiltf)
 confirmATM(sender, jumblah)
-reply(`𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚
+reply2(`𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚
 
 𝐃𝐞: @${sender.split("@")[0]}
 𝐀: ${tujuan}
