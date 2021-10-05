@@ -1353,8 +1353,7 @@ case 'listgroup':
 if (!isOwner) return reply(mess.only.owner)
 const inkylg = inky.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`
 ➼ 𝐈𝐝: ${v.jid}*
-➼ 𝐄𝐬𝐭𝐚𝐝𝐨: ${v.read_only ? 'No agregado' : 'Agregado'}
-`).join`\n\n`
+➼ 𝐄𝐬𝐭𝐚𝐝𝐨: ${v.read_only ? 'No agregado' : 'Agregado'}`).join`\n\n`
 reply('𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐠𝐫𝐮𝐩𝐨𝐬:' + inkylg)
 break
 
