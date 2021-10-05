@@ -18,6 +18,7 @@ const fetch = require('node-fetch');
 const hx = require("hxz-api");
 const ig = require("insta-fetcher");
 const request = require("request");
+const speed = require('performance-now');
 const yts = require('yt-search');
 
 const _limit = JSON.parse(fs.readFileSync('./database/limit.json'));
