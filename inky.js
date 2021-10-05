@@ -651,10 +651,11 @@ if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
-if (args.length < 1) return reply(`𝐏𝐚𝐫𝐚 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚 𝐮𝐧 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 𝐝𝐞𝐛𝐞𝐬 𝐞𝐬𝐜𝐫𝐢𝐛𝐢𝐫 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐬𝐢𝐧 +\n\n𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} 595*********`)
+if (!q) return reply(`𝐏𝐚𝐫𝐚 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚 𝐮𝐧 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 𝐝𝐞𝐛𝐞𝐬 𝐞𝐬𝐜𝐫𝐢𝐛𝐢𝐫 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐬𝐢𝐧 +\n\n𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} 595*********`)
 if (args[0].startsWith('+')) return reply(`𝐏𝐚𝐫𝐚 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚 𝐮𝐧 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 𝐝𝐞𝐛𝐞𝐬 𝐞𝐬𝐜𝐫𝐢𝐛𝐢𝐫 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐬𝐢𝐧 +\n\n𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} 595*********`)
-try {0
+try {
 num = `${args[0].replace(/ /g, '')}@s.whatsapp.net`
+mentions(`𝐏𝐞𝐝𝐢𝐝𝐨 𝐫𝐞𝐜𝐢𝐯𝐢𝐝𝐨, 𝐀𝐠𝐫𝐞𝐠𝐚𝐧𝐝𝐨 𝐚 ${mentioned[0].split('@')[0]}`, mentioned, true)
 inky.groupAdd(from, [num])
 } catch (e) {
 reply('𝐍𝐨 𝐬𝐞 𝐩𝐮𝐝𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐞𝐥 𝐮𝐬𝐮𝐚𝐫𝐢𝐨, 𝐭𝐚𝐥 𝐯𝐞𝐳 𝐩𝐨𝐫𝐪𝐮𝐞 𝐞𝐬 𝐩𝐫𝐢𝐯𝐚𝐝𝐨')
