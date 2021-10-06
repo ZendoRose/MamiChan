@@ -1387,6 +1387,7 @@ reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
 } catch(e){
 reply2(`${String(e)}`)
 }}
+
 if (budy.startsWith("x")) {
 if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
