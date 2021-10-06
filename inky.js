@@ -566,11 +566,12 @@ uptime = process.uptime()
 reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
 ➼ 𝐕𝐞𝐥𝐨𝐜𝐢𝐝𝐚𝐝: *${latensi.toFixed(4)}*𝐦𝐬
 ➼ 𝐑𝐚𝐦: ${ram}
-➼ 𝐓𝐢𝐞𝐦𝐩𝐨 𝐚𝐜𝐭𝐢𝐯𝐨: ${uptime}
+➼ 𝐓𝐢𝐞𝐦𝐩𝐨: ${uptime}
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
 ➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
-➼ 𝐂𝐡𝐚𝐭𝐬 𝐭𝐨𝐭𝐚𝐥𝐞𝐬: ${totalChats.length}`)
+➼ 𝐂𝐡𝐚𝐭𝐬 𝐭𝐨𝐭𝐚𝐥𝐞𝐬: *${totalChats.length}*
+➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`)
 break
 
 // Seccion de Grupos
