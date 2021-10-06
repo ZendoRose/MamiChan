@@ -851,13 +851,13 @@ inky.sendMessage(from, `╭─╼┥${botName}┝╾─╮
 ╿ └──────────┘ ╿
 ╰──┥𝐂𝐀𝐒𝐒𝐈𝐍𝐎┠──╯    
 
-𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟕𝟓𝟎`, text, {quoted: mek, sendEphemeral: true})
-addKoinUser(sender, 750)
+𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨 $𝟐𝟓𝟎`, text, {quoted: mek, sendEphemeral: true})
+addKoinUser(sender, 250)
 break
 
 case 'ruleta':
 if (!isUser) return reply2(mess.only.reg)
-const dinn = ['1','1','1','1000','1','1','1']
+const dinn = ['1','1','1','500','1','1','1']
 const holi = dinn[Math.floor(Math.random() * dinn.length)]
 if (holi < 5) return reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 
@@ -867,15 +867,15 @@ if (holi < 5) return reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 reply2(`★᭄ꦿ𝐑𝐮𝐥𝐞𝐭𝐚💸
 
 𝐅𝐞𝐥𝐢𝐜𝐢𝐝𝐚𝐝𝐞𝐬 ${pushname} 𝐡𝐚𝐬 𝐠𝐚𝐧𝐚𝐝𝐨
-𝐓𝐮 𝐩𝐫𝐞𝐦𝐢𝐨 𝐞𝐬 $𝟏𝟎𝟎𝟎 :𝐃`)
-addKoinUser(sender, 1000)
+𝐓𝐮 𝐩𝐫𝐞𝐦𝐢𝐨 𝐞𝐬 $𝟓𝟎𝟎 :𝐃`)
+addKoinUser(sender, 500)
 break
 
 case 'apostar':
 if (!isUser) return reply2(mess.only.reg)
 const uaangkauuuiiu = checkATMuser(sender)
 const jññño = [`${uaangkauuuiiu}`]
-if (jññño < 500) return reply('𝐍𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 $𝟓𝟎𝟎 𝐩𝐚𝐫𝐚 𝐚𝐩𝐨𝐬𝐭𝐚𝐫')
+if (jññño < 500) return reply2('𝐍𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 $𝟓𝟎𝟎 𝐩𝐚𝐫𝐚 𝐚𝐩𝐨𝐬𝐭𝐚𝐫')
 confirmATM(sender, 500)
 const gpp = ['10','10','10','10','5000']
 const gppp = gpp[Math.floor(Math.random() * gpp.length)]
