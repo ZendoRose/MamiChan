@@ -566,7 +566,7 @@ uptime = process.uptime()
 reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
 ➼ 𝐕𝐞𝐥𝐨𝐜𝐢𝐝𝐚𝐝: *${latensi.toFixed(4)}*𝐦𝐬
 ➼ 𝐑𝐚𝐦: ${ram}
-➼ 𝐓𝐢𝐞𝐦𝐩𝐨: ${uptime}
+➼ 𝐔𝐩𝐭𝐢𝐦𝐞: ${uptime}
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
 ➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
