@@ -776,12 +776,12 @@ break
 
 case 'transfer':
 case 'transferir':
-if (!q.includes('|')) return  reply(`𝐔𝐬𝐚 ${prefix + command} @|<𝐦𝐨𝐧𝐭𝐨>`)
+if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
 const tujuan = q.substring(0, q.indexOf('|') - 1)
 const jumblah = q.substring(q.lastIndexOf('|') + 1)
-if(isNaN(jumblah)) return await reply('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
-if (jumblah < 100 ) return reply(`𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐦𝐢𝐧𝐢𝐦𝐚 𝐝𝐞 $𝟏𝟎𝟎`)
-if (checkATMuser(sender) < jumblah) return reply(`𝐍𝐨 𝐭𝐢𝐞𝐧𝐞𝐬 𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞 𝐝𝐢𝐧𝐞𝐫𝐨 𝐩𝐚𝐫𝐚 𝐫𝐞𝐚𝐥𝐢𝐳𝐚𝐫 𝐥𝐚 𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚`)
+if(isNaN(jumblah)) return await reply2('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
+if (jumblah < 100 ) return reply2('𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐦𝐢𝐧𝐢𝐦𝐚 𝐝𝐞 $𝟏𝟎𝟎')
+if (checkATMuser(sender) < jumblah) return reply2('𝐍𝐨 𝐭𝐢𝐞𝐧𝐞𝐬 𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞 𝐝𝐢𝐧𝐞𝐫𝐨 𝐩𝐚𝐫𝐚 𝐫𝐞𝐚𝐥𝐢𝐳𝐚𝐫 𝐥𝐚 𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚')
 const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
 fee = 0.005 *  jumblah
 hasiltf = jumblah - fee
