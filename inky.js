@@ -517,32 +517,14 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-inky.sendMessage(from, {
-text: "Git del creador:\nhttps://github.com/ThisIsInky",
-matchedText: 'https://github.com/ThisIsInky/ReiBot',
-description: "",
-title: "Click Aqui",
-jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
-}, 'extendedTextMessage', {quoted: mek, sendEphemeral: true})
-break
-
-/*
-"text": "Git del creador:\nhttps://github.com/ThisIsInky",
-"matchedText": "https://github.com/ThisIsInky",
-"canonicalUrl": "https://github.com/ThisIsInky",
-"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-"title": "ThisIsInky - Overview",
+var options = {
+"text": "test",
+"matchedText": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
+"description": "Invitación a grupo de WhatsApp",
+"title": "𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-*/
-case 'test2':
-inky.sendMessage(from, {
-"text": `${q}`,
-"matchedText": "https://github.com/ThisIsInky",
-"canonicalUrl": "https://github.com/ThisIsInky",
-"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-"title": "ThisIsInky - Overview",
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-}, 'extendedTextMessage', {quoted: mek, sendEphemeral: true})
+}
+inky.sendMessage(from, options, extendedText, {sendEphemeral: true})
 break
 
 case 'crear':
