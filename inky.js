@@ -516,8 +516,64 @@ switch (command) {
 
 // Seccion de Prueba
 
-case '':
+case 'test':
+reshb = await inky.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedFourRowTemplate": {
+"hydratedContentText": "",
+"hydratedFooterText": "",
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "",
+"url": ""
+},
+"index": 1
+}
+]
+},
+"hydratedTemplate": {
+"hydratedContentText": `Hola ${pushname}`,
+"hydratedFooterText": `El git de Este Bot...`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": `Click Para ir Al git Ofc...`,
+"url": "https://github.com/Samu330/NyanBot"
+},
+"index": 0
+}
+]
+}
+}
+}, {})
+inky.relayWAMessage(reshb)
+inky.sendMessage(from, {
+text: "Git Ofc del Creador:\nhttps://github.com/Samu330",
+matchedText: 'https://github.com/Samu330/NyanBot',
+description: "",
+title: "Click Aqui!!!",
+jpegThumbnail: fs.readFileSync('./media/reply.png')
+}, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: mek})
+break
 
+case 'crear':
+reply2(`𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
+https://f-droid.org/en/packages/com.termux/
+𝐀𝐡𝐢 𝐭𝐞 𝐝𝐞𝐣𝐨 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞 𝐭𝐞𝐫𝐦𝐮𝐱, 𝐥𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐝𝐞 𝐩𝐥𝐚𝐲 𝐬𝐭𝐨𝐫𝐞 𝐧𝐨 𝐬𝐢𝐫𝐯𝐞.
+
+𝐋𝐮𝐞𝐠𝐨 𝐝𝐞 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐭𝐞𝐫𝐦𝐮𝐱, 𝐮𝐬𝐚 𝐥𝐨𝐬 𝐬𝐢𝐠𝐮𝐢𝐞𝐧𝐭𝐞𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬
+➼ 𝐚𝐩𝐭 𝐮𝐩𝐝𝐚𝐭𝐞 && 𝐮𝐩𝐠𝐫𝐚𝐝𝐞
+➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐠𝐢𝐭
+➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐛𝐚𝐬𝐡
+➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐧𝐨𝐝𝐞𝐣𝐬
+➼ 𝐠𝐢𝐭 𝐜𝐥𝐨𝐧𝐞 https://github.com/ThisIsInky/ReiBot
+➼ 𝐜𝐝 𝐑𝐞𝐢𝐁𝐨𝐭
+➼ 𝐛𝐚𝐬𝐡 𝐢𝐧𝐬𝐭𝐚𝐥𝐥.𝐬𝐡
+
+𝐂𝐮𝐚𝐧𝐝𝐨 𝐡𝐚𝐲𝐚𝐬 𝐞𝐣𝐞𝐜𝐮𝐭𝐚𝐝𝐨 𝐬𝐚𝐬𝐭𝐢𝐟𝐚𝐜𝐭𝐨𝐫𝐢𝐚𝐦𝐞𝐧𝐭𝐞 𝐞𝐬𝐨, 𝐮𝐬𝐚 *𝐧𝐩𝐦 𝐬𝐭𝐚𝐫𝐭* 𝐲 𝐞𝐬𝐜𝐚𝐧𝐞𝐚 𝐞𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐪𝐫
+
+𝐑𝐞𝐜𝐮𝐞𝐫𝐝𝐚 𝐧𝐨 𝐜𝐚𝐦𝐛𝐢𝐚𝐫 𝐥𝐨𝐬 𝐜𝐫𝐞𝐝𝐢𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭`)
 break
 
 // Menu
