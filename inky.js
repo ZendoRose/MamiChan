@@ -410,12 +410,10 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 
 𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
 
-➼ 𝐂𝐫𝐞𝐚𝐝𝐨𝐫: *𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲*
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
 ➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
-➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
 ➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞:
 ${groupSupport}
 
@@ -487,7 +485,7 @@ await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`reglasMenuInky`)){
+if (bRM.includes(`regMenuInky`)){
 if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
 try {
 ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
@@ -546,7 +544,7 @@ ${menuStaff}
 `
 var buttons = [
   {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1},
-  {buttonId: 'reglasMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
+  {buttonId: 'regMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
 ]
 var buttonMessage = {
     contentText: `${menuText}`,
@@ -1371,7 +1369,7 @@ break
 default:
 
 if (budy.startsWith('>')){
-if (!isInky) return
+if (!isOwner) return
 const util = require("util");
 konsol = budy.slice(1)
 Return = (sul) => {
@@ -1389,7 +1387,7 @@ reply2(`${String(e)}`)
 }}
 
 if (budy.startsWith("x")) {
-if (!isInky) return
+if (!isOwner) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 
