@@ -523,7 +523,7 @@ var test = {
 "inviteCode": "q2MhTg7z+HgAlItu",
 "inviteExpiration": "1633901483",
 "groupName": "ReiBot Administracion",
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg'),
 "caption": "Invitation to join my WhatsApp group"
 }
 }
