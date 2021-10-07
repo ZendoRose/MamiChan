@@ -549,11 +549,11 @@ reshb = await inky.prepareMessageFromContent(from,{
 }, {})
 inky.relayWAMessage(reshb)
 inky.sendMessage(from, {
-text: "Git Ofc del Creador:\nhttps://github.com/Samu330",
+text: "Git Ofc del Creador:\nhttps://github.com/ThisIsInky",
 matchedText: 'https://github.com/Samu330/NyanBot',
 description: "",
 title: "Click Aqui!!!",
-jpegThumbnail: fs.readFileSync('./media/reply.png')
+jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
 }, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: mek})
 break
 
