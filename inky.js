@@ -1368,29 +1368,6 @@ break
 
 default:
 
-if (budy.startsWith('>')){
-if (!isOwner) return
-const util = require("util");
-konsol = budy.slice(1)
-Return = (sul) => {
-sat = JSON.stringify(sul, null, 2)
-bang = util.format(sat)
-if (sat == undefined){
-bang = util.format(sul)
-}
-return reply2(bang)
-}
-try {
-reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
-} catch(e){
-reply2(`${String(e)}`)
-}}
-
-if (budy.startsWith("x")) {
-if (!isOwner) return
-return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
-}
-
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
