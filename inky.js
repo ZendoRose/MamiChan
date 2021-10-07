@@ -518,13 +518,13 @@ switch (command) {
 
 case 'test':
 var test = {
-"groupInviteMessage": {
-"groupJid": "595995660558-1632350481@g.us",
-"inviteCode": "q2MhTg7z+HgAlItu",
-"inviteExpiration": "1633901483",
-"groupName": "ReiBot Administracion",
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg'),
-"caption": "Invitation to join my WhatsApp group"
+"extendedTextMessage": {
+"text": "test",
+"matchedText": "https://github.com/ThisIsInky",
+"canonicalUrl": "https://github.com/ThisIsInky",
+"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+"title": "ThisIsInky - Overview",
+"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
 }
 }
 var test1 = inky.prepareMessageFromContent(from, test, {quoted: mek, sendEphemeral: true})
