@@ -526,6 +526,25 @@ jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
 }, 'extendedTextMessage', {quoted: mek, sendEphemeral: true})
 break
 
+/*
+"text": "Git del creador:\nhttps://github.com/ThisIsInky",
+"matchedText": "https://github.com/ThisIsInky",
+"canonicalUrl": "https://github.com/ThisIsInky",
+"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+"title": "ThisIsInky - Overview",
+"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+*/
+case 'test2':
+inky.sendMessage(from, {
+"text": `${q}`,
+"matchedText": "https://github.com/ThisIsInky",
+"canonicalUrl": "https://github.com/ThisIsInky",
+"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+"title": "ThisIsInky - Overview",
+"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+}, 'extendedTextMessage', {quoted: mek, sendEphemeral: true})
+break
+
 case 'crear':
 reply2(`𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
 https://f-droid.org/en/packages/com.termux/
