@@ -517,14 +517,18 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-var options = {
-"text": "test",
-"matchedText": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
-"description": "Invitación a grupo de WhatsApp",
-"title": "𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈",
+var test = {
+"groupInviteMessage": {
+"groupJid": "595995660558-1632350481@g.us",
+"inviteCode": "q2MhTg7z+HgAlItu",
+"inviteExpiration": "1633901483",
+"groupName": "ReiBot Administracion",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+"caption": "Invitation to join my WhatsApp group"
 }
-inky.sendMessage(from, options, extendedText, {sendEphemeral: true})
+}
+var test1 = inky.prepareMessageFromContent(from, test, {quoted: mek, sendEphemeral: true})
+inky.relayWAMessage(test1)
 break
 
 case 'crear':
