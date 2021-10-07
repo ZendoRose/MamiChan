@@ -517,44 +517,13 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-reshb = await inky.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedFourRowTemplate": {
-"hydratedContentText": "",
-"hydratedFooterText": "",
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "",
-"url": ""
-},
-"index": 1
-}
-]
-},
-"hydratedTemplate": {
-"hydratedContentText": `Hola ${pushname}`,
-"hydratedFooterText": `El git de Este Bot...`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": `Click Para ir Al git Ofc...`,
-"url": "https://github.com/Samu330/NyanBot"
-},
-"index": 0
-}
-]
-}
-}
-}, {})
-inky.relayWAMessage(reshb)
 inky.sendMessage(from, {
-text: "Git Ofc del Creador:\nhttps://github.com/ThisIsInky",
-matchedText: 'https://github.com/Samu330/NyanBot',
+text: "Git del creador:\nhttps://github.com/ThisIsInky",
+matchedText: 'https://github.com/ThisIsInky/ReiBot',
 description: "",
-title: "Click Aqui!!!",
+title: "Click Aqui",
 jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
-}, 'extendedTextMessage', { detectLinks: false, contextInfo: { forwardingScore: 508, isForwarded: true}, quoted: mek})
+}, 'extendedTextMessage', {quoted: mek, sendEphemeral: true})
 break
 
 case 'crear':
