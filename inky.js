@@ -520,11 +520,10 @@ switch (command) {
 
 case 'test':
 const test =  {
-'text': 'https://github.com',
-'matchedText': "https://github.com/ThisIsInky",
-'canonicalUrl': "https://github.com/ThisIsInky",
-'description': "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-'title': "ThisIsInky - Overview",
+'text': 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R',
+'matchedText': 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R',
+'description': '𝐏𝐮𝐥𝐬𝐚 𝐚𝐪𝐮𝐢 𝐩𝐚𝐫𝐚 𝐢𝐫 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨 𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈',
+'title': '𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈',
 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 }
 inky.sendMessage(from, test, MessageType.extendedText, {detectLinks: false})
