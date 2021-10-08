@@ -517,15 +517,16 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-var test = {
+var test = await inky.prepareMessageFromContent(from, {
+"extendedTextMessage": {
 "text": "test",
 "matchedText": "https://github.com/ThisIsInky",
 "canonicalUrl": "https://github.com/ThisIsInky",
 "description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
 "title": "ThisIsInky - Overview",
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-}
-inky.sendMessage(from, test, MessageType.extendedText)
+"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')}
+}, {})
+inky.relayWAMessage(test)
 break
 
 case 'crear':
