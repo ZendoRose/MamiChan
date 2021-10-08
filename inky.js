@@ -334,9 +334,8 @@ message: {
 "title": "ThisIsInky - Overview",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
 }
-},
-sendEphemeral: true
-})
+}
+}})
 }
 // 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 const reply2 = (teks) => {
