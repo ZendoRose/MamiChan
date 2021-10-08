@@ -323,23 +323,6 @@ sendEphemeral: true
 })
 }
 
-const test = async(teks) => {
-await inky.sendMessage(from, teks, MessageType.text, { quoted: { key: {
-fromMe: false
-},
-message: {
-"extendedTextMessage": {
-"text": "https://github.com/ThisIsInky",
-"matchedText": "https://github.com/ThisIsInky",
-"canonicalUrl": "https://github.com/ThisIsInky",
-"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-"title": "ThisIsInky - Overview",
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-}
-}
-}})
-}
-// 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 const reply2 = (teks) => {
 inky.sendMessage(from, teks, text, {quoted: mek, sendEphemeral: true})
 }
@@ -533,8 +516,19 @@ switch (command) {
 
 // Seccion de Prueba
 
+// "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+
 case 'test':
-test('test')
+const test =  {
+    "text": "https://github.com/ThisIsInky",
+    "matchedText": "https://github.com/ThisIsInky",
+    "canonicalUrl": "https://github.com/ThisIsInky",
+    "description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+    "title": "ThisIsInky - Overview",
+    "previewType": "NONE",
+    "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+}
+inky.sendMessage(from, test, MessageType.extendedText)
 break
 
 case 'crear':
