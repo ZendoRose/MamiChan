@@ -518,14 +518,12 @@ switch (command) {
 
 case 'test':
 var test = {
-"extendedTextMessage": {
 "text": "test",
 "matchedText": "https://github.com/ThisIsInky",
 "canonicalUrl": "https://github.com/ThisIsInky",
 "description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
 "title": "ThisIsInky - Overview",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-}
 }
 inky.sendMessage(from, test, MessageType.extendedText)
 break
