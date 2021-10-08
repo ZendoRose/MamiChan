@@ -518,12 +518,14 @@ switch (command) {
 
 case 'test':
 var test = {
+"extendedTextMessage": {
 "text": "test",
-"matchedText": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
-"description": "Invitación a grupo de WhatsApp",
-"title": "𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈",
-"previewType": "NONE",
+"matchedText": "https://github.com/ThisIsInky",
+"canonicalUrl": "https://github.com/ThisIsInky",
+"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+"title": "ThisIsInky - Overview",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+}
 }
 inky.sendMessage(from, test, MessageType.extendedText)
 break
