@@ -520,7 +520,7 @@ switch (command) {
 
 case 'test':
 const test =  {
-'caption': "https://github.com/ThisIsInky",
+'text': "https://github.com/ThisIsInky",
 'matchedText': "https://github.com/ThisIsInky",
 'canonicalUrl': "https://github.com/ThisIsInky",
 'description': "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
