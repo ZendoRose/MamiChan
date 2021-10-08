@@ -518,17 +518,14 @@ switch (command) {
 
 case 'test':
 var test = {
-"extendedTextMessage": {
-"text": "test",
-"matchedText": "https://github.com/ThisIsInky",
-"canonicalUrl": "https://github.com/ThisIsInky",
-"description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-"title": "ThisIsInky - Overview",
+"text": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
+"matchedText": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
+"description": "Invitación a grupo de WhatsApp",
+"title": "𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈",
+"previewType": "NONE",
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
 }
-}
-var test1 = inky.prepareMessageFromContent(from, test, {quoted: mek, sendEphemeral: true})
-inky.relayWAMessage(test1)
+inky.sendMessage(from, test, MessageType.extendedText)
 break
 
 case 'crear':
