@@ -518,7 +518,7 @@ switch (command) {
 
 case 'test':
 var test = {
-"text": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
+"text": "test",
 "matchedText": "https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R",
 "description": "Invitación a grupo de WhatsApp",
 "title": "𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈",
