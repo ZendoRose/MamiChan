@@ -324,7 +324,9 @@ sendEphemeral: true
 }
 
 const test = async(teks) => {
-await inky.sendMessage(from, teks, MessageType.text, { quoted: { 
+await inky.sendMessage(from, teks, MessageType.text, { quoted: { key: {
+fromMe: false
+},
 message: {
 "extendedTextMessage": {
 "text": "https://github.com/ThisIsInky",
