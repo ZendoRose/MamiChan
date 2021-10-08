@@ -520,15 +520,14 @@ switch (command) {
 
 case 'test':
 const test =  {
-    "text": "https://github.com/ThisIsInky",
-    "matchedText": "https://github.com/ThisIsInky",
-    "canonicalUrl": "https://github.com/ThisIsInky",
-    "description": "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
-    "title": "ThisIsInky - Overview",
-    "previewType": "NONE",
-    "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+'caption': "https://github.com/ThisIsInky",
+'matchedText': "https://github.com/ThisIsInky",
+'canonicalUrl': "https://github.com/ThisIsInky",
+'description': "ThisIsInky has 2 repositories available. Follow their code on GitHub.",
+'title': "ThisIsInky - Overview",
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 }
-inky.sendMessage(from, test, MessageType.extendedText)
+inky.sendMessage(from, test, MessageType.extendedText, {detectLinks: false})
 break
 
 case 'crear':
