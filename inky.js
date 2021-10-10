@@ -792,23 +792,23 @@ break
 
 // Seccion Economia
 
+case 'balance':
 case 'bal':
-if (!isUser) return reply(mess.only.reg)
-textoBalance = `➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
+if (!isUser) return reply2(mess.only.reg)
+reply2(`➫ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞
 ➼ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨: ${pushname}
-➼ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞: $${userBal}`
-inky.sendMessage(from, textoBalance, text, {quoted: mek, sendEphemeral: true})
+➼ 𝐁𝐚𝐥𝐚𝐧𝐜𝐞: $${userBal}`)
 break
 
 case 'transfer':
 case 'transferir':
 if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
-const tujuan = q.substring(0, q.indexOf('|') - 1)
-const jumblah = q.substring(q.lastIndexOf('|') + 1)
+var tujuan = q.substring(0, q.indexOf('|') - 1)
+var jumblah = q.substring(q.lastIndexOf('|') + 1)
 if(isNaN(jumblah)) return await reply2('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
 if (jumblah < 100 ) return reply2('𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚 𝐦𝐢𝐧𝐢𝐦𝐚 𝐝𝐞 $𝟏𝟎𝟎')
 if (checkATMuser(sender) < jumblah) return reply2('𝐍𝐨 𝐭𝐢𝐞𝐧𝐞𝐬 𝐬𝐮𝐟𝐢𝐜𝐢𝐞𝐧𝐭𝐞 𝐝𝐢𝐧𝐞𝐫𝐨 𝐩𝐚𝐫𝐚 𝐫𝐞𝐚𝐥𝐢𝐳𝐚𝐫 𝐥𝐚 𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫𝐞𝐧𝐜𝐢𝐚')
-const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
+var tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
 fee = 0.005 *  jumblah
 hasiltf = jumblah - fee
 addKoinUser(tujuantf, hasiltf)
@@ -1321,6 +1321,16 @@ var numero = rp.split("|")[0];
 var texto = rp.split("|")[1];
 inky.sendMessage(numero+'@s.whatsapp.net', texto, text, {quoted: replyFakeStatus, sendEphemeral: true})
 reply(`𝐒𝐮 𝐦𝐞𝐧𝐬𝐚𝐣𝐞\𝐧${texto}\n𝐇𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞 𝐚 ${numero}`)
+break
+
+case 'addbal':
+if (!isOwner) return reply2(mess.only.owner)
+if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
+var tujuan = q.substring(0, q.indexOf('|') - 1)
+var jumblah = q.substring(q.lastIndexOf('|') + 1)
+if(isNaN(jumblah)) return await reply2('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
+var tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
+addKoinUser(tujuantf, jumblah)
 break
 
 case 'public':
