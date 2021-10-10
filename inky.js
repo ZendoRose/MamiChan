@@ -802,6 +802,7 @@ break
 
 case 'transfer':
 case 'transferir':
+if (!isUser) return reply2(mess.only.reg)
 if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
 var tujuan = q.substring(0, q.indexOf('|') - 1)
 var jumblah = q.substring(q.lastIndexOf('|') + 1)
@@ -866,7 +867,8 @@ if (pn < 100) return reply2(`╭─╼┥${botName}┝╾─╮
 ╿ └──────────┘ ╿
 ╰──┥𝐂𝐀𝐒𝐒𝐈𝐍𝐎┠──╯
 
-𝐍𝐨 𝐡𝐚𝐬 𝐥𝐨𝐠𝐫𝐚𝐝𝐨 𝐚𝐥𝐢𝐧𝐞𝐚𝐫𝐥𝐨𝐬, 𝐬𝐮𝐞𝐫𝐭𝐞 𝐩𝐚𝐫𝐚 𝐥𝐚 𝐩𝐫𝐨𝐱𝐢𝐦𝐚 :𝐃`)
+𝐍𝐨 𝐡𝐚𝐬 𝐥𝐨𝐠𝐫𝐚𝐝𝐨 𝐚𝐥𝐢𝐧𝐞𝐚𝐫𝐥𝐨𝐬
+𝐬𝐮𝐞𝐫𝐭𝐞 𝐩𝐚𝐫𝐚 𝐥𝐚 𝐩𝐫𝐨𝐱𝐢𝐦𝐚 :𝐃`)
 inky.sendMessage(from, `╭─╼┥${botName}┝╾─╮
 ╽ ┌──────────┐ ┃
         🍋 : 🍌 : 🍍
@@ -1324,13 +1326,15 @@ reply(`𝐒𝐮 𝐦𝐞𝐧𝐬𝐚𝐣𝐞\𝐧${texto}\n𝐇𝐚 𝐬𝐢𝐝
 break
 
 case 'addbal':
-if (!isOwner) return reply2(mess.only.owner)
+if (!isOwner) return await reply(mess.only.owner)
 if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
 var tujuan = q.substring(0, q.indexOf('|') - 1)
 var jumblah = q.substring(q.lastIndexOf('|') + 1)
 if(isNaN(jumblah)) return await reply2('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
 var tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
-addKoinUser(tujuantf, jumblah)
+hasiltf = jumblah
+addKoinUser(tujuantf, hasiltf)
+reply2(`ha sido agregado a ${tujuan} el monto de $${jumblah}`)
 break
 
 case 'public':
