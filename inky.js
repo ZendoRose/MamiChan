@@ -1422,15 +1422,14 @@ default:
 
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 if (budy.includes('Teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 if (budy.includes('TETA')){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, none, sticker, {quoted: mek, sendEphemeral: true})
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 
 }
