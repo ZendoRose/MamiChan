@@ -1335,16 +1335,9 @@ inky.sendMessage(numero+'@s.whatsapp.net', texto, text, {quoted: replyFakeStatus
 reply(`𝐒𝐮 𝐦𝐞𝐧𝐬𝐚𝐣𝐞\𝐧${texto}\n𝐇𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞 𝐚 ${numero}`)
 break
 
-case 'addbal':
-if (!isOwner) return await reply(mess.only.owner)
-if (!q.includes('|')) return  reply2(`𝐔𝐬𝐚 ${prefix + command} @ | <𝐦𝐨𝐧𝐭𝐨>`)
-var tujuan = q.substring(0, q.indexOf('|') - 1)
-var jumblah = q.substring(q.lastIndexOf('|') + 1)
-if(isNaN(jumblah)) return await reply2('𝐥𝐚 𝐜𝐚𝐧𝐭𝐢𝐝𝐚𝐝 𝐝𝐞𝐛𝐞 𝐬𝐞𝐫 𝐮𝐧 𝐧𝐮𝐦𝐞𝐫𝐨')
-var tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
-hasiltf = jumblah
-addKoinUser(tujuantf, hasiltf)
-reply2(`ha sido agregado a ${tujuan} el monto de $${jumblah}`)
+case 'off':
+setTimeout( () => { inky.close() }, 3000)
+reply2(`𝐀𝐩𝐚𝐠𝐚𝐧𝐝𝐨 ${botName}`)
 break
 
 case 'public':
