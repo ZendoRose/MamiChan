@@ -740,7 +740,7 @@ teks = `𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚�
 no = 0
 for (let admon of groupAdmins) {
 no += 1
-teks += `[${no.toString()}] @${admon.split('@')[0]}\n`
+teks += `➼ @${admon.split('@')[0]}\n`
 }
 mentions(teks, groupAdmins, true)
 break
