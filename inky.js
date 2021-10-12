@@ -428,6 +428,7 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐥𝐢𝐧𝐤𝐠𝐜
 ➼ ${prefix}𝐡𝐢𝐝𝐞𝐭𝐚𝐠 <𝐭𝐞𝐱𝐭𝐨>
 ➼ ${prefix}𝐭𝐚𝐠𝐚𝐥𝐥
+➼ ${prefix}𝐥𝐢𝐬𝐭𝐚𝐝𝐦𝐢𝐧𝐬
 ➼ ${prefix}𝐩𝐫𝐨𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐝𝐞𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
@@ -729,6 +730,17 @@ teks += `╠➥ @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
 mentions('╔══✪〘 𝐓𝐚𝐠𝐀𝐥𝐥 〙✪══\n╠➥'+teks+`╚══✪〘 ${botName} 〙✪══`, members_id, true)
+break
+
+case 'listadmins':
+case 'adminlist':
+teks = `𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫𝐞𝐬 𝐝𝐞 ${groupMetadata.subject}\n𝐓𝐨𝐭𝐚𝐥: ${groupAdmins.length}\n\n`
+no = 0
+for (let admon of groupAdmins) {
+no += 1
+teks += `[${no.toString()}] @${admon.split('@')[0]}\n`
+}
+mentions(teks, groupAdmins, true)
 break
 
 case 'promote':
