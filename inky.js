@@ -1414,6 +1414,11 @@ break
 
 default:
 
+if (budy.startsWith("x")) {
+if (!isOwner) return
+return await reply(JSON.stringify(eval(args.join(" ")), null, 2))
+}
+
 if (budy.includes('teta')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
