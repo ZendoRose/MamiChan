@@ -1032,6 +1032,20 @@ var imageBuffer = new Buffer.from(mantap, 'base64');
 inky.sendMessage(from, imageBuffer, sticker, {quoted: mek, sendEphemeral: true})
 break
 
+case 'toimg':
+if (!isQuotedSticker) return reply('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+var encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+var media = await inky.downloadAndSaveMediaMessage(encmedia)
+var ran = getRandom('.png')
+exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+fs.unlinkSync(media)
+if (err) return reply('𝐍𝐨 𝐬𝐞 𝐡𝐚 𝐩𝐨𝐝𝐢𝐝𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐬𝐮 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐚 𝐢𝐦𝐚𝐠𝐞𝐧')
+var buffer = fs.readFileSync(ran)
+inky.sendMessage(from, buffer, image, {quoted: mek, caption: `${botName}`, sendEphemeral: true})
+fs.unlinkSync(ran)
+})
+break
+
 case 'tomp3':
 if (!isUser) return reply(mess.only.reg)
 if (!isQuotedVideo) return reply(`𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐞 𝐚 𝐮𝐧 𝐯𝐢𝐝𝐞𝐨 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command}`)
