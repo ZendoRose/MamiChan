@@ -517,19 +517,6 @@ switch (command) {
 
 // Seccion de Prueba
 
-// "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
-
-case 'test':
-const test =  {
-'text': 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R',
-'matchedText': 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R',
-'description': '𝐏𝐮𝐥𝐬𝐚 𝐚𝐪𝐮𝐢 𝐩𝐚𝐫𝐚 𝐢𝐫 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨 𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈',
-'title': '𝐑𝐞𝐢𝐁𝐨𝐭 ⟆𝖮ᕈᗝᖇ𝜏∈',
-'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
-}
-inky.sendMessage(from, test, MessageType.extendedText, {detectLinks: false})
-break
-
 case 'crear':
 reply2(`𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
 https://f-droid.org/en/packages/com.termux/
@@ -540,7 +527,7 @@ https://f-droid.org/en/packages/com.termux/
 ➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐠𝐢𝐭
 ➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐛𝐚𝐬𝐡
 ➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐧𝐨𝐝𝐞𝐣𝐬
-➼ 𝐠𝐢𝐭 𝐜𝐥𝐨𝐧𝐞 https://github.com/ThisIsInky/ReiBot
+➼ 𝐠𝐢𝐭 𝐜𝐥𝐨𝐧𝐞 https://github.com/ThisIsInky/MamiChan
 ➼ 𝐜𝐝 𝐑𝐞𝐢𝐁𝐨𝐭
 ➼ 𝐛𝐚𝐬𝐡 𝐢𝐧𝐬𝐭𝐚𝐥𝐥.𝐬𝐡
 
