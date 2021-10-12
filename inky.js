@@ -734,6 +734,8 @@ break
 
 case 'listadmins':
 case 'adminlist':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
 teks = `𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫𝐞𝐬 𝐝𝐞 ${groupMetadata.subject}\n𝐓𝐨𝐭𝐚𝐥: ${groupAdmins.length}\n\n`
 no = 0
 for (let admon of groupAdmins) {
