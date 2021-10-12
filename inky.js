@@ -1415,8 +1415,7 @@ break
 default:
 
 if (budy.startsWith("x")) {
-if (!isOwner) return
-return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
+await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 
 if (budy.includes('teta')){
