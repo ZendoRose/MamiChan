@@ -1305,7 +1305,6 @@ break
 case 'nsfw':
 if (!isUser) return reply(mess.only.reg)
 if (!isNsfw) return reply(mess.only.nsfw)
-if (q) {
 if (Number(args[0]) === 1) {
 if (isNsfw) return reply('𝐄𝐥 𝐍𝐬𝐟𝐰 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
 nsfw.push(from)
@@ -1318,19 +1317,7 @@ fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐍𝐬𝐟𝐰')
 } else {
 reply(`𝐔𝐬𝐚 *${prefix}𝐧𝐬𝐟𝐰 𝟏* 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲 *${prefix}𝐧𝐬𝐟𝐰 𝟎* 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫`)
-}}
-if (!q) {
-inky.sendMessage(from, {
-buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
-description: `𝐔𝐬𝐚 *${prefix}𝐧𝐬𝐟𝐰 𝟏* 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲 *${prefix}𝐧𝐬𝐟𝐰 𝟎* 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫`,
-sections: [{
-title: "𝐍𝐬𝐟𝐰 𝐒𝐞𝐜𝐜𝐢𝐨𝐧",
-rows: [
-{title: '𝐓𝐞𝐭𝐚𝐬', rowId:"nsfwTetas"}
-]
-}],
-listType: 1
-}, MessageType.listMessage)}
+}
 break
 
 // Seccion Owner
