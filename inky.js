@@ -197,7 +197,7 @@ const isOwner = senderNumber == owner || senderNumber == botNumber || mods.inclu
 const isUser = user.includes(sender)
 const isAntiLink = isGroup ? antilink.includes(from) : false
 const isWelcome = isGroup ? welcome.includes(from) : false
-const isNsfw = isGroup ? nsfw.incluides(from) : false
+const isNsfw = isGroup ? nsfw.includes(from) : false
 const conts = mek.key.fromMe ? inky.user.jid : inky.contacts[sender] || { notify: jid.replace(/@.+/, '') }
 const pushname = mek.key.fromMe ? inky.user.name : conts.notify || conts.vname || conts.name || '-'
 const groupMembers = isGroup ? groupMetadata.participants : ''
