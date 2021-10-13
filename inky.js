@@ -1312,7 +1312,6 @@ rows: [
 }],
 listType: 1
 }, MessageType.listMessage)
-if (!q) return nsfwMenu
 if (Number(args[0]) === 1) {
 if (isNsfw) return reply('𝐄𝐥 𝐍𝐬𝐟𝐰 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
 nsfw.push(from)
