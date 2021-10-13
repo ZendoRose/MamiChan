@@ -24,6 +24,7 @@ const yts = require('yt-search');
 const _limit = JSON.parse(fs.readFileSync('./database/limit.json'));
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
+const nsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'));
 const stickerjson = JSON.parse(fs.readFileSync('./database/sticker.json'));
 const user = JSON.parse(fs.readFileSync('./database/user.json'));
 const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
@@ -34,6 +35,7 @@ const config = JSON.parse(fs.readFileSync("./lib/config.json"));
 const {
 addMetadata,
 convertSticker,
+fetchJson,
 getBuffer,
 getGroupAdmins,
 getJson,
@@ -195,6 +197,7 @@ const isOwner = senderNumber == owner || senderNumber == botNumber || mods.inclu
 const isUser = user.includes(sender)
 const isAntiLink = isGroup ? antilink.includes(from) : false
 const isWelcome = isGroup ? welcome.includes(from) : false
+const isNsfw = isGroup ? nsfw.incluides(from) : false
 const conts = mek.key.fromMe ? inky.user.jid : inky.contacts[sender] || { notify: jid.replace(/@.+/, '') }
 const pushname = mek.key.fromMe ? inky.user.name : conts.notify || conts.vname || conts.name || '-'
 const groupMembers = isGroup ? groupMetadata.participants : ''
@@ -457,6 +460,9 @@ const menuOtros = `➫ 𝐎𝐭𝐫𝐨𝐬:
 ➼ ${prefix}𝐢𝐭𝐬𝐦𝐞
 ➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
 ➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭 <𝐭𝐞𝐱𝐭𝐨>`
+const menuNsfw = `➫ 𝐍𝐬𝐟𝐰:
+➼ ${prefix}𝐍𝐬𝐟𝐰
+➼ ${prefix}𝐍𝐬𝐟𝐰 (𝟎/𝟏)`
 const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 ➼ ${prefix}𝐟𝐢𝐱
 ➼ ${prefix}𝐛𝐜 <𝐭𝐞𝐱𝐭𝐨>
@@ -470,7 +476,18 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(``)){
+if (lRM.includes(`nsfwTetas`)){
+try {
+if (!isUser) return reply(mess.only.user)
+if (!isNsfw) return reply(mess.only.nsfw)
+var res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
+var buffer = await getBuffer(res.url)
+inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption: `${botName}`})
+} catch (e) {
+console.log(e)
+reply('𝐒𝐞 𝐩𝐫𝐨𝐝𝐮𝐣𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫')
+inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
+}
 }
 }
 
@@ -1281,6 +1298,35 @@ hasil = `${teks1}͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏�
 inky.sendMessage(from, hasil, text, {
 quoted: mek
 })
+break
+
+// Seccion Nsfw
+
+case 'nsfw':
+if (!isUser) return reply(mess.only.reg)
+if (!isNsfw) return reply(mess.only.nsfw)
+if (Number(args[0]) === 1) {
+if (isNsfw) return reply('𝐄𝐥 𝐍𝐬𝐟𝐰 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
+nsfw.push(from)
+fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
+reply('𝐒𝐞 𝐡𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐍𝐬𝐟𝐰')
+} else if (Number(args[0]) === 0) {
+if (!isNsfw) return reply('𝐄𝐥 𝐍𝐬𝐟𝐰 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨')
+nsfw.splice(from)
+fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
+reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐍𝐬𝐟𝐰')
+} else {
+inky.sendMessage(from, {
+buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
+description: `𝐔𝐬𝐚 *${prefix}𝐧𝐬𝐟𝐰 𝟏* 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲 *${prefix}𝐧𝐬𝐟𝐰 𝟎* 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫`,
+sections: [{
+title: "𝐍𝐬𝐟𝐰 𝐒𝐞𝐜𝐜𝐢𝐨𝐧",
+rows: [
+{title: '𝐓𝐞𝐭𝐚𝐬', rowId:"nsfwTetas"}
+]
+}],
+listType: 1
+}, MessageType.listMessage)
 break
 
 // Seccion Owner
