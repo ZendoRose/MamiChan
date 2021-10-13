@@ -1327,6 +1327,7 @@ rows: [
 }],
 listType: 1
 }, MessageType.listMessage)
+}
 break
 
 // Seccion Owner
