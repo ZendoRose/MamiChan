@@ -1306,7 +1306,18 @@ case 'nsfw':
 if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
-if (!q) return reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
+var nsfwMenu = inky.sendMessage(from, {
+buttonText: 'Click Me!',
+description: "Hello it's list message",
+sections: [{
+title: "Section 1",
+rows: [
+{title: 'Row 1', rowId:"nsfwTetas"}
+]
+}],
+listType: 1
+}, MessageType.listMessage)
+if (!q) return nsfwMenu
 if (Number(args[0]) === 1) {
 if (isNsfw) return reply('𝐄𝐥 𝐍𝐬𝐟𝐰 𝐲𝐚 𝐞𝐬𝐭𝐚𝐛𝐚 𝐚𝐜𝐭𝐢𝐯𝐨')
 nsfw.push(from)
@@ -1318,7 +1329,7 @@ nsfw.splice(from)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐍𝐬𝐟𝐰')
 } else {
-reply(`𝐔𝐬𝐞 ${prefix + command} 𝟏 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐲/𝐨 ${prefix + command} 𝟎 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨`)
+nsfwMenu
 }
 break
 
