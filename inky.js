@@ -476,18 +476,12 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes(`nsfwTetas`)){
-try {
+if (lRM.includes('nsfw')){
 if (!isUser) return reply(mess.only.user)
 if (!isNsfw) return reply(mess.only.nsfw)
 var res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
 var buffer = await getBuffer(res.url)
 inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption: `${botName}`})
-} catch (e) {
-console.log(e)
-reply('𝐒𝐞 𝐩𝐫𝐨𝐝𝐮𝐣𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫')
-inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
-}
 }
 }
 
@@ -1312,7 +1306,7 @@ description: "Hello it's list message",
 sections: [{
 title: "Section 1",
 rows: [
-{title: 'Row 1', rowId:"nsfwTetas"}
+{title: 'Row 1', rowId:"nsfw"}
 ]
 }],
 listType: 1
