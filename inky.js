@@ -477,11 +477,7 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
 if (lRM.includes('nsfw')){
-if (!isUser) return reply(mess.only.user)
-if (!isNsfw) return reply(mess.only.nsfw)
-var res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
-var buffer = await getBuffer(res.url)
-inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption: `${botName}`})
+reply2('test')
 }
 }
 
