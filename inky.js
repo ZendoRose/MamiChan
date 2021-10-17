@@ -1,7 +1,3 @@
-/*
-Si vas a editar el bot no sacar los creditos del creador
-by ThisIsInky
-*/
 const {
 WAConnection,
 MessageType,
@@ -1319,12 +1315,16 @@ fs.writeFileSync('./database/nsfw.json', JSON.stringify(nsfw))
 reply('𝐒𝐞 𝐡𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐥 𝐍𝐬𝐟𝐰')
 } else {
 inky.sendMessage(from, {
-buttonText: 'Click Me!',
-description: "Hello it's list message",
+buttonText: '𝐂𝐥𝐢𝐜𝐤 𝐀𝐪𝐮𝐢❗',
+description: `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚𝐥 𝐦𝐞𝐧𝐮 +𝟏𝟖 𝐝𝐞 ${botName}
+
+𝐔𝐬𝐚 *${prefix}𝐧𝐬𝐟𝐰 𝟏* 𝐩𝐚𝐫𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫 𝐨 *${prefix}𝐧𝐬𝐟𝐰 𝟎* 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨
+
+𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚𝐥𝐨 𝐠𝐨𝐫𝐝@ 𝐩𝐮𝐭@ :𝐃`,
 sections: [{
-title: "Section 1",
+title: '𝐍𝐬𝐟𝐰 𝐒𝐞𝐜𝐜𝐢𝐨𝐧',
 rows: [
-{title: 'Row 1', rowId:"nsfw"}
+{title: '𝐓𝐞𝐭𝐚𝐬 ♡', rowId:"nsfwTetas"}
 ]
 }],
 listType: 1
