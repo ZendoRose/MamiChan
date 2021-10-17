@@ -473,7 +473,7 @@ const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes('nsfw')){
+if (lRM.includes('nsfwTetas')){
 if (!isUser) return reply(mess.only.user)
 if (!isNsfw) return reply(mess.only.nsfw)
 var res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
@@ -570,6 +570,8 @@ ${menuConvertidor}
 ${menuInternet}
 
 ${menuOtros}
+
+${menuNsfw}
 
 ${menuStaff}`,
 footerText: '𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲',
