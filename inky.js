@@ -1482,6 +1482,9 @@ const emror = String(e)
 if (emror.includes('this.isZero')){ 
 return
 }
+if (emror.includes('marker')){ 
+return
+}
 console.log(e)
 inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 }
