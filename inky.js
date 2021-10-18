@@ -309,18 +309,7 @@ message: {
 }
 
 const reply = async(teks) => {
-await inky.sendMessage(from, teks, MessageType.text, { quoted: { key: {
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-},
-message: {
-"imageMessage": {
-"mimetype": "image/jpeg",
-"caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n${command} ${q}`,
-'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')}}
-},
-sendEphemeral: true
-})
+await inky.sendMessage(from, teks, text, {quoted: fakeStatus, sendEphemeral: true})
 }
 
 const reply2 = (teks) => {
@@ -548,6 +537,21 @@ https://f-droid.org/en/packages/com.termux/
 "jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
 }
 inky.sendMessage(from, options, extendedText, {quoted: mek, sendEphemeral: true, detectLinks: false})
+break
+
+case 'test':
+var none = fs.readFileSync('./media/image/reply.jpg')
+var none2 = await inky.prepareMessage(from, none, image)
+var buttonMessages = {
+imageMessage: none2.message.imageMessage,
+contentText: 'test',
+footerText: 'test',
+buttons: [
+{buttonId: 'Button1', buttonText: {displayText: 'Button1'}, type: 1}
+],
+headerType: 4
+}
+inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage)
 break
 
 // Menu
@@ -1203,6 +1207,7 @@ teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚�
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
 ➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
+➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: ${user.length}
 
 𝐔𝐬𝐚 ${prefix}𝐦𝐞𝐧𝐮 𝐩𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐚 𝐥𝐢𝐬𝐭𝐚 𝐝𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬`
 user.push(sender)
