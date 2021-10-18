@@ -490,7 +490,7 @@ ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 } catch {
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
-teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
+var teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
 
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
@@ -502,7 +502,7 @@ user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 }
 }
 
@@ -570,7 +570,7 @@ buttons: [
 {buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1},
 {buttonId: 'regMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
 ],
-headerType: 1
+headerType: 4
 }, MessageType.buttonsMessage)
 break
 
@@ -1189,7 +1189,7 @@ ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 } catch {
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
-teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
+var teks = `𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞
 
 ➼ *𝐍𝐨𝐦𝐛𝐫𝐞:* ${pushname}
 ➼ *𝐖𝐚𝐦𝐞*: wa.me/${sender.split("@")[0]}
@@ -1201,7 +1201,7 @@ user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 break
 
 case 'itsme':
