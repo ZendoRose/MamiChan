@@ -495,8 +495,8 @@ const menuOtros = `➫ 𝐎𝐭𝐫𝐨𝐬:
 ➼ ${prefix}𝐜𝐫𝐞𝐚𝐭𝐨𝐫
 ➼ ${prefix}𝐫𝐞𝐩𝐨𝐫𝐭 <𝐭𝐞𝐱𝐭𝐨>`
 const menuNsfw = `➫ 𝐍𝐬𝐟𝐰:
-➼ ${prefix}𝐍𝐬𝐟𝐰
-➼ ${prefix}𝐍𝐬𝐟𝐰 (𝟎/𝟏)`
+➼ ${prefix}𝐧𝐬𝐟𝐰
+➼ ${prefix}𝐧𝐬𝐟𝐰 (𝟎/𝟏)`
 const menuStaff = `➫ 𝐒𝐭𝐚𝐟𝐟:
 ➼ ${prefix}𝐟𝐢𝐱
 ➼ ${prefix}𝐛𝐜 <𝐭𝐞𝐱𝐭𝐨>
