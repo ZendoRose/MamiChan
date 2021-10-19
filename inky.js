@@ -1520,22 +1520,33 @@ break
 
 default:
 
+if (budy.includes('teta', 'Teta', 'TETA')){
+const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
+}
+
 if (budy.startsWith("x")) {
 if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 
-if (budy.includes('teta')){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
+if (budy.startsWith('>')){
+if (!isInky) return
+const util = require("util");
+konsol = budy.slice(1)
+Return = (sul) => {
+sat = JSON.stringify(sul, null, 2)
+bang = util.format(sat)
+if (sat == undefined){
+bang = util.format(sul)
 }
-if (budy.includes('Teta')){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
-inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
+return reply2(bang)
 }
-if (budy.includes('TETA')){
-inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
-}
+try {
+reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+} catch(e){
+reply2(`${String(e)}`)
+}}
 
 }
 
