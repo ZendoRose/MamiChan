@@ -298,12 +298,57 @@ new RegExp(
 
 const fakeStatus = { key: {
 fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
 },
 message: {
-"imageMessage": {
-"mimetype": "image/jpeg",
-"caption": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'imageMessage': {
+'mimetype': 'image/jpeg',
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
+}}
+}
+
+const fakeVid = { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
+},
+message: {
+'videoMessage': {
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
+}}
+}
+
+const fakeDoc = { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
+},
+message: {
+'documentMessage': {
+'title': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
+}}
+}
+
+const fakeAud = { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
+},
+message: {
+'audioMessage': {
+'mimetype': 'audio/mp4',
+'ptt': true,
+'seconds': -999999
+}}
+}
+
+const fakeLoc = { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
+},
+message: {
+'locationMessage': {
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 }}
 }
@@ -731,12 +776,12 @@ if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
-teks += `  Total : ${groupMembers.length}\n`
+teks += `${groupMetadata.subject}\n𝐓𝐨𝐭𝐚𝐥: ${groupMembers.length}\n`
 for (let mem of groupMembers) {
-teks += `╠➥ @${mem.jid.split('@')[0]}\n`
+teks += `➼ @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
-mentions('╔══✪〘 𝐓𝐚𝐠𝐀𝐥𝐥 〙✪══\n╠➥'+teks+`╚══✪〘 ${botName} 〙✪══`, members_id, true)
+mentions(teks, members_id, true)
 break
 
 case 'listadmins':
