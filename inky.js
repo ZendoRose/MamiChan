@@ -581,10 +581,10 @@ players2.push(t.player2)
 gilir.push(t.gilir)
 gilirr.push(t.gilirr)
 }
-const isTTT = isGroup ? idttt.includes(from) : false
-const isPlayer1 = isGroup ? players1.includes(sender) : false
-const isPlayer11 = isGroup ? players11.includes(sender) : false
-const isPlayer2 = isGroup ? players2.includes(sender) : false
+isTTT = isGroup ? idttt.includes(from) : false
+isPlayer1 = isGroup ? players1.includes(sender) : false
+isPlayer11 = isGroup ? players11.includes(sender) : false
+isPlayer2 = isGroup ? players2.includes(sender) : false
 
 switch (command) {
 
@@ -596,12 +596,12 @@ if (!isGroup) return reply2(mess.only.group)
 if (args.length < 1) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
 if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Etiqueta al objetivo del oponente')
-var ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
-var player1 = sender
-var player2 = ment[0]
-var angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
-var gilir = player2
-var id = from
+ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
+player1 = sender
+player2 = ment[0]
+angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+gilir = player2
+id = from
 ky_ttt.push({player1,player2,id,angka,gilir})
 inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 
@@ -1508,10 +1508,10 @@ default:
 
 if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
-var tto = ky_ttt.filter(ghg => ghg.id.includes(from))
-var tty = tto[0]
-const angka = tto[0].angka
-const ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 
 𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ❌
 𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ⭕
@@ -1524,10 +1524,10 @@ ${angka[7]}${angka[8]}${angka[9]}
 inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
 }
 if (budy.startsWith('N')){
-var tto = ky_ttt.filter(ghg => ghg.id.includes(from))
-var tty = tto[0]
-var naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
-var ky_ttt = naa
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa
 inky.sendMessage(from, `@${tty.player2.split('@')[0]} 𝐇𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐝𝐨 𝐞𝐥 𝐣𝐮𝐞𝐠𝐨`, text, {quoted:mek, sendEphemeral: true, contextInfo:{mentionedJid:[tty.player2]}})
 }
 }
