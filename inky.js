@@ -303,7 +303,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : 
 message: {
 'imageMessage': {
 'mimetype': 'image/jpeg',
-'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`,
 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 }}
 }
@@ -609,17 +609,7 @@ buttons: [
 ],
 headerType: 4
 }
-inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage, {quoted: { key: {
-fromMe: false,
-participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
-},
-message: {
-'imageMessage': {
-'mimetype': 'image/jpeg',
-'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`,
-'jpegThumbnail': fs.readFileSync('./media/image/menu.jpg')
-}}
-}})
+inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage, {quoted: fakeStatus})
 break
 
 case 'ping':
