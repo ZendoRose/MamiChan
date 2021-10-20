@@ -574,7 +574,23 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-var none = fs.readFileSync('./media/image/reply.jpg')
+var buttonMessages = {
+imageMessage: {
+'mimetype': 'image/jpeg',
+'jpegThumbnail': fs.readFileSync('./media/image/menu.jpg')
+},
+contentText: 'Inserte un texto',
+footerText: 'Puto el que lo lea',
+buttons: [
+{buttonId: 'button1', buttonText: {displayText: 'Button 1'}, type: 1}
+],
+headerType: 1
+}
+inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage)
+break
+
+case 'test2':
+var none = fs.readFileSync('./media/image/menu.jpg')
 var imageTest = await inky.prepareMessage(from, none, image)
 var buttonMessages = {
 imageMessage: imageTest.message.imageMessage,
