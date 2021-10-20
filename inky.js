@@ -602,8 +602,8 @@ var player2 = ment[0]
 var angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
 var gilir = player2
 var id = from
-var ky_ttt.push({player1,player2,id,angka,gilir})
-var inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+ky_ttt.push({player1,player2,id,angka,gilir})
+inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 
 @${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐞𝐧 𝐞𝐥 𝐭𝐢𝐜𝐭𝐚𝐜𝐭𝐨𝐞
 𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {contextInfo: {mentionedJid: [player2]}})
