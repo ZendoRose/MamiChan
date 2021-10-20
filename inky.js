@@ -567,56 +567,13 @@ reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
 
 // Seccion de Prueba
 
-idttt = []
-players1 = []
-players11 = []
-players2 = []
-gilir = []
-gilirr = []
-for (let t of ky_ttt){
-idttt.push(t.id)
-players1.push(t.player1)
-players11.push(t.player11)
-players2.push(t.player2)
-gilir.push(t.gilir)
-gilirr.push(t.gilirr)
-}
-isTTT = isGroup ? idttt.includes(from) : false
-isPlayer1 = isGroup ? players1.includes(sender) : false
-isPlayer11 = isGroup ? players11.includes(sender) : false
-isPlayer2 = isGroup ? players2.includes(sender) : false
+
 
 switch (command) {
 
 // Seccion de Prueba
 
-case 'ttt':
-if (!isUser) return reply2(mess.only.reg)
-if (!isGroup) return reply2(mess.only.group)
-if (args.length < 1) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
-if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Etiqueta al objetivo del oponente')
-ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
-player1 = sender
-player2 = ment[0]
-angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
-gilir = player2
-id = from
-ky_ttt.push({player1,player2,id,angka,gilir})
-inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 
-@${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐞𝐧 𝐞𝐥 𝐭𝐢𝐜𝐭𝐚𝐜𝐭𝐨𝐞
-𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {contextInfo: {mentionedJid: [player2]}})
-break
-
-case 'delttt':        
-if (!isUser) return reply2(mess.only.reg)
-if (!isGroup) return reply2(mess.only.group)
-if (!isTTT) return reply2('No hay juegos en este grupo')
-var naa = ky_ttt.filter(toek => !toek.id.includes(from))
-var ky_ttt = naa
-reply2('Listo UwU')
-break
 
 // Menu
 
@@ -1505,32 +1462,6 @@ reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱�
 break
 
 default:
-
-if (isTTT && isPlayer2){
-if (budy.startsWith('Y')){
-tto = ky_ttt.filter(ghg => ghg.id.includes(from))
-tty = tto[0]
-angka = tto[0].angka
-ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
-
-𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ❌
-𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ⭕
-
-${angka[1]}${angka[2]}${angka[3]}
-${angka[4]}${angka[5]}${angka[6]}
-${angka[7]}${angka[8]}${angka[9]}
-
-𝐓𝐮𝐫𝐧𝐨 𝐝𝐞 @${tty.player1.split('@')[0]}`
-inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
-}
-if (budy.startsWith('N')){
-tto = ky_ttt.filter(ghg => ghg.id.includes(from))
-tty = tto[0]
-naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
-ky_ttt = naa
-inky.sendMessage(from, `@${tty.player2.split('@')[0]} 𝐇𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐝𝐨 𝐞𝐥 𝐣𝐮𝐞𝐠𝐨`, text, {quoted:mek, sendEphemeral: true, contextInfo:{mentionedJid:[tty.player2]}})
-}
-}
 
 if (budy.includes('teta', 'Teta', 'TETA')){
 const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
