@@ -591,11 +591,11 @@ switch (command) {
 // Seccion de Prueba
 
 case 'ttt':
-if (!isUser) return reply(mess.only.reg)
-if (!isGroup) return reply(mess.only.group)
-if (args.length < 1) return reply('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
-if (isTTT) return reply('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Etiqueta al objetivo del oponente')
+if (!isUser) return reply2(mess.only.reg)
+if (!isGroup) return reply2(mess.only.group)
+if (args.length < 1) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
+if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐞𝐥 𝐠𝐫𝐮𝐩𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Etiqueta al objetivo del oponente')
 var ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
 var player1 = sender
 var player2 = ment[0]
@@ -607,6 +607,15 @@ var inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦�
 
 @${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐞𝐧 𝐞𝐥 𝐭𝐢𝐜𝐭𝐚𝐜𝐭𝐨𝐞
 𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {contextInfo: {mentionedJid: [player2]}})
+break
+
+case 'delttt':        
+if (!isUser) return reply2(mess.only.reg)
+if (!isGroup) return reply2(mess.only.group)
+if (!isTTT) return reply2('No hay juegos en este grupo')
+var naa = ky_ttt.filter(toek => !toek.id.includes(from))
+var ky_ttt = naa
+reply2('Listo UwU')
 break
 
 // Menu
