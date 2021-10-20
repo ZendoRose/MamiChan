@@ -584,7 +584,7 @@ footerText: 'Puto el que lo lea',
 buttons: [
 {buttonId: 'button1', buttonText: {displayText: 'Button 1'}, type: 1}
 ],
-headerType: 1
+headerType: 4
 }
 inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage)
 break
