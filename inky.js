@@ -468,7 +468,8 @@ const menuGrupos = `➫ 𝐆𝐫𝐮𝐩𝐨𝐬:
 ➼ ${prefix}𝐩𝐫𝐨𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐝𝐞𝐦𝐨𝐭𝐞 @
 ➼ ${prefix}𝐨𝐩𝐞𝐧𝐠𝐜
-➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜`
+➼ ${prefix}𝐜𝐥𝐨𝐬𝐞𝐠𝐜
+➼ ${prefix}𝐤𝐢𝐬𝐬 @`
 const menuEconomia = `➫ 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐚:
 ➼ ${prefix}𝐛𝐚𝐥
 ➼ ${prefix}𝐭𝐫𝐚𝐧𝐬𝐟𝐞𝐫 @ | <𝐦𝐨𝐧𝐭𝐨>`
@@ -573,13 +574,7 @@ switch (command) {
 
 // Seccion de Prueba
 
-case 'kiss':
-case 'besar':
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝐓𝐚𝐠𝐮𝐞𝐚 𝐜𝐨𝐧 @ 𝐚𝐥 𝐪𝐮𝐞 𝐬𝐞 𝐥𝐞 𝐯𝐚 𝐚 𝐤𝐢𝐜𝐤𝐞𝐚𝐫')
-mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-inky.sendMessage(from, fs.readFileSync('./media/sticker/kissAnimeYuri.webp'), sticker, {quoted:mek, sendEphemeral: true})
-mentions(`@${mentioned[0].split('@')[0]} 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐛𝐞𝐬𝐚𝐝𝐨 𝐩𝐨𝐫 @${sender.split("@")[0]}`, mentioned, true)
-break
+
 
 // Menu
 
@@ -861,6 +856,16 @@ if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.botadmin)
 inky.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply(`𝐆𝐫𝐮𝐩𝐨 𝐜𝐞𝐫𝐫𝐚𝐝𝐨 𝐩𝐨𝐫 𝐞𝐥 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐫 @${sender.split("@")[0]}`)
+break
+
+case 'kiss':
+case 'besar':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝐓𝐚𝐠𝐮𝐞𝐚 𝐜𝐨𝐧 @ 𝐚𝐥 𝐪𝐮𝐞 𝐬𝐞 𝐥𝐞 𝐯𝐚 𝐚 𝐛𝐞𝐬𝐚𝐫')
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+inky.sendMessage(from, fs.readFileSync('./media/sticker/kissAnimeYuri.webp'), sticker, {quoted: fakeStatus, sendEphemeral: true})
+mentions(`𝐇𝐚𝐬 𝐛𝐞𝐬𝐚𝐝𝐨 𝐚 @${mentioned[0].split('@')[0]}`, mentioned, true)
 break
 
 // Seccion Economia
