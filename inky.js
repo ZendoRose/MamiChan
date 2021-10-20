@@ -574,7 +574,7 @@ switch (command) {
 // Seccion de Prueba
 
 case 'test':
-return
+
 break
 
 // Menu
