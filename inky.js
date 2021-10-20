@@ -573,7 +573,13 @@ switch (command) {
 
 // Seccion de Prueba
 
-
+case 'kiss':
+case 'besar':
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝐓𝐚𝐠𝐮𝐞𝐚 𝐜𝐨𝐧 @ 𝐚𝐥 𝐪𝐮𝐞 𝐬𝐞 𝐥𝐞 𝐯𝐚 𝐚 𝐤𝐢𝐜𝐤𝐞𝐚𝐫')
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+inky.sendMessage(from, fs.readFileSync('./media/sticker/kissAnimeYuri.webp'), sticker, {quoted:mek, sendEphemeral: true})
+mentions(`${mentioned[0].split('@')[0]} 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐛𝐞𝐬𝐚𝐝𝐨 𝐩𝐨𝐫 @${sender.split("@")[0]}`, mentioned, true)
+break
 
 // Menu
 
