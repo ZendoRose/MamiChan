@@ -445,7 +445,6 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 𝐏𝐚𝐫𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐞𝐧 ${botName} 𝐮𝐬𝐚 ${prefix}𝐫𝐞𝐠𝐢𝐬𝐭𝐞𝐫
 
 ➼ 𝐏𝐫𝐞𝐟𝐢𝐣𝐨: *⌜ ${prefix} ⌟*
-➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
 ➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞:
@@ -606,7 +605,17 @@ buttons: [
 {buttonId: 'regMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
 ],
 headerType: 1
-}, MessageType.buttonsMessage, {quoted: fakeStatus})
+}, MessageType.buttonsMessage, {quoted: { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})
+},
+message: {
+'imageMessage': {
+'mimetype': 'image/jpeg',
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`,
+'jpegThumbnail': fs.readFileSync('./media/image/menu.jpg')
+}}
+}})
 break
 
 case 'ping':
