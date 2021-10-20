@@ -637,7 +637,7 @@ https://f-droid.org/en/packages/com.termux/
 ➼ 𝐚𝐩𝐭 𝐮𝐩𝐝𝐚𝐭𝐞 && 𝐮𝐩𝐠𝐫𝐚𝐝𝐞
 ➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐠𝐢𝐭
 ➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐛𝐚𝐬𝐡
-➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐧𝐨𝐝𝐞𝐣𝐬
+➼ 𝐩𝐤𝐠 𝐢𝐧𝐬𝐭𝐚𝐥𝐥 𝐧𝐨𝐝𝐞𝐣𝐬-𝐥𝐭𝐬
 ➼ 𝐠𝐢𝐭 𝐜𝐥𝐨𝐧𝐞 https://github.com/ThisIsInky/MamiChan
 ➼ 𝐜𝐝 ${botName}
 ➼ 𝐛𝐚𝐬𝐡 𝐢𝐧𝐬𝐭𝐚𝐥𝐥.𝐬𝐡
