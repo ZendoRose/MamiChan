@@ -1023,65 +1023,7 @@ break
 case 's':
 case 'sticker':
 if (!isUser) return reply(mess.only.reg)
-if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-var media = await inky.downloadAndSaveMediaMessage(encmedia)
-ran = getRandom('.webp')
-await ffmpeg(`./${media}`)
-.input(media)
-.on('start', function (cmd) {
-})
-.on('error', function (err) {
-console.log(`Error : ${err}`)
-fs.unlinkSync(media)
-reply('𝐇𝐮𝐛𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐬𝐮 𝐢𝐦𝐚𝐠𝐞𝐧 𝐚 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
-})
-.on('end', function () {
-exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
-if (error) {
-fs.unlinkSync(media)	
-fs.unlinkSync(ran)
-}
-inky.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek, sendEphemeral: true})
-fs.unlinkSync(media)	
-fs.unlinkSync(ran)	
-})
-})
-.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-.toFormat('webp')
-.save(ran)
-} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-var media = await inky.downloadAndSaveMediaMessage(encmedia)
-ran = getRandom('.webp')
-reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command} 𝐨 𝐞𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐪𝐮𝐞 𝐲𝐚 𝐬𝐞 𝐡𝐚𝐲𝐚 𝐞𝐧𝐯𝐢𝐚𝐝𝐨`)
-await ffmpeg(`./${media}`)
-.inputFormat(media.split('.')[1])
-.on('start', function (cmd) {
-})
-.on('error', function (err) {
-console.log(`Error : ${err}`)
-fs.unlinkSync(media)
-tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-reply(`Hubo un error al convertir ${tipe} a sticker`)
-})
-.on('end', function () {
-exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
-if (error) {
-fs.unlinkSync(media)	
-fs.unlinkSync(ran)
-}
-inky.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek, sendEphemeral: true})
-fs.unlinkSync(media)
-fs.unlinkSync(ran)
-})
-})
-.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-.toFormat('webp')
-.save(ran)
-} else {
-reply(`𝐄𝐧𝐯𝐢𝐞 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐜𝐨𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix + command} 𝐨 𝐞𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐪𝐮𝐞 𝐲𝐚 𝐬𝐞 𝐡𝐚𝐲𝐚 𝐞𝐧𝐯𝐢𝐚𝐝𝐨`)
-}
+if (!isOwner) return reply('𝐋𝐚 𝐟𝐮𝐧𝐜𝐢𝐨𝐧 𝐝𝐞 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐞𝐬𝐭𝐚 𝐞𝐧 𝐦𝐚𝐧𝐭𝐞𝐧𝐢𝐦𝐢𝐞𝐧𝐭𝐨')
 break
 
 case 'attp':
