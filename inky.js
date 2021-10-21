@@ -361,7 +361,7 @@ const reply2 = async(teks) => {
 await inky.sendMessage(from, teks, text, {quoted: mek, sendEphemeral: true})
 }
 
-const sendMess = (from, teks) => {
+const sendMess = async(from, teks) => {
 await inky.sendMessage(from, teks, text, {quoted: fakeStatus, sendEphemeral: true})
 }
 
