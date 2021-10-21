@@ -527,6 +527,14 @@ inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
+if (bRM.includes(`creadorMenuInky`)){
+reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
+await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
+}
+}
+
+if (mek.message.buttonsResponseMessage){
+var bRM = mek.message.buttonsResponseMessage.selectedButtonId
 if (bRM.includes(`regMenuInky`)){
 if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
 try {
@@ -547,26 +555,6 @@ addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
 inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: [sender]}})
-}
-}
-
-if (mek.message.buttonsResponseMessage){
-var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`pingMenuInky`)){
-var ram = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}𝐌𝐁 / ${Math.round(require('os').totalmem / 1024 / 1024)}𝐌𝐁`
-var totalChats = await inky.chats.all()
-var timestamp = speed();
-var latensi = speed() - timestamp
-var uptime = process.uptime()
-reply2(`➫ ${botName} 𝐏𝐢𝐧𝐠
-➼ 𝐕𝐞𝐥𝐨𝐜𝐢𝐝𝐚𝐝: *${latensi.toFixed(4)}*𝐦𝐬
-➼ 𝐑𝐚𝐦: ${ram}
-➼ 𝐔𝐩𝐭𝐢𝐦𝐞: ${uptime}
-➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
-➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
-➼ 𝐖𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧: *${inky.user.phone.wa_version}*
-➼ 𝐂𝐡𝐚𝐭𝐬 𝐭𝐨𝐭𝐚𝐥𝐞𝐬: *${totalChats.length}*
-➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`)
 }
 }
 
@@ -606,8 +594,8 @@ ${menuNsfw}
 ${menuStaff}`,
 footerText: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
 buttons: [
-{buttonId: 'regMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1},
-{buttonId: 'pingMenuInky', buttonText: {displayText: '💻𝐏𝐢𝐧𝐠'}, type: 1}
+{buttonId: 'creadorMenuInky', buttonText: {displayText: '👑𝐂𝐫𝐞𝐚𝐝𝐨𝐫'}, type: 1},
+{buttonId: 'regMenuInky', buttonText: {displayText: '📜𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫'}, type: 1}
 ],
 headerType: 6
 }
