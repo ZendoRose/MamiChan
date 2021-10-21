@@ -1218,7 +1218,7 @@ user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: sender}})
+inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
 break
 
 case 'itsme':
@@ -1235,7 +1235,7 @@ teks = `𝐈𝐭𝐬𝐦𝐞
 ➼ *𝐓𝐚𝐠:* @${sender.split("@s.whatsapp.net")[0]}
 ➼ *𝐁𝐚𝐥𝐚𝐧𝐜𝐞:* $${userBal}`
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: sender}})
+inky.sendMessage(from, buff, MessageType.image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: [sender]}})
 break
 
 case 'owner':
