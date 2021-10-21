@@ -538,7 +538,7 @@ inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`creadorMenuInky`)){
+if (bRM.includes('creadorMenuInky')){
 reply(`𝐆𝐫𝐚𝐜𝐢𝐚𝐬 𝐩𝐨𝐫 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐫 𝐚 ${botName}, 𝐀𝐛𝐚𝐣𝐨 𝐞𝐬𝐭𝐚 𝐞𝐥 𝐧𝐮𝐦𝐞𝐫𝐨 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫 𝐝𝐞 𝐥𝐚𝐬 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭, 𝐧𝐨 𝐦𝐨𝐥𝐞𝐬𝐭𝐚𝐫 :D`)
 await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 }
@@ -546,7 +546,7 @@ await sendContact(from, '595995660558', "🖤𝐈𝐧𝐤𝐲🖤")
 
 if (mek.message.buttonsResponseMessage){
 var bRM = mek.message.buttonsResponseMessage.selectedButtonId
-if (bRM.includes(`regMenuInky`)){
+if (bRM.includes('regMenuInky')){
 if (isUser) return reply(`𝐔𝐬𝐭𝐞𝐝 𝐲𝐚 𝐞𝐬𝐭𝐚 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨 𝐞𝐧 ${botName}`)
 try {
 ppimg = await inky.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
