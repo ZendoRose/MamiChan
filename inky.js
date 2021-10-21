@@ -543,7 +543,7 @@ user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: [sender]}})
 }
 }
 
@@ -1218,7 +1218,7 @@ user.push(sender)
 addATM(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(user))
 var buff = await getBuffer(ppimg)
-inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks, contextInfo: {mentionedJid: [sender]}})
 break
 
 case 'itsme':
