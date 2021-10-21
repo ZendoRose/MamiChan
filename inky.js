@@ -1016,7 +1016,68 @@ break
 case 's':
 case 'sticker':
 if (!isUser) return reply(mess.only.reg)
-if (!isOwner) return reply('𝐋𝐚 𝐟𝐮𝐧𝐜𝐢𝐨𝐧 𝐝𝐞 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐞𝐬𝐭𝐚 𝐞𝐧 𝐦𝐚𝐧𝐭𝐞𝐧𝐢𝐦𝐢𝐞𝐧𝐭𝐨')
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+var media = await inky.downloadAndSaveMediaMessage(encmedia)
+var ran = getRandom('.webp')
+await ffmpeg(`./${media}`)
+.input(media)
+.on('start', function (cmd) {
+console.log(`Started : ${cmd}`)
+})
+.on('error', function (err) {
+console.log(`Error : ${err}`)
+fs.unlinkSync(media)
+reply('𝐒𝐞 𝐩𝐫𝐨𝐝𝐮𝐣𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐥𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐚 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+})
+.on('end', function () {
+console.log('Finish')
+exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
+if (error) {    
+fs.unlinkSync(media)	
+fs.unlinkSync(ran)
+}
+inky.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: fakeStatus, sendEphemeral: true})
+fs.unlinkSync(media)	
+fs.unlinkSync(ran)	
+})
+})
+.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+.toFormat('webp')
+.save(ran)
+} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+var media = await inky.downloadAndSaveMediaMessage(encmedia)
+var ran = getRandom('.webp')
+reply('𝐒𝐞 𝐞𝐬𝐭𝐚 𝐜𝐫𝐞𝐚𝐧𝐝𝐨 𝐬𝐮 𝐬𝐭𝐢𝐜𝐤𝐞𝐫𝐆𝐢𝐟, 𝐫𝐞𝐜𝐮𝐞𝐫𝐝𝐚 𝐪𝐮𝐞 𝐬𝐨𝐥𝐨 𝐝𝐮𝐫𝐚𝐧 𝟔 𝐬𝐞𝐠')
+await ffmpeg(`./${media}`)
+.inputFormat(media.split('.')[1])
+.on('start', function (cmd) {
+console.log(`Started : ${cmd}`)
+})
+.on('error', function (err) {
+console.log(`Error : ${err}`)
+fs.unlinkSync(media)
+tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+reply('𝐒𝐞 𝐩𝐫𝐨𝐝𝐮𝐣𝐨 𝐮𝐧 𝐞𝐫𝐫𝐨𝐫 𝐚𝐥 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐥𝐚 𝐢𝐦𝐚𝐠𝐞𝐧 𝐚 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+})
+.on('end', function () {
+console.log('Finish')
+exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
+if (error) {
+fs.unlinkSync(media)	
+fs.unlinkSync(ran)
+}
+buff = fs.readFileSync(ran)
+inky.sendMessage(from, buff, sticker, {quoted: fakeStatus, sendEphemeral: true})
+fs.unlinkSync(media)
+fs.unlinkSync(ran)
+})
+})
+.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+.toFormat('webp')
+.save(ran)
+}
 break
 
 case 'attp':
