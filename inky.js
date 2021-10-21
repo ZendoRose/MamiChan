@@ -353,6 +353,17 @@ message: {
 }}
 }
 
+const fakeLiveLoc = { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+'liveLocationMessage': {
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
+}}
+}
+
 const reply = async(teks) => {
 await inky.sendMessage(from, teks, text, {quoted: fakeStatus, sendEphemeral: true})
 }
