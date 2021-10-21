@@ -361,13 +361,16 @@ const reply2 = async(teks) => {
 await inky.sendMessage(from, teks, text, {quoted: mek, sendEphemeral: true})
 }
 
+const sendMess = (from, teks) => {
+await inky.sendMessage(from, teks, text, {quoted: fakeStatus, sendEphemeral: true})
+}
+
 const mentions = async(teks, memberr, id) => {
 (id == null || id == undefined || id == false) ? inky.sendMessage(from, teks.trim(), extendedText, {quoted: fakeStatus, sendEphemeral: true, contextInfo: {"mentionedJid": memberr}}) : inky.sendMessage(from, teks.trim(), extendedText, {quoted: fakeStatus, sendEphemeral: true, contextInfo: {"mentionedJid": memberr}})
 }
 
 const sendContact = iy.sendContact
 const sendFakeStatus = iy.sendFakeStatus
-const sendMess = iy.sendMess
 
 const sendFileFromUrl = async(link, type, options) => {
 hasil = await getBuffer(link)
@@ -1345,13 +1348,8 @@ break
 
 // Seccion Owner
 
-case 'crash':
-if (!isOwner) return reply(mess.only.owner)
-sendBug(from, `${q}`)
-break
-
 case 'fix':
-if (!isOwner) return reply(mess.only.inky)
+if (!isOwner) return reply(mess.only.owner)
 exec(`git pull`, (err, stdout) => {
 if (err) return reply2(err)
 if (stdout) reply2(`${stdout}`)
@@ -1366,7 +1364,7 @@ if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 buff = await inky.downloadMediaMessage(encmedia)
 for (let _ of anu) {
-client.sendMessage(_.jid, buff, image, {caption: `${botName} 𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭\n\n${q}`})
+inky.sendMessage(_.jid, buff, image, {quoted: fakeStatus, sendEphemeral: true, caption: `${botName} 𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭\n\n${q}`})
 }
 reply('𝐁𝐫𝐨𝐚𝐝𝐂𝐚𝐬𝐭 𝐡𝐚 𝐬𝐢𝐝𝐨 𝐞𝐧𝐯𝐢𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 } else {
