@@ -25,11 +25,20 @@
 > npm start
 ```
 
-## Características
+## Comandos
 
-|   Creador de Sticker   |   Características   |
+|   Grupos   |   Comandos   |
 | :-----------: | :--------------------------------: |
-|   ✅   |   Convertir Imagen a Sticker   |
-|   ✅   |   Convertir Video a Sticker   |
-|   ✅   |   Convertir Gift a Sticker   |
-|   ✅   |   Convertir Sticker a Imagen   |
+|   ✅   |   Antilink   |
+|   ✅   |   Welcome   |
+|   ✅   |   Add   |
+|   ✅   |   Kick   |
+|   ✅   |   Linkgc   |
+|   ✅   |   Hidetag   |
+|   ✅   |   TagAll   |
+|   ✅   |   ListAdmins   |
+|   ✅   |   Promote   |
+|   ✅   |   Demote   |
+|   ✅   |   Opengc   |
+|   ✅   |   Closegc   |
+|   ✅   |   Kiss   |
