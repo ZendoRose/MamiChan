@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="./media/image/menu.jpg" width="180" height="140"/>
+<img src="./media/image/menu.jpg" width="200" height="140"/>
 </p>
 
 # Procesos para instalacion por Termux
