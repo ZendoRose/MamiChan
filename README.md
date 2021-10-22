@@ -1,6 +1,8 @@
 # MamiChan By @ThisIsInky
 
-MamiChan - WhatsappBot
+<p align="center">
+<a href="#"><img title="NyanBot" src="https://img.shields.io/badge/👾𝐌𝐚𝐦𝐢𝐂𝐡𝐚𝐧 | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾-black?colorA=%23ff0000&colorB=%23000000&style=for-the-badge"></a>
+</p>
 
 ![Settings](https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg)
 
