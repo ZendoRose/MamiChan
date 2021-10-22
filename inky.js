@@ -577,7 +577,17 @@ switch (command) {
 
 // Seccion de Prueba
 
-
+case 'trigger':
+var tri = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+var ger = await inky.downloadAndSaveMediaMessage(tri)
+var ran = getRandom('.mp3')
+exec(`ffmpeg -i ${ger} -filter_complex "acrusher=level_in=8:level_out=18:bits=8:mode=log:aa=1" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(ger)
+if (err) return reply('Error')
+inky.sendMessage(from, fs.readFileSync(ran), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
+fs.unlinkSync(ran)
+})
+break
 
 // Menu
 
