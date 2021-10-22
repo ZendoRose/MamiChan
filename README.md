@@ -29,6 +29,7 @@
 
 |   Creador de Sticker   |   Características   |
 | :-----------: | :--------------------------------: |
-|   ✅   |   Sticker de imagenes   |
-|   ✅   |   Sticker de videos   |
-|   ✅   |   Sticker de gift   |
+|   ✅   |   Convertir Imagen a Sticker   |
+|   ✅   |   Convertir Video a Sticker   |
+|   ✅   |   Convertir Gift a Sticker   |
+|   ✅   |   Convertir Sticker a Imagen   |
