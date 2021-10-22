@@ -42,3 +42,52 @@
 |   ✅   |   Opengc   |
 |   ✅   |   Closegc   |
 |   ✅   |   Kiss   |
+
+|   Economia   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   Balance   |
+|   ✅   |   Transfer   |
+
+|   Juegos   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   Slot   |
+|   ✅   |   Ruleta   |
+|   ✅   |   Apostar   |
+
+|   Convertidor   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   Sticker   |
+|   ✅   |   Attp   |
+|   ✅   |   Robar   |
+|   ✅   |   Toimg   |
+|   ✅   |   Tomp3   |
+|   ✅   |   Tts   |
+
+|   Internet   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   IgStalk   |
+|   ✅   |   YtSearch   |
+|   ✅   |   Play   |
+|   ✅   |   TikTok   |
+
+|   Otros   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   LeerMas   |
+|   ✅   |   Join   |
+|   ✅   |   Itsme   |
+|   ✅   |   Creador   |
+|   ✅   |   Report   |
+
+|   Nsfw   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   Nsfw   |
+
+|   Staff   |   Comandos   |
+| :-----------: | :--------------------------------: |
+|   ✅   |   Fix   |
+|   ✅   |   Bc   |
+|   ✅   |   Reply   |
+|   ✅   |   Public   |
+|   ✅   |   Self   |
+|   ✅   |   Ban   |
+|   ✅   |   UnBan   |
