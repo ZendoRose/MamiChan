@@ -7,7 +7,9 @@
 <a href="https://github.com/ThisIsInky"><img title="Author" src="https://img.shields.io/badge/Author-ThisIsInky-red.svg?style=for-the-badge&logo=github"></a>
 </p>
 
-![MamiChan](https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg)
+<p align="center">
+<img src="./media/image/menu.jpg" width="140" height="140"/>
+</p>
 
 # Procesos para instalacion por Termux
 
