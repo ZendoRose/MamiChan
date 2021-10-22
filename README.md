@@ -1,4 +1,4 @@
-# MamiChan By @ThisIsInky
+# MamiChan Bot
 
 <p align="center">
 <a href="#"><img title="NyanBot" src="https://img.shields.io/badge/👾MamiChan | ThisIsInky👾-black?colorA=%23ff0000&colorB=%23000000&style=for-the-badge"></a>
