@@ -1,5 +1,7 @@
 # MamiChan By @ThisIsInky
 
+![Settings](https://github.com/ThisIsInky/MamiChan/media/image/menu.jpg)
+
 MamiChan - WhatsappBot
 
 # Procesos para instalacion por Termux
