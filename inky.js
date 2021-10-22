@@ -22,6 +22,7 @@ const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
 const ban = JSON.parse(fs.readFileSync('./database/banned.json'));
 const nsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'));
 const stickerjson = JSON.parse(fs.readFileSync('./database/sticker.json'));
+const audiojson = JSON.parse(fs.readFileSync('./database/audio.json'));
 const user = JSON.parse(fs.readFileSync('./database/user.json'));
 const welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
@@ -223,6 +224,7 @@ const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
 const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
+const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
 
 if (!public) {
 mods.indexOf(botNumber) === -1 ? mods.push(botNumber) : false
@@ -1542,6 +1544,18 @@ stickerjson.push(`${q}`)
 fs.writeFileSync(`./media/sticker/${q}.webp`, delb)
 fs.writeFileSync('./database/sticker.json', JSON.stringify(stickerjson))
 reply('𝐒𝐭𝐢𝐜𝐤𝐞𝐫 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
+break
+
+case 'addaudio':
+if (!isInky) return reply(mess.only.inky)
+if (!isQuotedAudio) return reply('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐜𝐨𝐧 𝐮𝐧 𝐚𝐮𝐝𝐢𝐨')
+if (!q) return reply('𝐘 𝐞𝐥 𝐧𝐨𝐦𝐛𝐫𝐞 𝐩𝐚𝐫𝐚 𝐞𝐥 𝐚𝐮𝐝𝐢𝐨❓')
+boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+delb = await inky.downloadMediaMessage(boij)
+audiojson.push(`${q}`)
+fs.writeFileSync(`./media/audio/${q}.mp3`, delb)
+fs.writeFileSync('./database/audio.json', JSON.stringify(audiojson))
+reply('𝐀𝐮𝐝𝐢𝐨 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞')
 break
 
 default:
