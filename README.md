@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<img src="https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg" width="440" height="280"/>
+<img src="https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg" width="460" height="280"/>
 </p>
 
 <p align="center">
