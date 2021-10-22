@@ -581,6 +581,8 @@ switch (command) {
 // Seccion de Prueba
 
 case 'trigger':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
 var tri = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 var ger = await inky.downloadAndSaveMediaMessage(tri)
 var ran = getRandom('.mp3')
@@ -590,6 +592,13 @@ if (err) return reply('Error')
 inky.sendMessage(from, fs.readFileSync(ran), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
 fs.unlinkSync(ran)
 })
+break
+
+case 'kira':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+inky.sendMessage(from, fs.readFileSync('./media/sticker/kiraRisa.webp'), sticker, {quoted: fakeStatus, sendEphemeral: true})
+inky.sendMessage(from, fs.readFileSync('./media/audio/kiraRisa.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
 break
 
 // Menu
@@ -1561,7 +1570,6 @@ break
 default:
 
 if (budy.includes('teta', 'Teta', 'TETA')){
-const none = fs.readFileSync('./media/sticker/Tetas♡.webp');
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 
