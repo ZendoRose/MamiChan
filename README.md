@@ -24,9 +24,8 @@
 
 ## Características
 
-| Creador Sticker |                Características           |
+|   Creador de Sticker   |   Características   |
 | :-----------: | :--------------------------------: |
-|       ✅       | Enviar imagen con texto          |
-|       ✅       | Responder a una imagen                    |
-|       ✅       | Enviar videos o gift con texto   |
-|       ✅       | Responder a videos o gift   |
+|   ✅   |   Sticker de imagenes   |
+|   ✅   |   Sticker de videos   |
+|   ✅   |   Sticker de gift   |
