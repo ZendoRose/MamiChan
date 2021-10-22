@@ -496,6 +496,7 @@ const menuConvertidor = `➫ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐝𝐨𝐫:
 ➼ ${prefix}𝐬𝐭𝐢𝐜𝐤𝐞𝐫
 ➼ ${prefix}𝐚𝐭𝐭𝐩 <𝐭𝐞𝐱𝐭𝐨>
 ➼ ${prefix}𝐫𝐨𝐛𝐚𝐫 <𝐧𝐨𝐦𝐛𝐫𝐞>|<𝐚𝐮𝐭𝐨𝐫>
+➼ ${prefix}𝐭𝐨𝐢𝐦𝐠
 ➼ ${prefix}𝐭𝐨𝐦𝐩𝟑
 ➼ ${prefix}𝐭𝐭𝐬 <𝐢𝐝𝐢𝐨𝐦𝐚> <𝐭𝐞𝐱𝐭𝐨>`
 const menuInternet = `➫ 𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭:
@@ -643,7 +644,10 @@ break
 case 'crear':
 case 'github':
 var options = {
-"text": `𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
+text: `➫ 𝐆𝐢𝐭𝐡𝐮𝐛 𝐨𝐟𝐢𝐜𝐢𝐚𝐥 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫:
+https://github.com/ThisIsInky
+
+𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
 https://f-droid.org/en/packages/com.termux/
 𝐀𝐡𝐢 𝐭𝐞 𝐝𝐞𝐣𝐨 𝐞𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞 𝐭𝐞𝐫𝐦𝐮𝐱, 𝐥𝐚 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐝𝐞 𝐩𝐥𝐚𝐲 𝐬𝐭𝐨𝐫𝐞 𝐧𝐨 𝐬𝐢𝐫𝐯𝐞.
 
@@ -659,10 +663,10 @@ https://f-droid.org/en/packages/com.termux/
 𝐂𝐮𝐚𝐧𝐝𝐨 𝐡𝐚𝐲𝐚𝐬 𝐞𝐣𝐞𝐜𝐮𝐭𝐚𝐝𝐨 𝐬𝐚𝐬𝐭𝐢𝐟𝐚𝐜𝐭𝐨𝐫𝐢𝐚𝐦𝐞𝐧𝐭𝐞 𝐞𝐬𝐨, 𝐮𝐬𝐚 *𝐧𝐩𝐦 𝐬𝐭𝐚𝐫𝐭* 𝐲 𝐞𝐬𝐜𝐚𝐧𝐞𝐚 𝐞𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐪𝐫
 
 𝐑𝐞𝐜𝐮𝐞𝐫𝐝𝐚 𝐧𝐨 𝐜𝐚𝐦𝐛𝐢𝐚𝐫 𝐥𝐨𝐬 𝐜𝐫𝐞𝐝𝐢𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭`,
-"matchedText": "https://f-droid.org/en/packages/com.termux/",
-"description": `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
-"title": `𝐏𝐚𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName}`,
-"jpegThumbnail": fs.readFileSync('./media/image/reply.jpg')
+matchedText: 'https://github.com/ThisIsInky',
+description: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
+title: `𝐏𝐚𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName}`,
+jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
 }
 inky.sendMessage(from, options, extendedText, {quoted: mek, sendEphemeral: true, detectLinks: false})
 break
