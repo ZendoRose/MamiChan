@@ -21,3 +21,12 @@
 > bash install.sh
 > npm start
 ```
+
+## Features
+
+| Creador Sticker |                Feature           |
+| :-----------: | :--------------------------------: |
+|       ✅       | Send Photo with Caption          |
+|       ✅       | Reply A Photo                    |
+|       ✅       | Image Url                        |
+|       ✅       | Send Video or GIF with Caption   |
