@@ -22,11 +22,11 @@
 > npm start
 ```
 
-## Features
+## Características
 
-| Creador Sticker |                Feature           |
+| Creador Sticker |                Características           |
 | :-----------: | :--------------------------------: |
-|       ✅       | Send Photo with Caption          |
-|       ✅       | Reply A Photo                    |
-|       ✅       | Image Url                        |
-|       ✅       | Send Video or GIF with Caption   |
+|       ✅       | Enviar imagen con texto          |
+|       ✅       | Responder a una imagen                    |
+|       ✅       | Enviar videos o gift con texto   |
+|       ✅       | Responder a videos o gift   |
