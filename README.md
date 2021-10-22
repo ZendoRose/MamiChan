@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg" width="400" height="280"/>
+<img src="https://github.com/ThisIsInky/MamiChan/blob/main/media/image/menu.jpg" width="420" height="280"/>
 </p>
 
 # Procesos para instalacion por Termux
