@@ -598,7 +598,7 @@ case 'kira':
 if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 inky.sendMessage(from, fs.readFileSync('./media/sticker/kiraRisa.webp'), sticker, {quoted: fakeStatus, sendEphemeral: true})
-inky.sendMessage(from, fs.readFileSync('./media/audio/kiraRisa.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
+await inky.sendMessage(from, fs.readFileSync('./media/audio/kiraRisa.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
 break
 
 // Menu
