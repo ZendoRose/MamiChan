@@ -1786,7 +1786,7 @@ if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
 }
 
-if (budy.startsWith('c')){
+if (budy.startsWith('>')){
 if (!isInky) return
 const util = require("util");
 konsol = budy.slice(1)
