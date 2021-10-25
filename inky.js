@@ -60,6 +60,9 @@ const pack = config.pack
 const prefix = config.prefix
 var public = config.public
 
+ky_ttt = []
+tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+
 conn.connect()
 const inky = conn.inky
 
@@ -574,11 +577,54 @@ inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, ca
 
 // Seccion de Prueba
 
-
+const button = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
+idttt = []
+players1 = []
+players11 = []
+players2 = []
+gilir = []
+gilirr = []
+for (let t of ky_ttt){
+idttt.push(t.id)
+players1.push(t.player1)
+players11.push(t.player11)
+players2.push(t.player2)
+gilir.push(t.gilir)
+gilirr.push(t.gilirr)
+}
+const isTTT = isGroup ? idttt.includes(from) : false
+isPlayer1 = isGroup ? players1.includes(sender) : false
+isPlayer11 = isGroup ? players11.includes(sender) : false
+isPlayer2 = isGroup ? players2.includes(sender) : false
 
 switch (command) {
 
 // Seccion de Prueba
+
+case 'ttt':
+if (!q) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
+if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
+ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
+player1 = sender
+player2 = ment[0]
+angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+gilir = player2
+id = from
+ky_ttt.push({player1,player2,id,angka,gilir})
+inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+
+@${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐚𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {quoted: mek, sendEphemeral: true, contextInfo: {mentionedJid: [player2]}})
+break
+
+case 'delttt':
+if (!isGroup) return reply2(mess.only.group)
+if (!isTTT) return reply2('𝐍𝐨 𝐡𝐚𝐲 𝐧𝐢𝐧𝐠𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨')
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa
+reply2('𝐇𝐚 𝐬𝐢𝐝𝐨 𝐫𝐞𝐬𝐭𝐚𝐮𝐫𝐚𝐝𝐨 𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞')
+break
 
 case 'trigger':
 if (!isUser) return reply(mess.only.reg)
@@ -1568,6 +1614,166 @@ reply('𝐀𝐮𝐝𝐢𝐨 𝐠𝐮𝐚𝐫𝐝𝐚𝐝𝐨 𝐞𝐱𝐢𝐭�
 break
 
 default:
+
+if (isTTT && isPlayer2){
+if (budy.startsWith('Y')){
+  tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+  tty = tto[0]
+  angka = tto[0].angka
+  ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ❌
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ⭕
+
+${angka[1]}${angka[2]}${angka[3]}
+${angka[4]}${angka[5]}${angka[6]}
+${angka[7]}${angka[8]}${angka[9]}
+
+𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player1.split('@')[0]}`
+  inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+  }
+if (budy.startsWith('N')){
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa
+inky.sendMessage(from, `@${tty.player2.split('@')[0]} 𝐇𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐝𝐨 𝐞𝐥 𝐣𝐮𝐞𝐠𝐨`, text,{quoted:mek, sendEphemeral: true, contextInfo:{mentionedJid:[tty.player2]}})
+}
+}
+
+const _0x2039a5=_0x22b6;(function(_0x9db4e8,_0x3165a4){const _0x5cb034=_0x22b6,_0x43021d=_0x9db4e8();while(!![]){try{const _0x4f286b=-parseInt(_0x5cb034(0x1be))/0x1+parseInt(_0x5cb034(0x1d8))/0x2*(-parseInt(_0x5cb034(0x1d3))/0x3)+parseInt(_0x5cb034(0x1cc))/0x4+parseInt(_0x5cb034(0x1e0))/0x5*(parseInt(_0x5cb034(0x1c5))/0x6)+parseInt(_0x5cb034(0x1bc))/0x7+parseInt(_0x5cb034(0x1bd))/0x8+-parseInt(_0x5cb034(0x1e7))/0x9;if(_0x4f286b===_0x3165a4)break;else _0x43021d['push'](_0x43021d['shift']());}catch(_0x2c9108){_0x43021d['push'](_0x43021d['shift']());}}}(_0x39d9,0xb98d4));button=='SOURCE\x20CODE'&&(console[_0x2039a5(0x1c8)](_0x2039a5(0x1e4)),confumods['sendMessage'](from,{'text':_0x2039a5(0x1da),'matchedText':_0x2039a5(0x1da),'description':'','title':_0x2039a5(0x1c7),'jpegThumbnail':ofrply},_0x2039a5(0x1c4),{'detectLinks':![],'contextInfo':{'forwardingScore':0x1fc,'isForwarded':!![]},'quoted':finv}));button=='MP3'&&(console['log'](_0x2039a5(0x1d2)),reply(mess[_0x2039a5(0x1e1)]),confumods[_0x2039a5(0x1cf)](from,anu3,audio,{'mimetype':_0x2039a5(0x1dc),'quoted':mek}));function _0x39d9(){const _0x212414=['Script','️LIST\x20MENU','sendMessage','user','Status','MP3','1299kwYfZn','\x0aitem1.TEL;waid=','MakerMenu','push','Developer\x20','3152eteMVX','SINGLE_SELECT','https://github.com/dcode-denpa/bitch-boot','prepareMessageFromContent','audio/mp4','MP4','GroupMenu','Hai\x20kak\x20','45pyDoPy','wait','notify','Jadibot','SOURCE\x20CODE','contactsArrayMessage','OwnerMenu','3368466xnSDyx','DownloadMenu','contacts','vname',',\x20Silahkan\x20pilih\x20menu\x20disini','3339875KRAxWB','4525568rJeYcJ','244909dLsGYf','relayWAMessage','OtherMenu','*_©\x20Dcode\x20Denpa_*','\x0aitem1.X-ABLabel:Ponsel\x0aEND:VCARD','split','extendedTextMessage','481554qazfTP','DEVELOPER','don\x27t\x20click\x20here\x20!!!','log','\x20-\x20','LIST\x20MENU','Creator','1185836IEdnLq'];_0x39d9=function(){return _0x212414;};return _0x39d9();}button==_0x2039a5(0x1dd)&&(console['log'](_0x2039a5(0x1dd)),reply(mess[_0x2039a5(0x1e1)]),confumods[_0x2039a5(0x1cf)](from,anu4,video,{'quoted':mek}));if(button==_0x2039a5(0x1c6)){console[_0x2039a5(0x1c8)](_0x2039a5(0x1c6));let ini_list=[];for(let i of ConfuMods){const vname=confumods[_0x2039a5(0x1e9)][i]!=undefined?confumods[_0x2039a5(0x1e9)][i][_0x2039a5(0x1ea)]||confumods[_0x2039a5(0x1e9)][i][_0x2039a5(0x1e2)]:undefined;ini_list[_0x2039a5(0x1d6)]({'displayName':_0x2039a5(0x1d7)+NamaBot,'vcard':'BEGIN:VCARD\x0aVERSION:3.0\x0aN:Sy;Dcode\x20Denpa;;;\x0aFN:'+(vname?''+vname:''+confumods[_0x2039a5(0x1d0)]['name'])+_0x2039a5(0x1d4)+i[_0x2039a5(0x1c3)]('@')[0x0]+':'+i['split']('@')[0x0]+_0x2039a5(0x1c2)});}confumods['sendMessage'](from,{'displayName':_0x2039a5(0x1d7)+NamaBot,'contacts':ini_list},_0x2039a5(0x1e5),{'quoted':mek,'contextInfo':{'forwardingScore':0x1fc,'isForwarded':!![]}});}function _0x22b6(_0x293272,_0x1e5921){const _0x39d9cd=_0x39d9();return _0x22b6=function(_0x22b6fe,_0x5823d5){_0x22b6fe=_0x22b6fe-0x1bb;let _0x3a1107=_0x39d9cd[_0x22b6fe];return _0x3a1107;},_0x22b6(_0x293272,_0x1e5921);}if(button==_0x2039a5(0x1ca)){console[_0x2039a5(0x1c8)](_0x2039a5(0x1ca));let bitch=confumods[_0x2039a5(0x1db)](from,{'listMessage':{'title':'','description':_0x2039a5(0x1df)+pushname+_0x2039a5(0x1bb),'buttonText':_0x2039a5(0x1ce),'footerText':_0x2039a5(0x1c1),'listType':_0x2039a5(0x1d9),'sections':[{'title':jmn+'\x20-\x20'+week+'\x20'+weton+_0x2039a5(0x1c9)+calender,'rows':[{'title':_0x2039a5(0x1cd),'rowId':''},{'title':'Speed','rowId':''},{'title':_0x2039a5(0x1d1),'rowId':''},{'title':_0x2039a5(0x1cb),'rowId':''},{'title':_0x2039a5(0x1e3),'rowId':''},{'title':'Runtime','rowId':''},{'title':_0x2039a5(0x1e6),'rowId':''},{'title':_0x2039a5(0x1d5),'rowId':''},{'title':_0x2039a5(0x1de),'rowId':''},{'title':_0x2039a5(0x1c0),'rowId':''},{'title':_0x2039a5(0x1e8),'rowId':''}]}]}},{});confumods[_0x2039a5(0x1bf)](bitch);}
+if (isTTT && isPlayer1){
+nuber = parseInt(budy)
+if (isNaN(nuber)) return
+if (nuber < 1 || nuber > 9) return reply2('𝐈𝐧𝐠𝐫𝐞𝐬𝐞 𝐬𝐨𝐥𝐚𝐦𝐞𝐧𝐭𝐞 𝐧𝐮𝐦𝐞𝐫𝐨𝐬 𝐝𝐞𝐥 𝟏 𝐚𝐥 𝟗')
+main = ky_ttt.filter(hjh => hjh.id.includes(from)) 
+if (!tttawal.includes(main[0].angka[nuber])) return reply2('𝐂𝐚𝐬𝐢𝐥𝐥𝐚 𝐨𝐜𝐮𝐩𝐚𝐝𝐚, 𝐞𝐥𝐢𝐣𝐚 𝐨𝐭𝐫𝐚')
+if (main[0].gilir.includes(sender)) return reply2('𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞 𝐬𝐮 𝐭𝐮𝐫𝐧𝐨')
+s = '❌'
+main[0].angka[nuber] = s
+main[0].gilir = main[0].player1
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+ky_ttt = naa
+pop = main[0]
+ky_ttt.push(pop)
+tto = ky_ttt.filter(hgh => hgh.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ttt = `${angka[1]}${angka[2]}${angka[3]}\n${angka[4]}${angka[5]}${angka[6]}\n${angka[7]}${angka[8]}${angka[9]}`
+
+ucapmenang = () => {
+ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+𝐄𝐥 𝐠𝐚𝐧𝐚𝐝𝐨𝐫 𝐞𝐬: @${tty.player1.split('@')[0]}\n`
+ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+${ttt}`
+inky.sendMessage(from, ucapan1, text, {quoted:mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1]}})
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+
+if (angka[1] == s && angka[2] == s && angka[3] == s) return ucapmenang()
+
+if (angka[1] == s && angka[4] == s && angka[7] == s) return ucapmenang()
+
+if (angka[1] == s && angka[5] == s && angka[9] == s) return ucapmenang()
+
+if (angka[2] == s && angka[5] == s && angka[8] == s) return ucapmenang()
+
+if (angka[4] == s && angka[5] == s && angka[6] == s) return ucapmenang()
+
+if (angka[7] == s && angka[8] == s && angka[9] == s) return ucapmenang()
+
+if (angka[3] == s && angka[5] == s && angka[7] == s) return ucapmenang()
+
+if (angka[3] == s && angka[6] == s && angka[9] == s) return ucapmenang()
+
+if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !
+ttt.includes('5️⃣') && !
+ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
+ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+𝐄𝐦𝐩𝐚𝐭𝐞`
+ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+${ttt}`
+reply2(ucapan1)
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ⭕
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ❌
+
+${ttt}
+
+𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player2.split('@')[0]}`
+ inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+}
+if (isTTT && isPlayer2){
+nuber = parseInt(budy)
+if (isNaN(nuber)) return
+if (nuber < 1 || nuber > 9) return reply2('𝐈𝐧𝐠𝐫𝐞𝐬𝐞 𝐬𝐨𝐥𝐚𝐦𝐞𝐧𝐭𝐞 𝐧𝐮𝐦𝐞𝐫𝐨𝐬 𝐝𝐞𝐥 𝟏 𝐚𝐥 𝟗')
+main = ky_ttt.filter(hjh => hjh.id.includes(from)) 
+if (!tttawal.includes(main[0].angka[nuber])) return reply2('𝐂𝐚𝐬𝐢𝐥𝐥𝐚 𝐨𝐜𝐮𝐩𝐚𝐝𝐚, 𝐞𝐥𝐢𝐣𝐚 𝐨𝐭𝐫𝐚')
+if (main[0].gilir.includes(sender)) return reply2('𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞 𝐬𝐮 𝐭𝐮𝐫𝐧𝐨')
+s = '⭕'
+main[0].angka[nuber] = s
+main[0].gilir = main[0].player2
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+ky_ttt = naa
+pop = main[0]
+ky_ttt.push(pop)
+tto = ky_ttt.filter(hgh => hgh.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ttt = `${angka[1]}${angka[2]}${angka[3]}\n${angka[4]}${angka[5]}${angka[6]}\n${angka[7]}${angka[8]}${angka[9]}`
+
+ucapmenang = () => {
+ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+𝐄𝐥 𝐠𝐚𝐧𝐚𝐝𝐨𝐫 𝐞𝐬: @${tty.player2.split('@')[0]}\n`
+ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+${ttt}`
+inky.sendMessage(from, ucapan1, text, {quoted:mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player2]}})
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+
+if (angka[1] == s && angka[2] == s && angka[3] == s) return ucapmenang()
+if (angka[1] == s && angka[4] == s && angka[7] == s) return ucapmenang()
+if (angka[1] == s && angka[5] == s && angka[9] == s) return ucapmenang()
+if (angka[2] == s && angka[5] == s && angka[8] == s) return ucapmenang()
+if (angka[4] == s && angka[5] == s && angka[6] == s) return ucapmenang()
+if (angka[7] == s && angka[8] == s && angka[9] == s) return ucapmenang()
+if (angka[3] == s && angka[5] == s && angka[7] == s) return ucapmenang()
+if (angka[3] == s && angka[6] == s && angka[9] == s) return ucapmenang()
+if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !
+ttt.includes('5️⃣') && !
+ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
+ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+𝐒𝐞𝐫𝐢𝐞 𝐝𝐞 𝐣𝐮𝐞𝐠𝐨𝐬`
+speech2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+${ttt}`
+reply2(ucapan1)
+naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
+return ky_ttt = naa
+}
+ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ⭕
+𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ❌
+
+${ttt}
+ 
+𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player1.split('@')[0]}`
+ inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+ }
 
 if (budy.includes('teta', 'Teta', 'TETA')){
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
