@@ -1630,10 +1630,10 @@ default:
 
 if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
-  tto = ky_ttt.filter(ghg => ghg.id.includes(from))
-  tty = tto[0]
-  angka = tto[0].angka
-  ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+tto = ky_ttt.filter(ghg => ghg.id.includes(from))
+tty = tto[0]
+angka = tto[0].angka
+ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 
 𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟏 @${tty.player1.split('@')[0]} = ❌
 𝐉𝐮𝐠𝐚𝐝𝐨𝐫 𝟐 @${tty.player2.split('@')[0]} = ⭕
@@ -1643,8 +1643,8 @@ ${angka[4]}${angka[5]}${angka[6]}
 ${angka[7]}${angka[8]}${angka[9]}
 
 𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player1.split('@')[0]}`
-  inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
-  }
+inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+}
 if (budy.startsWith('N')){
 tto = ky_ttt.filter(ghg => ghg.id.includes(from))
 tty = tto[0]
@@ -1677,6 +1677,8 @@ ttt = `${angka[1]}${angka[2]}${angka[3]}\n${angka[4]}${angka[5]}${angka[6]}\n${a
 ucapmenang = () => {
 ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
 
+${ttt}
+
 𝐄𝐥 𝐠𝐚𝐧𝐚𝐝𝐨𝐫 𝐞𝐬: @${tty.player1.split('@')[0]}\n`
 ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
 
@@ -1707,6 +1709,8 @@ ttt.includes('5️⃣') && !
 ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
 ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
 
+${ttt}
+
 𝐄𝐦𝐩𝐚𝐭𝐞`
 ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
 
@@ -1723,7 +1727,7 @@ ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 ${ttt}
 
 𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player2.split('@')[0]}`
- inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
 }
 if (isTTT && isPlayer2){
 nuber = parseInt(budy)
@@ -1746,6 +1750,8 @@ ttt = `${angka[1]}${angka[2]}${angka[3]}\n${angka[4]}${angka[5]}${angka[6]}\n${a
 
 ucapmenang = () => {
 ucapan1 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+
+${ttt}
 
 𝐄𝐥 𝐠𝐚𝐧𝐚𝐝𝐨𝐫 𝐞𝐬: @${tty.player2.split('@')[0]}\n`
 ucapan2 = `𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐝𝐨 𝐝𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
@@ -1785,8 +1791,8 @@ ucapan = `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
 ${ttt}
  
 𝐓𝐮𝐫𝐧𝐨 𝐝𝐞: @${tty.player1.split('@')[0]}`
- inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
- }
+inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+}
 
 if (budy.includes('teta', 'Teta', 'TETA')){
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
