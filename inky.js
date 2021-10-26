@@ -206,6 +206,26 @@ const isBotAdmin = groupAdmins.includes(inky.user.jid)
 const isGroupAdmins = groupAdmins.includes(sender) || false
 const userBal = checkATMuser(sender)
 
+const button = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
+idttt = []
+players1 = []
+players11 = []
+players2 = []
+gilir = []
+gilirr = []
+for (let t of ky_ttt){
+idttt.push(t.id)
+players1.push(t.player1)
+players11.push(t.player11)
+players2.push(t.player2)
+gilir.push(t.gilir)
+gilirr.push(t.gilirr)
+}
+const isTTT = isGroup ? idttt.includes(from) : false
+isPlayer1 = isGroup ? players1.includes(sender) : false
+isPlayer11 = isGroup ? players11.includes(sender) : false
+isPlayer2 = isGroup ? players2.includes(sender) : false
+
 mess = {
 wait: '𝐏𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞',
 error: {
@@ -597,54 +617,11 @@ inky.sendMessage(from, buff, image, {quoted: fakeStatus, sendEphemeral: true, ca
 
 // Seccion de Prueba
 
-const button = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
-idttt = []
-players1 = []
-players11 = []
-players2 = []
-gilir = []
-gilirr = []
-for (let t of ky_ttt){
-idttt.push(t.id)
-players1.push(t.player1)
-players11.push(t.player11)
-players2.push(t.player2)
-gilir.push(t.gilir)
-gilirr.push(t.gilirr)
-}
-const isTTT = isGroup ? idttt.includes(from) : false
-isPlayer1 = isGroup ? players1.includes(sender) : false
-isPlayer11 = isGroup ? players11.includes(sender) : false
-isPlayer2 = isGroup ? players2.includes(sender) : false
+
 
 switch (command) {
 
 // Seccion de Prueba
-
-case 'ttt':
-if (!q) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
-if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
-ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
-player1 = sender
-player2 = ment[0]
-angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
-gilir = player2
-id = from
-ky_ttt.push({player1,player2,id,angka,gilir})
-inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
-
-@${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐚𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
-𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {quoted: mek, sendEphemeral: true, contextInfo: {mentionedJid: [player2]}})
-break
-
-case 'delttt':
-if (!isGroup) return reply2(mess.only.group)
-if (!isTTT) return reply2('𝐍𝐨 𝐡𝐚𝐲 𝐧𝐢𝐧𝐠𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨')
-naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
-ky_ttt = naa
-reply2('𝐇𝐚 𝐬𝐢𝐝𝐨 𝐫𝐞𝐬𝐭𝐚𝐮𝐫𝐚𝐝𝐨 𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞')
-break
 
 case 'trigger':
 if (!isUser) return reply(mess.only.reg)
@@ -669,7 +646,7 @@ break
 
 // Menu
 
-case 'menu':
+case 'menu2':
 var buttonMessages = {
 locationMessage: {degreesLatitude: 0, degreesLongitude: 0, jpegThumbnail: fs.readFileSync('./media/image/menu.jpg')},
 contentText: `${menuBot}͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`,
@@ -681,6 +658,10 @@ buttons: [
 headerType: 6
 }
 inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage)
+break
+
+case 'menu':
+inky.sendMessage(from, fs.readFileSync('./media/image/menu.jpg'), image, {quoted: fakeStatus, sendEphemeral: true, caption: `${menuBot}`})
 break
 
 case 'ping':
@@ -1082,6 +1063,31 @@ ${pushname}
 if (gppp < 90) return reply2(piro)
 addKoinUser(sender, 2500)
 reply2(`${ganadorxd}`)
+break
+
+case 'ttt':
+if (!q) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
+if (isTTT) return reply2('𝐘𝐚 𝐡𝐚𝐲 𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐞𝐬𝐩𝐞𝐫𝐞')
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚 𝐚 𝐭𝐮 𝐨𝐩𝐨𝐧𝐞𝐧𝐭𝐞')
+ment = mek.message.extendedTextMessage.contextInfo.mentionedJid
+player1 = sender
+player2 = ment[0]
+angka = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+gilir = player2
+id = from
+ky_ttt.push({player1,player2,id,angka,gilir})
+inky.sendMessage(from, `𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞 𝐆𝐚𝐦𝐞
+
+@${player2.split('@')[0]} 𝐇𝐚𝐬 𝐬𝐢𝐝𝐨 𝐝𝐞𝐬𝐚𝐟𝐢𝐚𝐝𝐨 𝐚𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞
+𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐘 𝐩𝐚𝐫𝐚 𝐚𝐜𝐞𝐩𝐭𝐚𝐫 𝐨 𝐍 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐡𝐚𝐳𝐚𝐫`, text, {quoted: mek, sendEphemeral: true, contextInfo: {mentionedJid: [player2]}})
+break
+
+case 'delttt':
+if (!isGroup) return reply2(mess.only.group)
+if (!isTTT) return reply2('𝐍𝐨 𝐡𝐚𝐲 𝐧𝐢𝐧𝐠𝐮𝐧 𝐣𝐮𝐞𝐠𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨')
+naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
+ky_ttt = naa
+reply2('𝐇𝐚 𝐬𝐢𝐝𝐨 𝐫𝐞𝐬𝐭𝐚𝐮𝐫𝐚𝐝𝐨 𝐞𝐥 𝐓𝐢𝐜𝐓𝐚𝐜𝐓𝐨𝐞')
 break
 
 // Seccion convercion
