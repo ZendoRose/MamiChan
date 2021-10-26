@@ -1,3 +1,8 @@
+/*
+No cambiar los creditos del creador
+©𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲
+*/
+
 const {
 WAConnection,
 MessageType,
@@ -565,7 +570,9 @@ ${menuOtros}
 
 ${menuNsfw}
 
-${menuStaff}`
+${menuStaff}
+
+©𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`
 
 // listResponseMessage
 
