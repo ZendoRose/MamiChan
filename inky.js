@@ -333,7 +333,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : 
 message: {
 'imageMessage': {
 'mimetype': 'image/jpeg',
-'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*`,
+'caption': `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾\n➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*\n©𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`,
 'jpegThumbnail': fs.readFileSync('./media/image/reply.jpg')
 }}
 }
@@ -570,9 +570,7 @@ ${menuOtros}
 
 ${menuNsfw}
 
-${menuStaff}
-
-©𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲`
+${menuStaff}`
 
 // listResponseMessage
 
