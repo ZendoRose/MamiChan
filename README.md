@@ -53,6 +53,7 @@
 |   ✅   |   Slot   |
 |   ✅   |   Ruleta   |
 |   ✅   |   Apostar   |
+|   ✅   |   TicTacToe   |
 
 |   Convertidor   |   Comandos   |
 | :-----------: | :--------------------------------: |
