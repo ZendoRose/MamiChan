@@ -402,6 +402,10 @@ const reply2 = async(teks) => {
 await inky.sendMessage(from, teks, text, {quoted: mek, sendEphemeral: true})
 }
 
+const replyImg = async(img, teks) => {
+await inky.sendMessage(from, img, image, {quoted: fakeStatus, sendEphemeral: true, caption: teks})
+}
+
 const sendMess = async(from, teks) => {
 await inky.sendMessage(from, teks, text, {quoted: fakeStatus, sendEphemeral: true})
 }
@@ -666,7 +670,7 @@ inky.sendMessage(from, buttonMessages, MessageType.buttonsMessage)
 break
 
 case 'menu':
-inky.sendMessage(from, fs.readFileSync('./media/image/menu.jpg'), image, {quoted: fakeStatus, sendEphemeral: true, caption: `${menuBot}`})
+replyImg(fs.readFileSync('./media/image/menu.jpg'), menuBot)
 break
 
 case 'ping':
