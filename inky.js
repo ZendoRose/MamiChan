@@ -496,8 +496,8 @@ const menuInfo = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 ${pushname} 𝐚𝐥 
 ➼ 𝐓𝐨𝐭𝐚𝐥 𝐝𝐞 𝐮𝐬𝐮𝐚𝐫𝐢𝐨𝐬: *${user.length}*
 ➼ 𝐒𝐢𝐬𝐭𝐞𝐦𝐚: *${inky.user.phone.device_manufacturer}*
 ➼ 𝐌𝐨𝐝𝐞𝐥𝐨: *${inky.user.phone.device_model}*
-➼ 𝐆𝐫𝐮𝐩𝐨 𝐝𝐞 𝐬𝐨𝐩𝐨𝐫𝐭𝐞:
-${groupSupport}
+➼ 𝐏𝐚𝐠𝐢𝐧𝐚 𝐎𝐟𝐢𝐜𝐢𝐚𝐥:
+https://thisisinky.github.io/MamiChan-Page/
 
 𝐄𝐧 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 ${prefix}𝐜𝐫𝐞𝐚𝐫 𝐞𝐬𝐭𝐚𝐧 𝐥𝐨𝐬 𝐩𝐚𝐬𝐨𝐬 𝐩𝐚𝐫𝐚
 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName}
@@ -693,8 +693,8 @@ break
 case 'crear':
 case 'github':
 var options = {
-text: `➫ 𝐆𝐢𝐭𝐡𝐮𝐛 𝐨𝐟𝐢𝐜𝐢𝐚𝐥 𝐝𝐞𝐥 𝐜𝐫𝐞𝐚𝐝𝐨𝐫:
-https://github.com/ThisIsInky
+text: `➫ 𝐏𝐚𝐠𝐢𝐧𝐚 𝐨𝐟𝐢𝐜𝐢𝐚𝐥 𝐝𝐞𝐥 𝐛𝐨𝐭:
+https://thisisinky.github.io/MamiChan-Page/
 
 𝐏𝐫𝐢𝐦𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName} 𝐧𝐞𝐜𝐞𝐬𝐢𝐭𝐚𝐬 𝐭𝐞𝐧𝐞𝐫 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐝𝐨 𝐭𝐞𝐫𝐦𝐮𝐱
 https://f-droid.org/en/packages/com.termux/
@@ -712,7 +712,7 @@ https://f-droid.org/en/packages/com.termux/
 𝐂𝐮𝐚𝐧𝐝𝐨 𝐡𝐚𝐲𝐚𝐬 𝐞𝐣𝐞𝐜𝐮𝐭𝐚𝐝𝐨 𝐬𝐚𝐬𝐭𝐢𝐟𝐚𝐜𝐭𝐨𝐫𝐢𝐚𝐦𝐞𝐧𝐭𝐞 𝐞𝐬𝐨, 𝐮𝐬𝐚 *𝐧𝐩𝐦 𝐬𝐭𝐚𝐫𝐭* 𝐲 𝐞𝐬𝐜𝐚𝐧𝐞𝐚 𝐞𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐪𝐫
 
 𝐑𝐞𝐜𝐮𝐞𝐫𝐝𝐚 𝐧𝐨 𝐜𝐚𝐦𝐛𝐢𝐚𝐫 𝐥𝐨𝐬 𝐜𝐫𝐞𝐝𝐢𝐭𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭`,
-matchedText: 'https://github.com/ThisIsInky',
+matchedText: 'https://thisisinky.github.io/MamiChan-Page/',
 description: `👾${botName} | 𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲👾`,
 title: `𝐏𝐚𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐢𝐧𝐬𝐭𝐚𝐥𝐚𝐫 𝐚 ${botName}`,
 jpegThumbnail: fs.readFileSync('./media/image/reply.jpg')
