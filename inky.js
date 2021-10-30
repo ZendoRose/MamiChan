@@ -1810,7 +1810,7 @@ inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker
 }
 
 if (budy.includes('mexic', 'brasi', 'peru')){
-inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true})
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
 }
 
 if (budy.startsWith('x')) {
