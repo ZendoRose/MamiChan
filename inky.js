@@ -653,7 +653,7 @@ inky.sendMessage(from, fs.readFileSync('./media/sticker/kiraRisa.webp'), sticker
 await inky.sendMessage(from, fs.readFileSync('./media/audio/kiraRisa.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
 break
 
-case 'kira':
+case 'yoshi':
 if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
 inky.sendMessage(from, fs.readFileSync('./media/sticker/yoshiDance.webp'), sticker, {quoted: fakeStatus, sendEphemeral: true})
