@@ -1805,11 +1805,32 @@ ${ttt}
 inky.sendMessage(from, ucapan, text, {quoted: mek, sendEphemeral: true, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
 }
 
-if (budy.includes('teta', 'Teta', 'TETA')){
+if (budy.includes('teta')){
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
+}
+if (budy.includes('Teta')){
+inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
+}
+if (budy.includes('TETA')){
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 
-if (budy.includes('mexic', 'brasi', 'peru')){
+if (budy.includes('mexic')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
+}
+if (budy.includes('Mexic')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
+}
+if (budy.includes('MEXICO')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
+}
+if (budy.includes('brasi')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
+}
+if (budy.includes('Brasi')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
+}
+if (budy.includes('BRASI')){
 inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true, ptt: true})
 }
 
