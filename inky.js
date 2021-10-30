@@ -1809,6 +1809,10 @@ if (budy.includes('teta', 'Teta', 'TETA')){
 inky.sendMessage(from, fs.readFileSync('./media/sticker/Tetas♡.webp'), sticker, {quoted: mek, sendEphemeral: true})
 }
 
+if (budy.includes('mexic', 'brasi', 'peru')){
+inky.sendMessage(from, fs.readFileSync('./media/audio/sopaDeMacaco.mp3'), audio, {quoted: mek, sendEphemeral: true})
+}
+
 if (budy.startsWith('x')) {
 if (!isInky) return
 return await reply2(JSON.stringify(eval(args.join(" ")), null, 2))
