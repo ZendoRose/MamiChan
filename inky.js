@@ -1,5 +1,4 @@
 /*
-No cambiar los creditos del creador
 ©𝐓𝐡𝐢𝐬𝐈𝐬𝐈𝐧𝐤𝐲
 */
 
@@ -1867,12 +1866,15 @@ reply2(`${String(e)}`)
 
 } catch (e) {
 const emror = String(e)
+
 if (emror.includes('this.isZero')){ 
 return
 }
+
 if (emror.includes('marker')){ 
 return
 }
+
 console.log(e)
 inky.sendMessage(`${botGroup}`, `${e}`, MessageType.text, {quoted: mek, sendEphemeral: true})
 }
