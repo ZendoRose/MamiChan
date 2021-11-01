@@ -660,6 +660,12 @@ inky.sendMessage(from, fs.readFileSync('./media/sticker/yoshiDance.webp'), stick
 await inky.sendMessage(from, fs.readFileSync('./media/audio/yoshiDance.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
 break
 
+case 'amongus':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+await inky.sendMessage(from, fs.readFileSync('./media/audio/AmongUs.mp3'), audio, {mimetype: 'audio/mp4', ptt: true, quoted: fakeLiveLoc, sendEphemeral: true})
+break
+
 // Menu
 
 case 'menu2':
