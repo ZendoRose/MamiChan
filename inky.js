@@ -56,7 +56,7 @@ const iy = require('./lib/iy');
 const author = config.author
 const botName = config.botName
 const botGroup = config.botGroup
-const groupSupport = 'https://chat.whatsapp.com/D7bbL8EeBXA2Nf0zvtvE7R'
+const groupSupport = 'https://chat.whatsapp.com/C1cmsb4aoF7Bwx9uTECicP'
 const limitawal = config.limitawal
 const mods = config.mods
 const owner = config.owner
@@ -1556,8 +1556,10 @@ reply(`𝐒𝐮 𝐦𝐞𝐧𝐬𝐚𝐣𝐞\𝐧${texto}\n𝐇𝐚 𝐬𝐢𝐝
 break
 
 case 'off':
-setTimeout( () => { inky.close() }, 3000)
-reply2(`𝐀𝐩𝐚𝐠𝐚𝐧𝐝𝐨 ${botName}`)
+setTimeout(() => {
+inky.close()
+}, 3000)
+reply(`𝐀𝐩𝐚𝐠𝐚𝐧𝐝𝐨 ${botName}`)
 break
 
 case 'public':
@@ -1864,7 +1866,9 @@ bang = util.format(sul)
 return reply2(bang)
 }
 try {
-reply2(`${util.format(eval(`;(async () => { ${konsol} })()`))}`)
+reply2(`${util.format(eval(`;(async () => {
+${konsol}
+})()`))}`)
 } catch(e){
 reply2(`${String(e)}`)
 }}
