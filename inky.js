@@ -576,8 +576,15 @@ ${menuStaff}`
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes('')){
-
+if (lRM.includes('nsfwTetas')){
+try {
+if (!isNsfw) return reply(mess.only.nsfw)
+res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
+buffer = await getBuffer(res.url)
+inky.sendMessage(from, buffer, image, {quoted: mek, sendEphemeral: true, caption: `${botName}`})
+} catch (e) {
+console.log(`Error :`, e)
+}
 }
 }
 
