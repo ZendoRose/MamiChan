@@ -576,7 +576,7 @@ ${menuStaff}`
 
 if (mek.message.listResponseMessage){
 var lRM = mek.message.listResponseMessage.singleSelectReply.selectedRowId
-if (lRM.includes('nsfwTetas')){
+if (lRM.includes('nsfwWaifu')){
 try {
 if (!isNsfw) return reply(mess.only.nsfw)
 res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
@@ -1458,7 +1458,7 @@ description: `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨 𝐚𝐥 𝐦𝐞𝐧𝐮
 sections: [{
 title: '𝐍𝐬𝐟𝐰 𝐒𝐞𝐜𝐜𝐢𝐨𝐧',
 rows: [
-{title: '𝐓𝐞𝐭𝐚𝐬 ♡', rowId:"nsfwTetas"}
+{title: '𝐖𝐚𝐢𝐟𝐮𝐬', rowId:"nsfwWaifu"}
 ]
 }],
 listType: 1
