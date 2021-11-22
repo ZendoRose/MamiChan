@@ -809,8 +809,7 @@ contextInfo: {mentionedJid: jids}
 await inky.sendMessage(from, options, text, {quoted: fakeStatus, sendEphemeral: true})
 break
 
-case 'stickertag':
-case 'stag':
+case 'tag':
 if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
 encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
@@ -828,8 +827,62 @@ quoted: fakeStatus
 ini_buffer = fs.readFileSync(file)
 inky.sendMessage(from, ini_buffer, sticker, options)
 fs.unlinkSync(file)
-} else {
-reply2('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐚 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+} else if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
+value = args.join(" ")
+var group = await inky.groupMetadata(from)
+var member = group['participants']
+var mem = []
+member.map(async adm => {
+mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+})
+var options = {
+contextInfo: { mentionedJid: mem },
+quoted: fakeStatus
+}
+ini_buffer = fs.readFileSync(file)
+inky.sendMessage(from, ini_buffer, image, options)
+fs.unlinkSync(file)
+} else if ((isMedia && !mek.message.videoMessage || isQuotedAudio) && args.length == 0) {
+encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
+value = args.join(" ")
+var group = await inky.groupMetadata(from)
+var member = group['participants']
+var mem = []
+member.map(async adm => {
+mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+})
+var options = {
+mimetype : 'audio/mp4',
+ptt : true,
+contextInfo: { mentionedJid: mem },
+quoted: fakeStatus
+}
+ini_buffer = fs.readFileSync(file)
+inky.sendMessage(from, ini_buffer, audio, options)
+fs.unlinkSync(file)
+}  else if ((isMedia && !mek.message.videoMessage || isQuotedVideo) && args.length == 0) {
+encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
+value = args.join(" ")
+var group = await inky.groupMetadata(from)
+var member = group['participants']
+var mem = []
+member.map(async adm => {
+mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+})
+var options = {
+mimetype : 'video/mp4',
+contextInfo: { mentionedJid: mem },
+quoted: fakeStatus
+}
+ini_buffer = fs.readFileSync(file)
+inky.sendMessage(from, ini_buffer, video, options)
+fs.unlinkSync(file)
+} else{
+reply2('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐚 𝐮𝐧𝐚 𝐢𝐦𝐚𝐠𝐞𝐧/𝐯𝐢𝐝𝐞𝐨/𝐚𝐮𝐝𝐢𝐨/𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
 }
 break
 
