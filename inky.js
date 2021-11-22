@@ -815,7 +815,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 
 encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
 value = args.join(" ")
-var group = await inku.groupMetadata(from)
+var group = await inky.groupMetadata(from)
 var member = group['participants']
 var mem = []
 member.map(async adm => {
