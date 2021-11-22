@@ -809,6 +809,30 @@ contextInfo: {mentionedJid: jids}
 await inky.sendMessage(from, options, text, {quoted: fakeStatus, sendEphemeral: true})
 break
 
+case 'stickertag':
+case 'stag':
+if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
+encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
+value = args.join(" ")
+var group = await inku.groupMetadata(from)
+var member = group['participants']
+var mem = []
+member.map(async adm => {
+mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+})
+var options = {
+contextInfo: { mentionedJid: mem },
+quoted: fakeStatus
+}
+ini_buffer = fs.readFileSync(file)
+inky.sendMessage(from, ini_buffer, sticker, options)
+fs.unlinkSync(file)
+} else {
+reply2('𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐚 𝐮𝐧 𝐬𝐭𝐢𝐜𝐤𝐞𝐫')
+}
+break
+
 case 'tagall':
 if (!isUser) return reply(mess.only.reg)
 if (!isGroup) return reply(mess.only.group)
