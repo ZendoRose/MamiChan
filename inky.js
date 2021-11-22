@@ -810,6 +810,9 @@ await inky.sendMessage(from, options, text, {quoted: fakeStatus, sendEphemeral: 
 break
 
 case 'tag':
+if (!isUser) return reply(mess.only.reg)
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins) return reply(mess.only.admins)
 if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
 encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 file = await inky.downloadAndSaveMediaMessage(encmedia, filename = getRandom())
